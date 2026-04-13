@@ -76,13 +76,15 @@ export default function RidhamPortfolio() {
            <div className="absolute inset-0 border border-white/5 rounded-full scale-75 animate-[spin_15s_linear_infinite_reverse]" />
            
            <a 
-            href="/certificate.pdf" 
-            target="_blank" 
-            rel="noreferrer"
-            className="z-10 bg-[#0a0a0a] border border-white/10 px-6 py-4 rounded-full shadow-2xl group transition-all hover:border-cyan-500/50 hover:shadow-[0_0_20px_rgba(6,182,212,0.2)]"
-           >
-             <h3 className="text-sm font-bold tracking-[0.3em] text-gray-500 uppercase group-hover:text-cyan-400">20+ Certificates</h3>
-           </a>
+             href="/certificate.pdf" 
+             target="_blank" 
+             rel="noopener noreferrer"
+             className="z-10 bg-[#0a0a0a] border border-white/10 px-6 py-4 rounded-full shadow-2xl group transition-all hover:border-cyan-500/50 hover:shadow-[0_0_20px_rgba(6,182,212,0.2)]"
+>
+            <h3 className="text-sm font-bold tracking-[0.3em] text-gray-400 uppercase group-hover:text-cyan-400">
+            20+ Certificates
+            </h3>
+          </a>
 
            <div className="absolute top-0 flex gap-6 -translate-y-4">
              <SocialIcon icon={<GithubIcon />} link="https://github.com/ridhampokiya2110" />

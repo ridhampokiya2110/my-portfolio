@@ -110,7 +110,7 @@ export default function RidhamPortfolio() {
         <div className="w-full space-y-20">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <Section title="EXPERIENCE">
-              <ExpCard role="Cloud Club Core Member At PPSU" org="Cloud Engineer" date="2026 - Present" desc="Focused on serverless architecture and automated cloud literacy programs." />
+              <ExpCard role="AWS Student Builder Groups Core Member At PPSU" org="Cloud Engineer" date="2026 - Present" desc="Focused on serverless architecture and automated cloud literacy programs." />
               <ExpCard role="Data Analyst Intern" org="Unified Data Analysis" date="Internship" desc="Handled datasets for Netflix & PlayStore using SQL and Python." />
             </Section>
             

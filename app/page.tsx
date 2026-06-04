@@ -129,6 +129,22 @@ export default function RidhamPortfolio() {
             <h2 className="text-2xl font-bold tracking-tighter flex items-center gap-4">
               PROJECTS <div className="h-[1px] flex-1 bg-white/10" />
             </h2>
+
+            {/* Featured Project: Heeratrack */}
+            <div className="group p-8 md:p-12 bg-white/[0.03] border border-cyan-500/30 rounded-3xl hover:border-cyan-500/60 transition-all hover:-translate-y-2 relative overflow-hidden">
+              <div className="absolute top-6 right-6">
+                <span className="px-3 py-1 bg-cyan-500/20 text-cyan-400 text-[10px] font-bold tracking-widest rounded-full uppercase border border-cyan-500/20">Main Project</span>
+              </div>
+              <span className="text-xs font-mono text-cyan-500 tracking-widest">SaaS / Web App / ERP</span>
+              <h3 className="text-3xl font-bold mt-3 mb-4">Heeratrack: Diamond Management ERP</h3>
+              <p className="text-base text-gray-400 mb-8 leading-relaxed max-w-3xl">
+                Heeratrack is a premium Diamond Business Management and ERP software. It is a comprehensive SaaS solution designed specifically for diamond merchants to easily manage heera, diamonds, worker salaries, chalans, and factory production. The system provides real-time tracking of workers, production, and stock, streamlining operations and maximizing efficiency.
+              </p>
+              <a href="https://www.heeratrack.com" target="_blank" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-cyan-500 text-black rounded-xl text-xs font-bold tracking-widest hover:bg-cyan-400 transition-all">
+                LIVE PREVIEW <ExternalIcon />
+              </a>
+            </div>
+
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {projects.map((p, i) => (
                 <div key={i} className="group p-6 bg-white/[0.03] border border-white/5 rounded-3xl hover:border-cyan-500/30 transition-all hover:-translate-y-2">

@@ -138,7 +138,7 @@ export default function RidhamPortfolio() {
               <span className="text-xs font-mono text-cyan-500 tracking-widest">SaaS / Web App / ERP</span>
               <h3 className="text-3xl font-bold mt-3 mb-4">Heeratrack: Diamond Management ERP</h3>
               <p className="text-base text-gray-400 mb-8 leading-relaxed max-w-3xl">
-                Heeratrack is a premium Diamond Business Management and ERP software. It is a comprehensive SaaS solution designed specifically for diamond merchants to easily manage heera, diamonds, worker salaries, chalans, and factory production. The system provides real-time tracking of workers, production, and stock, streamlining operations and maximizing efficiency.
+                Heeratrack is a premium Diamond Business Management and ERP software. It is a comprehensive SaaS solution designed specifically for diamond merchants to easily manage diamonds, worker salaries, chalans, and factory production. The system provides real-time tracking of workers, production, and stock, streamlining operations and maximizing efficiency.
               </p>
               <a href="https://www.heeratrack.com" target="_blank" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-cyan-500 text-black rounded-xl text-xs font-bold tracking-widest hover:bg-cyan-400 transition-all">
                 LIVE PREVIEW <ExternalIcon />

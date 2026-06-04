@@ -118,7 +118,7 @@ export default function RidhamPortfolio() {
 
             <Section title="SKILLS">
               <div className="flex flex-wrap gap-3">
-                {['AWS', 'GCP', 'Docker', 'Terraform', 'iam', 'Jenkins', 'Python', 'Java', 'Automation', 'github', 'Kubernetes', 'CI/CD', 'Cloud-Monitoring', 'project-management', 'Prompt-Engineering'].map(skill => (
+                {['AWS', 'GCP', 'Docker', 'Terraform', 'iam', 'Jenkins', 'Python', 'Java', 'Automation', 'github', 'Kubernetes', 'CI/CD', 'Cloud-Monitoring', 'project-management', 'Prompt-Engineering', 'saas development', 'software', 'marketing'].map(skill => (
                   <span key={skill} className="px-4 py-2 bg-white/5 border border-white/10 rounded-xl text-xs font-mono text-cyan-400 uppercase">{skill}</span>
                 ))}
               </div>

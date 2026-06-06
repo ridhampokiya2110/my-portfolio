@@ -14,7 +14,7 @@ const ExternalIcon = () => <svg stroke="currentColor" fill="none" strokeWidth="2
 export default function RidhamPortfolio() {
   const handleDownload = () => {
     const link = document.createElement('a');
-    link.href = '/Resume.pdf'; 
+    link.href = '/Resume.pdf';
     link.download = 'Ridham_Pokiya_Resume.pdf';
     document.body.appendChild(link);
     link.click();
@@ -44,7 +44,7 @@ export default function RidhamPortfolio() {
 
   return (
     <div className="min-h-screen bg-[#050505] text-white font-sans selection:bg-cyan-500/30 overflow-x-hidden">
-      
+
       {/* Background Animated Mesh */}
       <div className="fixed inset-0 -z-10">
         <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-cyan-900/10 blur-[120px] rounded-full animate-pulse" />
@@ -52,7 +52,7 @@ export default function RidhamPortfolio() {
       </div>
 
       <main className="max-w-5xl mx-auto px-6 py-12 flex flex-col items-center">
-        
+
         {/* 1. Header & Profile Section */}
         <div className="flex flex-col items-center text-center space-y-6 mb-12">
           <div className="group relative">
@@ -72,33 +72,33 @@ export default function RidhamPortfolio() {
 
         {/* 2. Floating Certificates Box (Replaces Socials) */}
         <div className="relative w-full max-w-sm h-56 mb-12 flex items-center justify-center">
-           <div className="absolute inset-0 border border-white/5 rounded-full scale-110 animate-[spin_20s_linear_infinite]" />
-           <div className="absolute inset-0 border border-white/5 rounded-full scale-75 animate-[spin_15s_linear_infinite_reverse]" />
-           
-           <a 
-             href="/certificate.pdf" 
-             target="_blank" 
-             rel="noopener noreferrer"
-             className="z-10 bg-[#0a0a0a] border border-white/10 px-6 py-4 rounded-full shadow-2xl group transition-all hover:border-cyan-500/50 hover:shadow-[0_0_20px_rgba(6,182,212,0.2)]"
->
+          <div className="absolute inset-0 border border-white/5 rounded-full scale-110 animate-[spin_20s_linear_infinite]" />
+          <div className="absolute inset-0 border border-white/5 rounded-full scale-75 animate-[spin_15s_linear_infinite_reverse]" />
+
+          <a
+            href="/certificate.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="z-10 bg-[#0a0a0a] border border-white/10 px-6 py-4 rounded-full shadow-2xl group transition-all hover:border-cyan-500/50 hover:shadow-[0_0_20px_rgba(6,182,212,0.2)]"
+          >
             <h3 className="text-sm font-bold tracking-[0.3em] text-gray-400 uppercase group-hover:text-cyan-400">
-            20+ Certificates
+              20+ Certificates
             </h3>
           </a>
 
-           <div className="absolute top-0 flex gap-6 -translate-y-4">
-             <SocialIcon icon={<GithubIcon />} link="https://github.com/ridhampokiya2110" />
-             <SocialIcon icon={<LinkedinIcon />} link="https://www.linkedin.com/in/ridham-pokiya-b7974a249" />
-           </div>
-           <div className="absolute bottom-0 flex gap-6 translate-y-4">
-             <SocialIcon icon={<InstagramIcon />} link="https://www.instagram.com/___r._.p___" />
-             <SocialIcon icon={<WhatsappIcon />} link="https://wa.me/919825954653" />
-             <SocialIcon icon={<MailIcon />} link="mailto:ridhampokiya10@gmail.com" />
-           </div>
+          <div className="absolute top-0 flex gap-6 -translate-y-4">
+            <SocialIcon icon={<GithubIcon />} link="https://github.com/ridhampokiya2110" />
+            <SocialIcon icon={<LinkedinIcon />} link="https://www.linkedin.com/in/ridham-pokiya-b7974a249" />
+          </div>
+          <div className="absolute bottom-0 flex gap-6 translate-y-4">
+            <SocialIcon icon={<InstagramIcon />} link="https://www.instagram.com/___r._.p___" />
+            <SocialIcon icon={<WhatsappIcon />} link="https://wa.me/919825954653" />
+            <SocialIcon icon={<MailIcon />} link="mailto:ridhampokiya10@gmail.com" />
+          </div>
         </div>
 
         {/* 3. Resume Download Button */}
-        <button 
+        <button
           onClick={handleDownload}
           className="group relative flex items-center gap-4 px-10 py-5 bg-white/5 border border-white/10 rounded-full hover:border-cyan-500/50 hover:shadow-[0_0_30px_rgba(6,182,212,0.3)] transition-all mb-20 active:scale-95"
         >
@@ -110,13 +110,15 @@ export default function RidhamPortfolio() {
         <div className="w-full space-y-20">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <Section title="EXPERIENCE">
+              {/* New DevOps Intern Experience Card Added Top */}
+              <ExpCard role="DevOps Intern" org="Deskcode Solution Pvt Ltd" date="Internship" desc="Built and optimized production and staging level CI/CD pipelines to ensure seamless live deployments." />
               <ExpCard role="AWS Student Builder Groups Core Member At PPSU" org="Cloud Engineer" date="2026 - Present" desc="Focused on serverless architecture and automated cloud literacy programs." />
               <ExpCard role="Data Analyst Intern" org="Unified Data Analysis" date="Internship" desc="Handled datasets for Netflix & PlayStore using SQL and Python." />
             </Section>
-            
+
             <Section title="SKILLS">
               <div className="flex flex-wrap gap-3">
-                {['AWS', 'GCP', 'Docker', 'Terraform','iam', 'Jenkins', 'Python', 'Java', 'Automation','github', 'Kubernetes', 'CI/CD','Cloud-Monitoring' , 'project-management', 'Prompt-Engineering'].map(skill => (
+                {['AWS', 'GCP', 'Docker', 'Terraform', 'iam', 'Jenkins', 'Python', 'Java', 'Automation', 'github', 'Kubernetes', 'CI/CD', 'Cloud-Monitoring', 'project-management', 'Prompt-Engineering', 'saas development', 'software', 'marketing'].map(skill => (
                   <span key={skill} className="px-4 py-2 bg-white/5 border border-white/10 rounded-xl text-xs font-mono text-cyan-400 uppercase">{skill}</span>
                 ))}
               </div>
@@ -127,6 +129,22 @@ export default function RidhamPortfolio() {
             <h2 className="text-2xl font-bold tracking-tighter flex items-center gap-4">
               PROJECTS <div className="h-[1px] flex-1 bg-white/10" />
             </h2>
+
+            {/* Featured Project: Heeratrack */}
+            <div className="group p-8 md:p-12 bg-white/[0.03] border border-cyan-500/30 rounded-3xl hover:border-cyan-500/60 transition-all hover:-translate-y-2 relative overflow-hidden">
+              <div className="absolute top-6 right-6">
+                <span className="px-3 py-1 bg-cyan-500/20 text-cyan-400 text-[10px] font-bold tracking-widest rounded-full uppercase border border-cyan-500/20">Main Project</span>
+              </div>
+              <span className="text-xs font-mono text-cyan-500 tracking-widest">SaaS / Web App / ERP</span>
+              <h3 className="text-3xl font-bold mt-3 mb-4">Heeratrack: Diamond Management ERP</h3>
+              <p className="text-base text-gray-400 mb-8 leading-relaxed max-w-3xl">
+                Heeratrack is a premium Diamond Business Management and ERP software. It is a comprehensive SaaS solution designed specifically for diamond merchants to easily manage diamonds, worker salaries, chalans, and factory production. The system provides real-time tracking of workers, production, and stock, streamlining operations and maximizing efficiency.
+              </p>
+              <a href="https://www.heeratrack.com" target="_blank" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-cyan-500 text-black rounded-xl text-xs font-bold tracking-widest hover:bg-cyan-400 transition-all">
+                LIVE PREVIEW <ExternalIcon />
+              </a>
+            </div>
+
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {projects.map((p, i) => (
                 <div key={i} className="group p-6 bg-white/[0.03] border border-white/5 rounded-3xl hover:border-cyan-500/30 transition-all hover:-translate-y-2">

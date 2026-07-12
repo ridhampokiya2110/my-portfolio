@@ -41,7 +41,7 @@ export default function About() {
   const anim = (delay=0): React.CSSProperties => ({
     opacity: vis ? 1 : 0,
     transform: vis ? "none" : "translateY(28px)",
-    transition: `opacity 0.7s ease ${delay}s, transform 0.7s ease ${delay}s`,
+    transition: `opacity  cubic-bezier(0.16, 1, 0.3, 1) ${delay}s, transform  cubic-bezier(0.16, 1, 0.3, 1) ${delay}s`,
   });
 
   return (

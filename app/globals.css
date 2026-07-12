@@ -31,10 +31,10 @@
   --glass-bg-h: rgba(255,255,255,0.055);
   --glass-border: rgba(255,255,255,0.06);
 
-  /* Text */
-  --t1: #f0f4ff;
-  --t2: #8b95b0;
-  --t3: #3d4560;
+  /* Text - Upgraded for ultra-premium readability */
+  --t1: #fcfdff; /* Luminous platinum white */
+  --t2: #c4d0e0; /* Bright crisp silver-blue (very readable) */
+  --t3: #8a9bb3; /* Medium metallic slate (high contrast against dark bg) */
 
   /* Layout */
   --max-w: 1100px;
@@ -62,8 +62,6 @@ body {
   font-family: var(--font-body);
   line-height: 1.65;
   overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 ::selection { background: rgba(0,229,255,0.18); color: #fff; }
@@ -83,13 +81,13 @@ body {
 }
 .grid-2 {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: 24px;
 }
 .grid-3 {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: 20px;
 }
 .grid-4 {
   display: grid;
@@ -246,24 +244,28 @@ body {
 
 /* Section headings */
 .s-eyebrow {
-  font-family: var(--font-code);
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.35em;
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.5em; /* Extreme wide spacing for cinematic luxury feel */
   text-transform: uppercase;
-  color: var(--cyan);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  margin-bottom: 12px;
-}
-.s-eyebrow::before, .s-eyebrow::after {
-  content: '';
   display: block;
-  width: 36px; height: 1px;
-  background: currentColor;
-  opacity: 0.4;
+  text-align: center;
+  margin: 0 auto 20px auto;
+  background: linear-gradient(90deg, var(--t2) 0%, #ffffff 50%, var(--t2) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: cinematic-shine 4s linear infinite;
+  text-shadow: 0 4px 16px rgba(255,255,255,0.15);
+}
+.s-eyebrow::before,
+.s-eyebrow::after {
+  content: none;
+}
+@keyframes cinematic-shine {
+  to { background-position: 200% center; }
 }
 .s-title {
   font-family: var(--font-display);
@@ -271,6 +273,7 @@ body {
   font-weight: 800;
   letter-spacing: -0.03em;
   line-height: 1.05;
+  padding-bottom: 0.15em; /* Prevents descenders like 'g' from being cut off */
 }
 .s-sub {
   font-family: var(--font-body);

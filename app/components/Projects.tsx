@@ -65,7 +65,7 @@ function FeaturedCard({ data, delay=0, vis }: FeaturedCardProps) {
     >
       {/* Category + tag row */}
       <div style={{ display:"flex", flexWrap:"wrap", alignItems:"center", justifyContent:"space-between", gap:12, marginBottom:20 }}>
-        <span style={{ fontFamily:"var(--font-code)", fontSize:10, letterSpacing:"0.2em", textTransform:"uppercase", color:accent }}>{data.category}</span>
+        <span style={{ fontFamily:"var(--font-code)", fontSize: 11, letterSpacing:"0.2em", textTransform:"uppercase", color:accent }}>{data.category}</span>
         <span className="tag" style={{ color:accent, borderColor:`${accent}40`, fontFamily:"var(--font-code)", fontSize:9, background:`${accent}08` }}>
           ★ {data.tag}
         </span>
@@ -111,19 +111,30 @@ export default function Projects() {
   return (
     <section id="projects" ref={ref} className="section">
       <div className="container">
-        <div style={{ textAlign:"center", marginBottom:"3.5rem" }}>
-          <p className="s-eyebrow">Projects</p>
-          <h2 className="s-title font-display g-cyan">What I&apos;ve Built</h2>
-          <p className="s-sub">From AI-powered cloud tools to enterprise SaaS platforms and startup products.</p>
+        
+        {/* Startups & Ventures Header */}
+        <div style={{ textAlign:"center", marginBottom:"4.5rem" }}>
+          <p className="s-eyebrow">Startups &amp; Ventures</p>
+          <h2 className="s-title font-display g-cyan">Companies I&apos;ve Founded</h2>
+          <p className="s-sub" style={{ maxWidth: "70ch", margin: "0 auto", color: "var(--t1)", fontSize: "1.1rem" }}>
+            I don&apos;t just write code — I build and operate businesses. As the founder of <strong>Validexio</strong> and <strong>Heeratrack</strong>, I bridge the gap between deep technical engineering and real-world market execution.
+          </p>
         </div>
 
-        {/* Two featured projects */}
-        <div style={{ display:"flex", flexDirection:"column", gap:20, marginBottom:20 }}>
+        {/* Startups (Validexio & Heeratrack) */}
+        <div style={{ display:"flex", flexDirection:"column", gap:32, marginBottom:"6rem" }}>
           <FeaturedCard data={secondFeaturedProject} vis={vis} />
           <FeaturedCard data={featuredProject} delay={0.12} vis={vis} />
         </div>
 
-        {/* Three smaller projects */}
+        {/* Side Projects Header */}
+        <div style={{ textAlign:"center", marginBottom:"3.5rem" }}>
+          <p className="s-eyebrow">Side Projects</p>
+          <h2 className="s-title font-display" style={{ fontSize: "clamp(1.8rem, 4vw, 2.8rem)" }}>Open Source &amp; Tools</h2>
+          <p className="s-sub">Serverless applications, AI experiments, and technical prototypes.</p>
+        </div>
+
+        {/* Smaller projects */}
         <div className="grid-3">
           {projects.map((p,i) => (
             <div
@@ -133,7 +144,7 @@ export default function Projects() {
                 borderRadius:20, padding:24, display:"flex", flexDirection:"column", position:"relative", overflow:"hidden",
                 opacity: vis ? 1 : 0,
                 transform: vis ? "none" : "translateY(24px)",
-                transition: `opacity 0.6s ease ${0.2+i*0.1}s, transform 0.6s ease ${0.2+i*0.1}s`,
+                transition: `opacity  cubic-bezier(0.16, 1, 0.3, 1) ${0.2+i*0.1}s, transform  cubic-bezier(0.16, 1, 0.3, 1) ${0.2+i*0.1}s`,
               }}
             >
               {/* Index */}
@@ -143,45 +154,14 @@ export default function Projects() {
                 {p.tech.map(t => <span key={t} className="chip" style={{ fontSize:9, borderRadius:6 }}>{t}</span>)}
               </div>
               <h4 className="font-display" style={{ fontFamily:"var(--font-display)", fontWeight:700, fontSize:14, marginBottom:10, lineHeight:1.35 }}>{p.title}</h4>
-              <p style={{ fontFamily:"var(--font-body)", color:"var(--t3)", fontSize:12, lineHeight:1.75, flex:1, marginBottom:18 }}>{p.desc}</p>
-              <a href={p.link} target="_blank" rel="noopener noreferrer" className="btn-g" style={{ padding:"9px 18px", fontSize:10, justifyContent:"center" }}>
+              <p style={{ fontFamily:"var(--font-body)", color:"var(--t3)", fontSize: 13.5, lineHeight:1.75, flex:1, marginBottom:18 }}>{p.desc}</p>
+              <a href={p.link} target="_blank" rel="noopener noreferrer" className="btn-g" style={{ padding:"9px 18px", fontSize: 11, justifyContent:"center" }}>
                 Live Preview <ExtIcon />
               </a>
             </div>
           ))}
         </div>
 
-        {/* Founder Highlight Banner */}
-        <div 
-          className="glass glass-hover"
-          style={{
-            marginTop: "3rem",
-            padding: "clamp(2rem, 5vw, 3rem)",
-            borderRadius: 24,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            textAlign: "center",
-            background: "linear-gradient(135deg, rgba(0, 229, 255, 0.05), rgba(155, 89, 255, 0.05))",
-            border: "1px solid rgba(255,255,255,0.08)",
-            position: "relative",
-            overflow: "hidden",
-            opacity: vis ? 1 : 0,
-            transform: vis ? "none" : "translateY(24px)",
-            transition: "opacity 0.6s ease 0.4s, transform 0.6s ease 0.4s"
-          }}
-        >
-          {/* Decorative glows */}
-          <div style={{ position:"absolute", top:"-50%", left:"-10%", width:200, height:200, background:"radial-gradient(circle, rgba(0,229,255,0.15), transparent 70%)", pointerEvents:"none" }} />
-          <div style={{ position:"absolute", bottom:"-50%", right:"-10%", width:200, height:200, background:"radial-gradient(circle, rgba(155,89,255,0.15), transparent 70%)", pointerEvents:"none" }} />
-
-          <h3 className="font-display g-cyan" style={{ fontFamily:"var(--font-display)", fontSize:"clamp(1.5rem, 4vw, 2.2rem)", fontWeight:800, marginBottom:16, lineHeight:1.2 }}>
-            Founder & Operator of 2 Tech Companies
-          </h3>
-          <p style={{ fontFamily:"var(--font-body)", color:"var(--t2)", fontSize:15, lineHeight:1.7, maxWidth:"64ch", margin:"0 auto" }}>
-            I don't just write code — I build businesses. As the founder of <strong style={{ color:"var(--t1)", fontWeight:600 }}>Validexio</strong> and <strong style={{ color:"var(--t1)", fontWeight:600 }}>Heeratrack</strong>, I am actively scaling these platforms from the ground up. I bridge the gap between deep technical engineering and real-world market execution.
-          </p>
-        </div>
       </div>
     </section>
   );

@@ -24,6 +24,9 @@ export default function CustomCursor() {
       if (dotRef.current) {
         dotRef.current.style.width = "40px";
         dotRef.current.style.height = "40px";
+        dotRef.current.style.background = "#ffffff";
+        dotRef.current.style.border = "none";
+        dotRef.current.style.backdropFilter = "none";
       }
     };
     const shrink = () => {

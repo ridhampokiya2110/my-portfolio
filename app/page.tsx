@@ -10,6 +10,7 @@ import Blog from "./components/Blog";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import CustomCursor from "./components/CustomCursor";
+import MobileNav from "./components/MobileNav";
 
 export default function Page() {
   return (
@@ -42,6 +43,7 @@ export default function Page() {
       </main>
 
       <Footer />
+      <MobileNav />
     </>
   );
 }

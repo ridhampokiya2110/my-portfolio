@@ -54,21 +54,8 @@ export default function Navbar() {
           <a href="/Resume.pdf" download="Ridham_Pokiya_Resume.pdf" className="btn-g hide-mobile" style={{ padding:"8px 20px", fontSize:11 }}>
             Resume ↓
           </a>
-
-          <button className="show-mobile" style={{ background:"none", border:"none", color:"var(--t2)", cursor:"pointer" }} onClick={() => setOpen(o=>!o)}>
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              {open?<path d="M18 6 6 18M6 6l12 12"/>:<><line x1="4" y1="8" x2="20" y2="8"/><line x1="4" y1="16" x2="20" y2="16"/></>}
-            </svg>
-          </button>
         </div>
 
-        {open && (
-          <div style={{ background:"rgba(5,3,18,0.95)", borderTop:"1px solid rgba(255,255,255,0.06)", padding:"20px clamp(1rem,4vw,2.5rem)" }} className="show-mobile">
-            <div style={{ display:"flex", flexDirection:"column", gap:16 }}>
-              {navLinks.map(l => <a key={l.href} href={l.href} className="nav-a" onClick={()=>setOpen(false)}>{l.label}</a>)}
-            </div>
-          </div>
-        )}
       </header>
 
       <style>{`

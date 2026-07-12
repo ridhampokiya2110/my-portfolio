@@ -38,6 +38,15 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
   },
+  appleWebApp: {
+    capable: true,
+    title: "Ridham Pokiya",
+    statusBarStyle: "black-translucent",
+  },
+};
+
+export const viewport = {
+  themeColor: "#050312",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

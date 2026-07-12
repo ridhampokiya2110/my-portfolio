@@ -47,7 +47,7 @@ export default function Contact() {
             borderRadius:32, padding:"clamp(2rem, 5vw, 4rem)",
             opacity: vis ? 1 : 0,
             transform: vis ? "none" : "translateY(24px)",
-            transition: "opacity 0.7s ease, transform 0.7s ease",
+            transition: "opacity  cubic-bezier(0.16, 1, 0.3, 1), transform  cubic-bezier(0.16, 1, 0.3, 1)",
             border: "1px solid rgba(0,229,255,0.1)",
             boxShadow: "0 0 60px rgba(0,229,255,0.04)",
           }}

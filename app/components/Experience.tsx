@@ -37,7 +37,7 @@ export default function Experience() {
                     position:"relative",
                     opacity: vis ? 1 : 0,
                     transform: vis ? "none" : "translateY(20px)",
-                    transition: `opacity 0.6s ease ${i*0.12}s, transform 0.6s ease ${i*0.12}s`,
+                    transition: `opacity  cubic-bezier(0.16, 1, 0.3, 1) ${i*0.12}s, transform  cubic-bezier(0.16, 1, 0.3, 1) ${i*0.12}s`,
                   }}
                 >
                   {/* Timeline dot */}

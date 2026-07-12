@@ -8,9 +8,11 @@ export default function Hero() {
   const [idx, setIdx] = useState(0);
   const [text, setText] = useState("");
   const [del, setDel] = useState(false);
+  const [localTime, setLocalTime] = useState("");
   const t = useRef<ReturnType<typeof setTimeout>|null>(null);
 
   useEffect(() => {
+    // Typewriter effect
     const cur = ROLES[idx];
     if (!del && text.length < cur.length) {
       t.current = setTimeout(() => setText(cur.slice(0, text.length+1)), 70);
@@ -24,6 +26,22 @@ export default function Hero() {
     }
     return () => { if(t.current) clearTimeout(t.current); };
   }, [text, del, idx]);
+
+  useEffect(() => {
+    // Live Clock for India (IST)
+    const updateTime = () => {
+      const time = new Date().toLocaleTimeString("en-US", {
+        timeZone: "Asia/Kolkata",
+        hour: "numeric",
+        minute: "2-digit",
+        hour12: true
+      });
+      setLocalTime(time);
+    };
+    updateTime();
+    const interval = setInterval(updateTime, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   const socials = [
     { href: personalInfo.github,    label: "GitHub",
@@ -42,10 +60,18 @@ export default function Hero() {
     <section id="hero" style={{ minHeight:"100vh", display:"flex", alignItems:"center", justifyContent:"center", padding:"6rem 1.5rem 4rem" }}>
       <div style={{ maxWidth:700, width:"100%", margin:"0 auto", display:"flex", flexDirection:"column", alignItems:"center", textAlign:"center", gap:"1.5rem" }}>
 
-        {/* Status badge */}
-        <div className="badge">
-          <span className="pulse-dot" style={{ background:"var(--emerald)", boxShadow:"0 0 6px var(--emerald)", width:7, height:7, borderRadius:"50%", display:"inline-block" }} />
-          {personalInfo.status}
+        {/* Status & Time badges */}
+        <div style={{ display: "flex", gap: 12, flexWrap: "wrap", justifyContent: "center" }}>
+          <div className="badge">
+            <span className="pulse-dot" style={{ background:"var(--emerald)", boxShadow:"0 0 6px var(--emerald)", width:7, height:7, borderRadius:"50%", display:"inline-block" }} />
+            {personalInfo.status}
+          </div>
+          {localTime && (
+            <div className="badge" style={{ display: "flex", alignItems: "center", gap: 6 }}>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              India • {localTime}
+            </div>
+          )}
         </div>
 
         {/* Avatar */}

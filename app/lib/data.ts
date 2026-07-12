@@ -4,7 +4,7 @@
 
 export const personalInfo = {
   name: "RIDHAM POKIYA",
-  role: ["DevOps Engineer", "Cloud Architect", "SaaS Builder", "AWS Specialist"],
+  role: ["DevOps Engineer", "Cloud Architect", "Startup Founder", "SaaS Builder", "Project Manager", "AWS Specialist"],
   email: "ridhampokiya10@gmail.com",
   phone: "+91 9825954653",
   location: "India",

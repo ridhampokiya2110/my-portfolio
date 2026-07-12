@@ -36,7 +36,7 @@ export default function Blog() {
         textDecoration:"none",
         opacity: vis ? 1 : 0,
         transform: vis ? "none" : "translateY(24px)",
-        transition: `opacity 0.6s ease ${i*0.08}s, transform 0.6s ease ${i*0.08}s`,
+        transition: `opacity  cubic-bezier(0.16, 1, 0.3, 1) ${i*0.08}s, transform  cubic-bezier(0.16, 1, 0.3, 1) ${i*0.08}s`,
         position: "relative"
       }}
     >
@@ -53,11 +53,11 @@ export default function Blog() {
         {a.title}
       </h3>
       {a.description && (
-        <p style={{ fontFamily:"var(--font-body)", color:"var(--t3)", fontSize:12, lineHeight:1.65, marginBottom:16, display:"-webkit-box", WebkitLineClamp:2, WebkitBoxOrient:"vertical", overflow:"hidden" }}>
+        <p style={{ fontFamily:"var(--font-body)", color:"var(--t3)", fontSize: 13.5, lineHeight:1.65, marginBottom:16, display:"-webkit-box", WebkitLineClamp:2, WebkitBoxOrient:"vertical", overflow:"hidden" }}>
           {a.description}
         </p>
       )}
-      <div style={{ borderTop:"1px solid var(--glass-border)", paddingTop:12, display:"flex", justifyContent:"space-between", fontFamily:"var(--font-code)", fontSize:10, color:"var(--t3)", letterSpacing:"0.05em" }}>
+      <div style={{ borderTop:"1px solid var(--glass-border)", paddingTop:12, display:"flex", justifyContent:"space-between", fontFamily:"var(--font-code)", fontSize: 11, color:"var(--t3)", letterSpacing:"0.05em" }}>
         <span>{a.reading_time_minutes} min read</span>
         <span>♥ {a.positive_reactions_count} &nbsp; 💬 {a.comments_count}</span>
       </div>

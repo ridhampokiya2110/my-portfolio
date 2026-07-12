@@ -57,8 +57,8 @@ export default function Hero() {
   ];
 
   return (
-    <section id="hero" style={{ minHeight:"100vh", display:"flex", alignItems:"center", justifyContent:"center", padding:"6rem 1.5rem 4rem" }}>
-      <div style={{ maxWidth:700, width:"100%", margin:"0 auto", display:"flex", flexDirection:"column", alignItems:"center", textAlign:"center", gap:"1.5rem" }}>
+    <section id="hero" style={{ minHeight:"100dvh", display:"flex", alignItems:"center", justifyContent:"center", padding:"clamp(5rem, 12vh, 7rem) 1.5rem 2rem" }}>
+      <div style={{ maxWidth:700, width:"100%", margin:"0 auto", display:"flex", flexDirection:"column", alignItems:"center", textAlign:"center", gap:"clamp(1rem, 3vh, 1.5rem)" }}>
 
         {/* Status & Time badges */}
         <div style={{ display: "flex", gap: 12, flexWrap: "wrap", justifyContent: "center" }}>
@@ -74,32 +74,32 @@ export default function Hero() {
           )}
         </div>
 
-        {/* Avatar */}
-        <div className="float" style={{ position:"relative", display:"inline-block" }}>
+        {/* Avatar (added extra top margin to prevent float collision with badges) */}
+        <div className="float" style={{ position:"relative", display:"inline-block", marginTop: 12 }}>
           {/* Multi-colour spinning ring */}
           <div style={{ position:"absolute", inset:-5, borderRadius:"50%", background:"conic-gradient(from 0deg, #00e5ff, #9b59ff, #ff3cac, #ffb700, #00e5ff)", animation:"spin-cw 4s linear infinite" }} />
           <div style={{ position:"absolute", inset:-2, borderRadius:"50%", background:"var(--bg-0)" }} />
           <div style={{ position:"absolute", inset:-12, borderRadius:"50%", border:"1px dashed rgba(155,89,255,0.25)", animation:"spin-ccw 14s linear infinite" }} />
-          <div style={{ position:"relative", width:140, height:140, borderRadius:"50%", overflow:"hidden", border:"2px solid rgba(255,255,255,0.07)" }}>
+          <div style={{ position:"relative", width:"clamp(115px, 28vw, 140px)", aspectRatio:"1/1", borderRadius:"50%", overflow:"hidden", border:"2px solid rgba(255,255,255,0.07)" }}>
             <img src={personalInfo.profileImage} alt={personalInfo.name} style={{ width:"100%", height:"100%", objectFit:"cover", objectPosition:"center" }} />
           </div>
         </div>
 
         {/* Name */}
         <div style={{ width: "100%" }}>
-          <h1 className="g-cyan font-display" style={{ fontFamily:"var(--font-display)", fontSize:"clamp(1.5rem, 9vw, 5.5rem)", fontWeight:800, letterSpacing:"-0.02em", lineHeight:1, whiteSpace:"nowrap" }}>
+          <h1 className="g-cyan font-display" style={{ fontFamily:"var(--font-display)", fontSize:"clamp(2.2rem, 9vw, 5.5rem)", fontWeight:800, letterSpacing:"-0.02em", lineHeight:1, whiteSpace:"nowrap" }}>
             {personalInfo.name}
           </h1>
 
           {/* Typewriter role */}
-          <div style={{ marginTop:16, height:28, display:"flex", alignItems:"center", justifyContent:"center", gap:3 }}>
-            <span style={{ fontFamily:"var(--font-code)", fontSize:13, letterSpacing:"0.22em", textTransform:"uppercase", color:"var(--t2)" }}>{text}</span>
+          <div style={{ marginTop:12, height:24, display:"flex", alignItems:"center", justifyContent:"center", gap:3 }}>
+            <span style={{ fontFamily:"var(--font-code)", fontSize:"clamp(11px, 3vw, 13px)", letterSpacing:"0.22em", textTransform:"uppercase", color:"var(--t2)" }}>{text}</span>
             <span className="blink" style={{ color:"var(--cyan)", fontWeight:700, fontSize:16 }}>|</span>
           </div>
         </div>
 
         {/* Bio */}
-        <p style={{ fontFamily:"var(--font-body)", color:"var(--t2)", maxWidth:"52ch", fontSize:15, lineHeight:1.8 }}>
+        <p style={{ fontFamily:"var(--font-body)", color:"var(--t2)", maxWidth:"52ch", fontSize:"clamp(14px, 3.5vw, 15px)", lineHeight:1.7 }}>
           {personalInfo.bio}
         </p>
 
@@ -113,20 +113,20 @@ export default function Hero() {
         </div>
 
         {/* Socials */}
-        <div style={{ display:"flex", gap:10, marginTop:4 }}>
+        <div style={{ display:"flex", gap:10 }}>
           {socials.map(s => (
             <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label}
               className="glass glass-hover"
-              style={{ width:42, height:42, borderRadius:"50%", display:"flex", alignItems:"center", justifyContent:"center", color:"var(--t2)", textDecoration:"none" }}>
+              style={{ width:40, height:40, borderRadius:"50%", display:"flex", alignItems:"center", justifyContent:"center", color:"var(--t2)", textDecoration:"none" }}>
               {s.icon}
             </a>
           ))}
         </div>
 
         {/* Scroll cue */}
-        <div style={{ display:"flex", flexDirection:"column", alignItems:"center", gap:8, marginTop:20, color:"var(--t3)" }}>
+        <div style={{ display:"flex", flexDirection:"column", alignItems:"center", gap:6, marginTop:10, color:"var(--t3)" }}>
           <span style={{ fontFamily:"var(--font-code)", fontSize:9, letterSpacing:"0.4em", textTransform:"uppercase" }}>Scroll</span>
-          <div style={{ width:1, height:40, background:"linear-gradient(180deg, var(--cyan), transparent)", opacity:0.5 }} />
+          <div style={{ width:1, height:30, background:"linear-gradient(180deg, var(--cyan), transparent)", opacity:0.5 }} />
         </div>
       </div>
     </section>

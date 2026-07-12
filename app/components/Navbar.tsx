@@ -32,7 +32,7 @@ export default function Navbar() {
   };
 
   const inner: React.CSSProperties = {
-    maxWidth: 1100, margin: "0 auto", padding: "0 clamp(1rem,4vw,2.5rem)",
+    maxWidth: 1100, margin: "0 auto", padding: "0 clamp(1.5rem, 5vw, 2.5rem)",
     height: 64, display: "flex", alignItems: "center", justifyContent: "space-between",
   };
 

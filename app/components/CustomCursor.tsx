@@ -47,5 +47,22 @@ export default function CustomCursor() {
     };
   }, []);
 
+  // Global haptics for interactive elements (Mobile/Android)
+  useEffect(() => {
+    const handleInteraction = (e: Event) => {
+      const target = e.target as HTMLElement;
+      // Vibrate if they tapped a link, button, skill card, or interactive glass element
+      if (target.closest("a, button, [role=button], .neo, .glass, .nav-item, .btn-p, .btn-g")) {
+        if (typeof navigator !== "undefined" && navigator.vibrate) {
+          navigator.vibrate(35); // 35ms subtle satisfying haptic bump
+        }
+      }
+    };
+
+    // Listen on pointerdown for immediate response instead of waiting for full click
+    document.addEventListener("pointerdown", handleInteraction, { passive: true });
+    return () => document.removeEventListener("pointerdown", handleInteraction);
+  }, []);
+
   return <div ref={dotRef} className="cur-dot" aria-hidden />;
 }

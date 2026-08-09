@@ -57,8 +57,25 @@ export default function Hero() {
   ];
 
   return (
-    <section id="hero" style={{ minHeight:"100dvh", display:"flex", alignItems:"center", justifyContent:"center", padding:"clamp(5rem, 12vh, 7rem) 1.5rem 2rem" }}>
-      <div style={{ maxWidth:700, width:"100%", margin:"0 auto", display:"flex", flexDirection:"column", alignItems:"center", textAlign:"center", gap:"clamp(1rem, 3vh, 1.5rem)" }}>
+    <section id="hero" style={{ position:"relative", overflow:"hidden", minHeight:"100dvh", display:"flex", alignItems:"center", justifyContent:"center", padding:"clamp(5rem, 12vh, 7rem) 1.5rem 2rem" }}>
+      
+      {/* Background Video (Hero Only) */}
+      <div className="video-bg-container" aria-hidden>
+        <video 
+          autoPlay 
+          loop 
+          muted 
+          playsInline 
+          className="bg-video"
+          preload="auto"
+        >
+          <source src="/bg-video.webm" type="video/webm" />
+          <source src="/bg-video.mp4" type="video/mp4" />
+        </video>
+        <div className="video-overlay" />
+      </div>
+
+      <div style={{ position:"relative", zIndex:2, maxWidth:700, width:"100%", margin:"0 auto", display:"flex", flexDirection:"column", alignItems:"center", textAlign:"center", gap:"clamp(1rem, 3vh, 1.5rem)" }}>
 
         {/* Status & Time badges */}
         <div style={{ display: "flex", gap: 12, flexWrap: "wrap", justifyContent: "center" }}>

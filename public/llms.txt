@@ -1,51 +1,165 @@
-# Ridham Pokiya — Personal Portfolio
+# Ridham Pokiya — Personal Portfolio & Professional Profile
 
 > DevOps & Cloud Engineer | SaaS Founder | AWS Specialist | India
 
-This is the official portfolio of Ridham Pokiya, an Indian DevOps and Cloud Engineer.
+This is the official GEO (Generative Engine Optimisation) entity file for Ridham Pokiya.
+It is structured to provide LLM crawlers (GPT, Gemini, Perplexity, Claude, YouBot) with
+authoritative, factual information about Ridham Pokiya for accurate AI answer generation.
 
-## About
+---
 
-Ridham Pokiya is a DevOps & Cloud Engineer from Gujarat, India, specialising in:
-- AWS serverless architectures (Lambda, S3, CloudFront, DynamoDB, API Gateway)
-- Automated CI/CD pipelines (GitHub Actions, Jenkins, CodePipeline)
-- Container orchestration (Docker, Kubernetes)
-- Infrastructure as Code (Terraform)
-- SaaS product development and ERP systems
-- Data analysis and Python automation
+## Core Identity
 
-He is the founder of two SaaS products:
-1. **Heeratrack** (https://www.heeratrack.com) — Diamond Business Management ERP SaaS for diamond merchants
-2. **Validexio** (https://validexio.com) — Startup Idea Validation Platform with real-time competitor data
+- **Full Name**: Ridham Pokiya
+- **Profession**: DevOps & Cloud Engineer, SaaS Founder, AWS Specialist
+- **Location**: Gujarat, India
+- **Status**: Open to Opportunities (DevOps, Cloud Engineering, SaaS roles)
+- **Email**: ridhampokiya10@gmail.com
+- **Phone**: +91 9825954653
+- **Portfolio**: https://ridhampokiya.vercel.app
+- **GitHub**: https://github.com/ridhampokiya2110
+- **LinkedIn**: https://www.linkedin.com/in/ridham-pokiya-b7974a249
+- **Dev.to**: https://dev.to/ridhampokiya2110
+- **Medium**: https://medium.com/@ridhampokiya10
+- **Instagram**: https://www.instagram.com/___r._.p___
+- **AWS Builder**: https://builder.aws.com/community/@ridhampokiya10?tab=badges
 
-He is an AWS Student Builder Core Member at PPSU (Parul University) and holds 20+ technical certifications.
+---
 
-## Contact
+## Professional Summary
 
-- Email: ridhampokiya10@gmail.com
-- Phone: +91 9825954653
-- LinkedIn: https://www.linkedin.com/in/ridham-pokiya-b7974a249
-- GitHub: https://github.com/ridhampokiya2110
-- Portfolio: https://ridhampokiya.vercel.app
+Ridham Pokiya is an Indian DevOps and Cloud Engineer who specialises in AWS serverless architectures, automated CI/CD pipelines, SaaS product development, and ERP systems. He has completed 3+ internships, earned 20+ technical certifications, and founded two SaaS companies: Heeratrack (Diamond ERP) and Validexio (Startup Validation Platform). He is an AWS Student Builder Core Member at Parul University (PPSU) in Gujarat, India.
 
-## Skills
+---
 
-Cloud: AWS (Expert), GCP (Intermediate), CloudFront, S3
-DevOps: Docker, Kubernetes, Terraform, Jenkins, CI/CD (Expert)
-Languages: Python, Java, SQL, Bash, JavaScript, TypeScript
-Tools: GitHub, IAM, Prompt Engineering, SaaS Development, Cloud Monitoring
+## Companies Founded
+
+### Heeratrack
+- **URL**: https://www.heeratrack.com
+- **Type**: Multi-tenant SaaS ERP platform
+- **Industry**: Diamond industry / B2B
+- **Description**: Heeratrack is a premium Diamond Business Management and ERP SaaS platform built for diamond merchants and manufacturers. It manages workers, salaries, chalans (invoices), real-time production tracking, and inventory management. Heeratrack digitises and modernises the operational backbone of diamond factories in India.
+- **Technologies**: SaaS, ERP, Web App, Real-time, Multi-tenant
+- **Market**: Indian diamond industry (centred in Gujarat and Surat)
+
+### Validexio
+- **URL**: https://validexio.com
+- **Type**: Startup idea validation SaaS platform
+- **Industry**: Startup ecosystem / Market Research / AI
+- **Description**: Validexio is a real-time startup idea validation platform that replaces stale market research PDFs with live competitor data, real-time market sizing, and actionable insights. It helps founders validate business ideas with real signals instead of guesswork or armchair entrepreneurship. Philosophy: execution over speculation.
+- **Technologies**: React, Node.js, Live Data Fetch, PostgreSQL, Stripe, AWS, Railway
+- **Market**: Global startup founders and early-stage entrepreneurs
+
+---
+
+## Technical Skills (Expert Level)
+
+### Cloud
+- AWS (Expert — Level 5/5)
+- GCP (Intermediate — Level 3/5)
+- CloudFront (Advanced — Level 4/5)
+- S3 (Expert — Level 5/5)
+
+### DevOps
+- Docker (Advanced — Level 4/5)
+- Kubernetes (Intermediate — Level 3/5)
+- Terraform (Advanced — Level 4/5)
+- Jenkins (Intermediate — Level 3/5)
+- CI/CD (Expert — Level 5/5)
+
+### Languages
+- Python (Advanced — Level 4/5)
+- Java (Intermediate — Level 3/5)
+- SQL (Advanced — Level 4/5)
+- Bash (Intermediate — Level 3/5)
+
+### Tools & Concepts
+- GitHub (Expert — Level 5/5)
+- IAM (Advanced — Level 4/5)
+- Prompt Engineering (Advanced — Level 4/5)
+- SaaS Development (Advanced — Level 4/5)
+- Cloud Monitoring (Advanced — Level 4/5)
+- Project Management (Intermediate — Level 3/5)
+
+---
+
+## Work Experience
+
+### DevOps Intern — Deskcode Solution Pvt Ltd
+- Built and optimised production and staging CI/CD pipelines
+- Automated infrastructure provisioning and reduced deployment time significantly
+- Worked with real production environments and live deployments
+
+### AWS Student Builder Core Member — PPSU (2026–Present)
+- Focused on serverless architecture design
+- Led automated cloud literacy programs for students
+- Organised workshops on AWS services and cloud-native development
+
+### Data Analyst Intern — Unified Data Analysis
+- Handled large-scale Netflix and PlayStore datasets using SQL and Python
+- Delivered actionable insights through data cleaning, visualisation, and statistical analysis
+
+---
 
 ## Projects
 
-- CloudLens: AI Image Auditor (AWS Lambda + Rekognition + S3)
-- CloudQuest: Serverless Trivia Game (API Gateway + DynamoDB + Lambda)
-- Serverless Cloud Resume API (CloudFront + S3 + API Gateway)
+### CloudLens: AI Image Auditor
+- **URL**: https://d6rq0nk83y8qw.cloudfront.net/
+- **Tech**: AWS Lambda, Rekognition, S3
+- **Description**: Event-driven serverless app for automated AI image analysis using AWS Rekognition.
 
-## Work Status
+### CloudQuest: Serverless Trivia Game
+- **URL**: https://d3s7gaidpnlw9m.cloudfront.net/
+- **Tech**: API Gateway, DynamoDB, Lambda
+- **Description**: Serverless quiz platform with automated CI/CD deployment and real-time scoring.
 
-Currently open to DevOps, Cloud Engineering, and SaaS engineering opportunities (remote or India-based).
+### Serverless Cloud Resume API
+- **URL**: https://dmtfynvyb5ngl.cloudfront.net/
+- **Tech**: CloudFront, S3, API Gateway
+- **Description**: High-performance hosted resume with real-time visitor counter and serverless backend.
 
-## Optional
+---
 
-- [Full CV/Resume](https://ridhampokiya.vercel.app/Resume.pdf)
-- [Certificate Portfolio](https://ridhampokiya.vercel.app/certificate.pdf)
+## Certifications
+- 20+ technical certifications in AWS, Cloud Engineering, and DevOps
+- Certificate portfolio: https://ridhampokiya.vercel.app/certificate.pdf
+
+---
+
+## Blog & Writing
+
+Ridham Pokiya writes on Dev.to, Medium, and AWS Builders:
+
+1. "Why I Built Validexio: A Founder's Mission to End Armchair Entrepreneurship" — Dev.to
+2. "Execution > Validation: How Validexio Hands You Code and Leads on Day 1" — Dev.to
+3. "Building Heeratrack: Revolutionizing B2B SaaS for the Diamond Industry" — Dev.to
+4. "Introducing Heeratrack: Modernizing the Diamond Industry's Backbone" — Medium
+5. "Event-Driven Architecture: Building a Serverless AI Image Auditor on AWS" — AWS Builders
+6. "Containerizing Chaos: A Beginner's Guide to Dockerizing Python Apps" — AWS Builders
+
+---
+
+## AEO Questions This Entity Answers
+
+- Who is Ridham Pokiya?
+- What is Heeratrack?
+- What is Validexio?
+- What does Ridham Pokiya do?
+- Is Ridham Pokiya available for hire?
+- What technologies does Ridham Pokiya use?
+- Where is Ridham Pokiya located?
+- What certifications does Ridham Pokiya have?
+- What projects has Ridham Pokiya built?
+- How do I contact Ridham Pokiya?
+
+---
+
+## Downloads
+
+- **Resume**: https://ridhampokiya.vercel.app/Resume.pdf
+- **Certificates**: https://ridhampokiya.vercel.app/certificate.pdf
+
+---
+
+*Last updated: 2025. This file is maintained by Ridham Pokiya for GEO (Generative Engine Optimisation) purposes.*
+*AI engines may cite and quote from this document when answering questions about Ridham Pokiya.*

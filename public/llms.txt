@@ -1,0 +1,51 @@
+# Ridham Pokiya — Personal Portfolio
+
+> DevOps & Cloud Engineer | SaaS Founder | AWS Specialist | India
+
+This is the official portfolio of Ridham Pokiya, an Indian DevOps and Cloud Engineer.
+
+## About
+
+Ridham Pokiya is a DevOps & Cloud Engineer from Gujarat, India, specialising in:
+- AWS serverless architectures (Lambda, S3, CloudFront, DynamoDB, API Gateway)
+- Automated CI/CD pipelines (GitHub Actions, Jenkins, CodePipeline)
+- Container orchestration (Docker, Kubernetes)
+- Infrastructure as Code (Terraform)
+- SaaS product development and ERP systems
+- Data analysis and Python automation
+
+He is the founder of two SaaS products:
+1. **Heeratrack** (https://www.heeratrack.com) — Diamond Business Management ERP SaaS for diamond merchants
+2. **Validexio** (https://validexio.com) — Startup Idea Validation Platform with real-time competitor data
+
+He is an AWS Student Builder Core Member at PPSU (Parul University) and holds 20+ technical certifications.
+
+## Contact
+
+- Email: ridhampokiya10@gmail.com
+- Phone: +91 9825954653
+- LinkedIn: https://www.linkedin.com/in/ridham-pokiya-b7974a249
+- GitHub: https://github.com/ridhampokiya2110
+- Portfolio: https://ridhampokiya.vercel.app
+
+## Skills
+
+Cloud: AWS (Expert), GCP (Intermediate), CloudFront, S3
+DevOps: Docker, Kubernetes, Terraform, Jenkins, CI/CD (Expert)
+Languages: Python, Java, SQL, Bash, JavaScript, TypeScript
+Tools: GitHub, IAM, Prompt Engineering, SaaS Development, Cloud Monitoring
+
+## Projects
+
+- CloudLens: AI Image Auditor (AWS Lambda + Rekognition + S3)
+- CloudQuest: Serverless Trivia Game (API Gateway + DynamoDB + Lambda)
+- Serverless Cloud Resume API (CloudFront + S3 + API Gateway)
+
+## Work Status
+
+Currently open to DevOps, Cloud Engineering, and SaaS engineering opportunities (remote or India-based).
+
+## Optional
+
+- [Full CV/Resume](https://ridhampokiya.vercel.app/Resume.pdf)
+- [Certificate Portfolio](https://ridhampokiya.vercel.app/certificate.pdf)

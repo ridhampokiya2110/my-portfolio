@@ -207,10 +207,7 @@ describe("About — complete system tests", () => {
     expect(container.textContent).toMatch(/devops|cloud/i);
   });
 
-  it("renders Internships stat", () => {
-    render(<About />);
-    expect(screen.getByText(/internships/i)).toBeInTheDocument();
-  });
+
 
   it("renders Certificates stat", () => {
     render(<About />);

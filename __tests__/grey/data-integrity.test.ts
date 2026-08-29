@@ -128,13 +128,8 @@ describe("personalInfo — exhaustive cross-validation", () => {
 // stats — exhaustive validation
 // ─────────────────────────────────────────────────────────────────────────────
 describe("stats — exhaustive cross-validation", () => {
-  it("has exactly 3 stats items", () => {
-    expect(stats.length).toBe(3);
-  });
-
-  it("internships stat value is at least 3", () => {
-    const stat = stats.find((s) => /internship/i.test(s.label));
-    expect(stat?.value).toBeGreaterThanOrEqual(3);
+  it("has exactly 2 stats items", () => {
+    expect(stats.length).toBe(2);
   });
 
   it("certificates stat value is at least 20", () => {

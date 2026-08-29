@@ -82,7 +82,7 @@ describe("personalInfo — white box unit tests", () => {
 // ─────────────────────────────────────────────────────────────────────────────
 describe("stats — white box unit tests", () => {
   it("has at least 3 stat items", () => {
-    expect(stats.length).toBeGreaterThanOrEqual(3);
+    expect(stats.length).toBeGreaterThanOrEqual(2);
   });
 
   it("every stat has value, suffix, and label", () => {
@@ -95,11 +95,6 @@ describe("stats — white box unit tests", () => {
     });
   });
 
-  it("has an internships stat with value >= 1", () => {
-    const internships = stats.find((s) => /internship/i.test(s.label));
-    expect(internships).toBeDefined();
-    expect(internships!.value).toBeGreaterThanOrEqual(1);
-  });
 
   it("has a certificates stat with value >= 10", () => {
     const certs = stats.find((s) => /certificate/i.test(s.label));

@@ -9,7 +9,7 @@ export const personalInfo = {
   phone: "+91 9825954653",
   location: "India",
   status: "Open to Opportunities",
-  bio: "Passionate DevOps & Cloud Engineer specialising in serverless architectures, automated CI/CD pipelines, and scalable cloud solutions. I bridge the gap between development and operations, building systems that are fast, reliable, and cost-efficient.",
+  bio: "Passionate DevOps & Cloud Engineer and Founder of Tesconix Technologies. I specialise in serverless architectures, automated CI/CD pipelines, and scalable cloud solutions, building systems that are fast, reliable, and cost-efficient.",
   devto: "https://dev.to/ridhampokiya2110",
   github: "https://github.com/ridhampokiya2110",
   linkedin: "https://www.linkedin.com/in/ridham-pokiya-b7974a249",
@@ -23,9 +23,8 @@ export const personalInfo = {
 };
 
 export const stats = [
-  { value: 3, suffix: "+", label: "Internships" },
+  { value: 10, suffix: "+", label: "Projects" },
   { value: 20, suffix: "+", label: "Certificates" },
-  { value: 5, suffix: "+", label: "Projects" },
 ];
 
 export const skills = [

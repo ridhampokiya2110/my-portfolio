@@ -192,7 +192,7 @@ describe("About — black box rendering", () => {
 
   it("shows stat labels", () => {
     render(<About />);
-    expect(screen.getByText(/internship/i)).toBeInTheDocument();
+    expect(screen.getByText(/projects/i)).toBeInTheDocument();
   });
 });
 

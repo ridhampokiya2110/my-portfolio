@@ -112,12 +112,12 @@ export default function Projects() {
     <section id="projects" ref={ref} className="section">
       <div className="container">
         
-        {/* IT Company Header */}
+        {/* Enterprise Company Header */}
         <div style={{ textAlign:"center", marginBottom:"3.5rem" }}>
-          <p className="s-eyebrow">IT Company</p>
-          <h2 className="s-title font-display" style={{ color: "var(--cyan)" }}>Premium Software Agency</h2>
+          <p className="s-eyebrow">Enterprise Engineering</p>
+          <h2 className="s-title font-display" style={{ color: "var(--cyan)" }}>Tesconix Technologies</h2>
           <p className="s-sub" style={{ maxWidth: "70ch", margin: "0 auto", color: "var(--t1)", fontSize: "1.1rem" }}>
-            I founded <strong>Tesconix Technologies</strong> to engineer mission-critical software, elastic cloud infrastructure, and AI-driven platforms for global enterprises.
+            As Founder & CEO of <strong>Tesconix Technologies</strong>, I lead an elite engineering team architecting resilient cloud infrastructure, enterprise-grade SaaS, and AI-orchestrated platforms for global scale.
           </p>
         </div>
 

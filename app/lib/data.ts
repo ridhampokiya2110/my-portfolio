@@ -101,12 +101,12 @@ export const experience = [
 // IT Company — Tesconix Technologies
 export const tesconixCompany = {
   title: "Tesconix Technologies",
-  tag: "Founder & IT Company",
+  tag: "Founder & CEO",
   tagColor: "cyan",
-  category: "Software Engineering & Cloud Agency",
+  category: "Enterprise Cloud Architecture & Elite Software Engineering",
   accent: "#00e5ff",
-  desc: "A premium software engineering agency I founded, specialising in mission-critical custom software, scalable cloud infrastructure, AI business automation, and mobile app development for global enterprises. We architect multi-zone cloud environments and zero-downtime CI/CD pipelines.",
-  tech: ["Custom Software", "AWS & Cloud", "AI Automation", "Mobile Apps", "Enterprise SaaS"],
+  desc: "An elite technology firm I founded to architect high-performance, mission-critical infrastructure for global enterprises. We specialize in engineering zero-downtime cloud ecosystems, highly scalable SaaS architectures, and autonomous AI-driven platforms—delivering uncompromising technical excellence at a global scale.",
+  tech: ["Enterprise Architecture", "Cloud Orchestration", "AI Integration", "Zero-Downtime Infrastructure", "Global Scale"],
   link: "https://www.tesconix.com",
 };
 

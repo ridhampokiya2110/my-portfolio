@@ -413,9 +413,9 @@ describe("Projects — complete system tests", () => {
     expect(container.querySelector("section#projects")).toBeInTheDocument();
   });
 
-  it("renders IT Company heading", () => {
+  it("renders Enterprise Engineering heading", () => {
     render(<Projects />);
-    expect(screen.getByText(/premium software agency/i)).toBeInTheDocument();
+    expect(screen.getByText(/enterprise engineering/i)).toBeInTheDocument();
   });
 
   it("renders SaaS Platforms Built heading", () => {

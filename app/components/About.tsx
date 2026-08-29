@@ -61,7 +61,7 @@ export default function About() {
               Building systems that <span className="g-cyan">scale</span>
             </h3>
             <p style={{ fontFamily:"var(--font-body)", color:"var(--t2)", fontSize:14, lineHeight:1.85, marginBottom:24 }}>
-              {personalInfo.bio}
+              {personalInfo.about}
             </p>
             <div style={{ display:"flex", flexWrap:"wrap", gap:8 }}>
               {["Tesconix CEO", "AWS Certified", "CI/CD Expert", "SaaS Builder", "Open Source"].map(t => (

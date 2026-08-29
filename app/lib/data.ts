@@ -98,6 +98,19 @@ export const experience = [
   },
 ];
 
+// IT Company — Tesconix Technologies
+export const tesconixCompany = {
+  title: "Tesconix Technologies",
+  tag: "Founder & IT Company",
+  tagColor: "cyan",
+  category: "Software Engineering & Cloud Agency",
+  accent: "#00e5ff",
+  desc: "A premium software engineering agency I founded, specialising in mission-critical custom software, scalable cloud infrastructure, AI business automation, and mobile app development for global enterprises. We architect multi-zone cloud environments and zero-downtime CI/CD pipelines.",
+  tech: ["Custom Software", "AWS & Cloud", "AI Automation", "Mobile Apps", "Enterprise SaaS"],
+  link: "https://www.tesconix.com",
+};
+
+// Startups
 export const featuredProject = {
   title: "Heeratrack: Diamond Management ERP",
   tag: "Founder",

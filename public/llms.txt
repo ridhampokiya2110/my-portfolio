@@ -34,6 +34,14 @@ Ridham Pokiya is an Indian DevOps and Cloud Engineer who specialises in AWS serv
 
 ## Companies Founded
 
+### Tesconix Technologies
+- **URL**: https://www.tesconix.com
+- **Type**: Premium Software Engineering & Cloud Agency
+- **Industry**: IT Services / Software Development
+- **Description**: Tesconix Technologies is a premium software engineering agency founded by Ridham Pokiya. It specializes in mission-critical custom software, scalable cloud infrastructure, AI business automation, and mobile app development for global enterprises. Tesconix architects multi-zone cloud environments and zero-downtime CI/CD pipelines.
+- **Technologies**: Custom Software, AWS & Cloud Migration, AI Automation, Mobile Apps, Enterprise SaaS, DevOps
+- **Market**: Global enterprises, startups, and SMEs
+
 ### Heeratrack
 - **URL**: https://www.heeratrack.com
 - **Type**: Multi-tenant SaaS ERP platform

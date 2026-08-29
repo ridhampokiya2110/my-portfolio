@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import { featuredProject, secondFeaturedProject, projects } from "../lib/data";
+import { tesconixCompany, featuredProject, secondFeaturedProject, projects } from "../lib/data";
 
 function ExtIcon() {
   return (
@@ -112,19 +112,33 @@ export default function Projects() {
     <section id="projects" ref={ref} className="section">
       <div className="container">
         
-        {/* Startups & Ventures Header */}
-        <div style={{ textAlign:"center", marginBottom:"4.5rem" }}>
-          <p className="s-eyebrow">Startups &amp; Ventures</p>
-          <h2 className="s-title font-display g-cyan">Companies I&apos;ve Founded</h2>
+        {/* IT Company Header */}
+        <div style={{ textAlign:"center", marginBottom:"3.5rem" }}>
+          <p className="s-eyebrow">IT Company</p>
+          <h2 className="s-title font-display" style={{ color: "var(--cyan)" }}>Premium Software Agency</h2>
           <p className="s-sub" style={{ maxWidth: "70ch", margin: "0 auto", color: "var(--t1)", fontSize: "1.1rem" }}>
-            I don&apos;t just write code — I build and operate businesses. As the founder of <strong>Validexio</strong> and <strong>Heeratrack</strong>, I bridge the gap between deep technical engineering and real-world market execution.
+            I founded <strong>Tesconix Technologies</strong> to engineer mission-critical software, elastic cloud infrastructure, and AI-driven platforms for global enterprises.
+          </p>
+        </div>
+
+        {/* IT Company (Tesconix) */}
+        <div style={{ display:"flex", flexDirection:"column", gap:32, marginBottom:"6rem" }}>
+          <FeaturedCard data={tesconixCompany} vis={vis} />
+        </div>
+
+        {/* Startups & Ventures Header */}
+        <div style={{ textAlign:"center", marginBottom:"3.5rem" }}>
+          <p className="s-eyebrow">Startups &amp; Ventures</p>
+          <h2 className="s-title font-display g-violet">SaaS Platforms Built</h2>
+          <p className="s-sub" style={{ maxWidth: "70ch", margin: "0 auto", color: "var(--t1)", fontSize: "1.1rem" }}>
+            As the founder of <strong>Validexio</strong> and <strong>Heeratrack</strong>, I bridge the gap between deep technical engineering and real-world market execution.
           </p>
         </div>
 
         {/* Startups (Validexio & Heeratrack) */}
         <div style={{ display:"flex", flexDirection:"column", gap:32, marginBottom:"6rem" }}>
-          <FeaturedCard data={secondFeaturedProject} vis={vis} />
-          <FeaturedCard data={featuredProject} delay={0.12} vis={vis} />
+          <FeaturedCard data={secondFeaturedProject} delay={0.1} vis={vis} />
+          <FeaturedCard data={featuredProject} delay={0.2} vis={vis} />
         </div>
 
         {/* Side Projects Header */}

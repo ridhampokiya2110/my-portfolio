@@ -437,6 +437,32 @@ const blogListSchema = {
 };
 
 // ─────────────────────────────────────────────────────────────────────────────
+// 7. Organization Schema (Tesconix Technologies)
+// ─────────────────────────────────────────────────────────────────────────────
+const tesconixSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://www.tesconix.com/#organization",
+  name: "Tesconix Technologies",
+  url: "https://www.tesconix.com",
+  description: "A premium software engineering agency specializing in mission-critical custom software, scalable cloud infrastructure, AI business automation, and mobile app development for global enterprises.",
+  founder: {
+    "@type": "Person",
+    "@id": `${SITE_URL}/#person`,
+  },
+  knowsAbout: [
+    "Software Engineering",
+    "Cloud Infrastructure",
+    "AWS Migration",
+    "AI Business Automation",
+    "Mobile App Development",
+    "Enterprise SaaS",
+    "Game Development",
+    "DevOps Automation"
+  ]
+};
+
+// ─────────────────────────────────────────────────────────────────────────────
 // Component
 // ─────────────────────────────────────────────────────────────────────────────
 export default function StructuredData() {
@@ -448,6 +474,7 @@ export default function StructuredData() {
     projectsListSchema,
     faqSchema,
     blogListSchema,
+    tesconixSchema,
   ];
 
   return (

@@ -413,9 +413,14 @@ describe("Projects — complete system tests", () => {
     expect(container.querySelector("section#projects")).toBeInTheDocument();
   });
 
-  it("renders Companies I've Founded heading", () => {
+  it("renders IT Company heading", () => {
     render(<Projects />);
-    expect(screen.getByText(/companies i.ve founded/i)).toBeInTheDocument();
+    expect(screen.getByText(/premium software agency/i)).toBeInTheDocument();
+  });
+
+  it("renders SaaS Platforms Built heading", () => {
+    render(<Projects />);
+    expect(screen.getByText(/saas platforms built/i)).toBeInTheDocument();
   });
 
   it("renders Heeratrack project title", () => {
@@ -428,6 +433,12 @@ describe("Projects — complete system tests", () => {
     render(<Projects />);
     const validexioEls = screen.getAllByText(/validexio/i);
     expect(validexioEls.length).toBeGreaterThanOrEqual(1);
+  });
+
+  it("renders Tesconix project title", () => {
+    render(<Projects />);
+    const tesconixEls = screen.getAllByText(/tesconix/i);
+    expect(tesconixEls.length).toBeGreaterThanOrEqual(1);
   });
 
   it("renders Open Source & Tools heading", () => {

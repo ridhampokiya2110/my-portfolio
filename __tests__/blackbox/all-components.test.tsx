@@ -441,26 +441,6 @@ describe("Projects — complete system tests", () => {
     expect(tesconixEls.length).toBeGreaterThanOrEqual(1);
   });
 
-  it("renders Open Source & Tools heading", () => {
-    render(<Projects />);
-    expect(screen.getByText(/open source/i)).toBeInTheDocument();
-  });
-
-  it("renders CloudLens project", () => {
-    render(<Projects />);
-    expect(screen.getByText(/cloudlens/i)).toBeInTheDocument();
-  });
-
-  it("renders CloudQuest project", () => {
-    render(<Projects />);
-    expect(screen.getByText(/cloudquest/i)).toBeInTheDocument();
-  });
-
-  it("renders Serverless Cloud Resume project", () => {
-    render(<Projects />);
-    expect(screen.getByText(/serverless cloud resume/i)).toBeInTheDocument();
-  });
-
   it("renders Live Preview links for featured projects", () => {
     const { container } = render(<Projects />);
     const liveLinks = container.querySelectorAll('a[href*="heeratrack.com"], a[href*="validexio.com"]');
@@ -493,6 +473,48 @@ describe("Projects — complete system tests", () => {
     const { container } = render(<Projects />);
     const h3s = container.querySelectorAll("h3");
     expect(h3s.length).toBeGreaterThanOrEqual(2);
+  });
+});
+
+// ─────────────────────────────────────────────────────────────────────────────
+// SIDEPROJECTS COMPONENT — Full System Tests
+// ─────────────────────────────────────────────────────────────────────────────
+import SideProjects from "../../app/components/SideProjects";
+
+describe("SideProjects — complete system tests", () => {
+  it("renders without crashing", () => {
+    expect(() => render(<SideProjects />)).not.toThrow();
+  });
+
+  it("has section element with id='side-projects'", () => {
+    const { container } = render(<SideProjects />);
+    expect(container.querySelector("section#side-projects")).toBeInTheDocument();
+  });
+
+  it("renders Open Source & Tools heading", () => {
+    render(<SideProjects />);
+    expect(screen.getByText(/open source/i)).toBeInTheDocument();
+  });
+
+  it("renders CloudLens project", () => {
+    render(<SideProjects />);
+    expect(screen.getByText(/cloudlens/i)).toBeInTheDocument();
+  });
+
+  it("renders CloudQuest project", () => {
+    render(<SideProjects />);
+    expect(screen.getByText(/cloudquest/i)).toBeInTheDocument();
+  });
+
+  it("renders Serverless Cloud Resume project", () => {
+    render(<SideProjects />);
+    expect(screen.getByText(/serverless cloud resume/i)).toBeInTheDocument();
+  });
+
+  it("renders exactly 3 side projects", () => {
+    const { container } = render(<SideProjects />);
+    const cards = container.querySelectorAll(".glass-hover");
+    expect(cards.length).toBe(3);
   });
 });
 

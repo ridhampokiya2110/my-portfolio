@@ -508,10 +508,10 @@ describe("SideProjects — complete system tests", () => {
     expect(screen.getByText(/serverless cloud resume/i)).toBeInTheDocument();
   });
 
-  it("renders exactly 3 side projects", () => {
+  it("renders exactly 6 side projects", () => {
     const { container } = render(<SideProjects />);
     const cards = container.querySelectorAll(".glass-hover");
-    expect(cards.length).toBe(3);
+    expect(cards.length).toBe(6);
   });
 });
 

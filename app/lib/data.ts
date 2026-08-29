@@ -160,6 +160,24 @@ export const projects = [
     desc: "High-performance hosted resume with real-time visitor counter and serverless backend.",
     link: "https://dmtfynvyb5ngl.cloudfront.net/",
   },
+  {
+    title: "Ember & Bean Café",
+    tech: ["Next.js", "Tailwind CSS", "UI/UX"],
+    desc: "A premium, fully responsive demo for a specialty coffee shop, featuring an immersive UI and elegant typography.",
+    link: "https://cafe-demo.tesconix.com",
+  },
+  {
+    title: "Testygrid OS",
+    tech: ["Cloud Architecture", "Next.js", "React"],
+    desc: "The intelligence behind world-class dining. A next-gen hospitality operating system with predictive AI.",
+    link: "https://testygrid.tesconix.com",
+  },
+  {
+    title: "Skillnova LMS",
+    tech: ["Next.js", "TypeScript", "AWS"],
+    desc: "An advanced learning management system designed to accelerate digital upskilling with interactive modules.",
+    link: "https://skillnova.tesconix.com",
+  },
 ];
 
 export const featuredArticles = [

@@ -10,7 +10,7 @@ export const personalInfo = {
   location: "India",
   status: "Open to Opportunities",
   bio: "Passionate DevOps & Cloud Engineer and Founder of Tesconix Technologies. I specialise in serverless architectures, automated CI/CD pipelines, and scalable cloud solutions.",
-  about: "I bridge the gap between development and operations. With a strong foundation in cloud infrastructure and enterprise software engineering, I build systems that are fast, reliable, and highly cost-efficient. My focus is on zero-downtime deployments and delivering uncompromising technical excellence at a global scale.",
+  about: "As an AWS Builder and multi-certified Cloud & DevOps Engineer, I bridge the gap between development and operations. With deep expertise in cloud architecture, CI/CD optimization, and serverless computing, I build systems that are fast, reliable, and highly cost-efficient. Beyond enterprise infrastructure, I am the founder of SaaS platforms like Validexio, Heeratrack, and TestyGrid—designed to solve complex industry challenges with zero-downtime deployments and uncompromising technical excellence.",
   devto: "https://dev.to/ridhampokiya2110",
   github: "https://github.com/ridhampokiya2110",
   linkedin: "https://www.linkedin.com/in/ridham-pokiya-b7974a249",

@@ -78,7 +78,7 @@ export const experience = [
   {
     role: "Founder & CEO",
     org: "Tesconix Technologies",
-    date: "2024 – Present",
+    date: "2026 – Present",
     type: "role",
     desc: "Leading an elite engineering firm to architect high-performance, mission-critical infrastructure for global enterprises. Specializing in engineering zero-downtime cloud ecosystems, highly scalable SaaS architectures, and autonomous AI-driven platforms.",
   },

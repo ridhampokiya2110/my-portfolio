@@ -76,6 +76,13 @@ export const skills = [
 
 export const experience = [
   {
+    role: "Founder & CEO",
+    org: "Tesconix Technologies",
+    date: "2024 – Present",
+    type: "role",
+    desc: "Leading an elite engineering firm to architect high-performance, mission-critical infrastructure for global enterprises. Specializing in engineering zero-downtime cloud ecosystems, highly scalable SaaS architectures, and autonomous AI-driven platforms.",
+  },
+  {
     role: "DevOps Intern",
     org: "Deskcode Solution Pvt Ltd",
     date: "Internship",
@@ -227,8 +234,8 @@ export const featuredArticles = [
 export const navLinks = [
   { label: "About", href: "#about" },
   { label: "Skills", href: "#skills" },
-  { label: "Experience", href: "#experience" },
   { label: "Projects", href: "#projects" },
+  { label: "Experience", href: "#experience" },
   { label: "Blog", href: "#blog" },
   { label: "Contact", href: "#contact" },
 ];

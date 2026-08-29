@@ -216,8 +216,8 @@ describe("skills — exhaustive cross-validation", () => {
 // experience — exhaustive validation
 // ─────────────────────────────────────────────────────────────────────────────
 describe("experience — exhaustive cross-validation", () => {
-  it("has exactly 3 experience entries", () => {
-    expect(experience.length).toBe(3);
+  it("has exactly 4 experience entries", () => {
+    expect(experience.length).toBe(4);
   });
 
   const experienceEntries = [

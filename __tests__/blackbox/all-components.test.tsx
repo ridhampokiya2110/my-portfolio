@@ -374,10 +374,10 @@ describe("Experience — complete system tests", () => {
     expect(screen.getByText(/unified data analysis/i)).toBeInTheDocument();
   });
 
-  it("renders exactly 3 experience h3 headings", () => {
+  it("renders exactly 4 experience h3 headings", () => {
     const { container } = render(<Experience />);
     const h3s = container.querySelectorAll("h3");
-    expect(h3s.length).toBe(3);
+    expect(h3s.length).toBe(4);
   });
 
   it("experience cards have glass class", () => {

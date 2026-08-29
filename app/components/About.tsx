@@ -60,9 +60,22 @@ export default function About() {
             <h3 className="font-display" style={{ fontFamily:"var(--font-display)", fontSize:"1.15rem", fontWeight:700, marginBottom:14 }}>
               Building systems that <span className="g-cyan">scale</span>
             </h3>
-            <p style={{ fontFamily:"var(--font-body)", color:"var(--t2)", fontSize:14, lineHeight:1.85, marginBottom:24 }}>
+            <p style={{ fontFamily:"var(--font-body)", color:"var(--t2)", fontSize:14, lineHeight:1.85, marginBottom:20 }}>
               {personalInfo.about}
             </p>
+            <div style={{ display: "flex", flexDirection: "column", gap: 16, marginBottom: 24 }}>
+              {personalInfo.aboutPillars?.map((p, i) => (
+                <div key={i} style={{ display: "flex", gap: 12, alignItems: "flex-start" }}>
+                  <div style={{ marginTop: 2, flexShrink: 0, width: 24, height: 24, borderRadius: "50%", background: "rgba(0, 229, 255, 0.1)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--cyan)" }}>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </div>
+                  <div>
+                    <h4 style={{ color: "#fff", fontSize: 13.5, fontWeight: 600, marginBottom: 4 }}>{p.title}</h4>
+                    <p style={{ color: "var(--t3)", fontSize: 13, lineHeight: 1.6 }}>{p.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
             <div style={{ display:"flex", flexWrap:"wrap", gap:8 }}>
               {["Tesconix CEO", "AWS Certified", "CI/CD Expert", "SaaS Builder", "Open Source"].map(t => (
                 <span key={t} className="tag" style={{ fontFamily:"var(--font-code)", color:"var(--cyan)", borderColor:"rgba(0,229,255,0.25)", fontSize:9 }}>{t}</span>

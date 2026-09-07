@@ -39,8 +39,8 @@ export default function Page() {
         <About />
         <Skills />
         <Projects />
-        <Experience />
         <SideProjects />
+        <Experience />
         <Blog />
         <Contact />
       </main>

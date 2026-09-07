@@ -32,9 +32,9 @@ const jetbrainsMono = JetBrains_Mono({
 // ─────────────────────────────────────────────────────────────────────────────
 const SITE_URL = "https://ridhampokiya.vercel.app";
 const FULL_NAME = "Ridham Pokiya";
-const TITLE = "Ridham Pokiya — DevOps & Cloud Engineer | SaaS Founder | India";
+const TITLE = "Ridham Pokiya — DevOps & Cloud Engineer | SaaS Founder | Surat, India";
 const DESCRIPTION =
-  "Ridham Pokiya is a DevOps & Cloud Engineer from India specialising in AWS serverless architectures, automated CI/CD pipelines, SaaS products, ERP systems, and cloud-native development. Founder of Heeratrack (Diamond ERP SaaS) and Validexio (Startup Validation Platform). AWS Student Builder, open to DevOps, Cloud, and SaaS engineering roles.";
+  "Ridham Pokiya is a DevOps & Cloud Engineer based in Surat (near Saral Heights, Pasodra Patiya), India, specialising in AWS serverless architectures, automated CI/CD pipelines, SaaS products, ERP systems, and cloud-native development. Founder of Heeratrack (Diamond ERP SaaS) and Validexio (Startup Validation Platform). AWS Student Builder, open to DevOps, Cloud, and SaaS engineering roles.";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // SEO Keywords (500+) — grouped for clarity
@@ -282,6 +282,27 @@ const SEO_KEYWORDS: string[] = [
   "Ahmedabad cloud engineer",
   "India AWS community",
   "India DevOps community",
+  "Surat Developer",
+  "Best Software Engineer in Surat",
+  "Web Developer near Saral Heights",
+  "Top Developer in Pasodra Patiya Surat",
+  "IT Consultant Surat",
+  "Software Development Company Surat",
+  "Top IT Services in Gujarat",
+  "Hire DevOps Engineer in India",
+  "Best Cloud Consultant",
+  "Freelance AWS Engineer Surat",
+  "Top Next.js Developer",
+  "Hire Freelance Web Developer",
+  "B2B Software Solutions",
+  "Dedicated React Developer",
+  "Hire Tech Lead for SaaS",
+  "Outsource Web Development India",
+  "Hire Cloud Architect",
+  "Enterprise Software Developer",
+  "Scalable Web Architecture Consultant",
+  "Startup CTO for Hire",
+  "MVP Builder for Startups",
   // ── Blog & Content
   "DevOps blog India",
   "cloud engineering blog",

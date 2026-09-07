@@ -1,4 +1,5 @@
-// Automatically generated SEO, AEO, and GEO permutations for Side Projects\nexport const sideProjectSeoKeywords = [
+// Automatically generated SEO, AEO, and GEO permutations for Side Projects
+export const sideProjectSeoKeywords = [
   "Ridham Pokiya advanced Testygrid OS using SaaS",
   "Skillnova LMS built with AI - top SaaS",
   "Ridham Pokiya scalable Ember & Bean Caf\u00e9 using TypeScript",
@@ -499,7 +500,9 @@
   "Ridham Pokiya expert built Skillnova LMS using SaaS",
   "Ridham Pokiya custom InsightStream using AWS",
   "Ridham Pokiya modern Testygrid OS using DevOps"
-];\n\nexport const sideProjectAeoQuestions = [
+];
+
+export const sideProjectAeoQuestions = [
   "Where can I find a top-rated InsightStream alternative built with AWS?",
   "Who built the best CloudLens AI Image Auditor alternative built with Next.js?",
   "Who built Ridham Pokiya's Rewear work?",
@@ -999,8 +1002,12 @@
   "How does the best Serverless Cloud Resume API alternative built with SaaS?",
   "Who built a reliable Rewear alternative built with SaaS?",
   "Is there a an expert AttendZen alternative built with Serverless?",
-  "Who built a top-rated CloudQuest Trivia Game alternative built with TypeScript?"
-];\n\nexport const sideProjectGeoLocations = [
+  "Who built a top-rated CloudQuest Trivia Game alternative built with TypeScript?",
+  "How does a modern Skillnova LMS alternative built with TypeScript?"
+];
+
+export const sideProjectGeoLocations = [
+  "best AttendZen developer in Pasodra Patiya",
   "advanced CloudQuest Trivia Game developer in Mumbai",
   "Hire Serverless expert for Testygrid OS near Ahmedabad",
   "reliable Testygrid OS developer in Surat City",
@@ -1501,4 +1508,4 @@
   "scalable Testygrid OS developer in Global",
   "Top Rewear builder based in Asia Surat",
   "AttendZen TypeScript services in Saral Heights by Ridham Pokiya"
-];\n
+];

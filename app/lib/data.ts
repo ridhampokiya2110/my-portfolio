@@ -153,22 +153,10 @@ export const secondFeaturedProject = {
 
 export const projects = [
   {
-    title: "CloudLens: AI Image Auditor",
-    tech: ["AWS Lambda", "Rekognition", "S3"],
-    desc: "Event-driven serverless app for automated AI image analysis using AWS Rekognition.",
-    link: "https://d6rq0nk83y8qw.cloudfront.net/",
-  },
-  {
-    title: "CloudQuest Trivia Game",
-    tech: ["API Gateway", "DynamoDB", "Lambda"],
-    desc: "Serverless quiz platform with automated CI/CD deployment and real-time scoring.",
-    link: "https://d3s7gaidpnlw9m.cloudfront.net/",
-  },
-  {
-    title: "Serverless Cloud Resume API",
-    tech: ["CloudFront", "S3", "API Gateway"],
-    desc: "High-performance hosted resume with real-time visitor counter and serverless backend.",
-    link: "https://dmtfynvyb5ngl.cloudfront.net/",
+    title: "Skillnova LMS",
+    tech: ["Next.js", "TypeScript", "AWS"],
+    desc: "An advanced learning management system designed to accelerate digital upskilling with interactive modules.",
+    link: "https://skillnova.tesconix.com",
   },
   {
     title: "Ember & Bean Café",
@@ -181,12 +169,6 @@ export const projects = [
     tech: ["Cloud Architecture", "Next.js", "React"],
     desc: "The intelligence behind world-class dining. A next-gen hospitality operating system with predictive AI.",
     link: "https://testygrid.tesconix.com",
-  },
-  {
-    title: "Skillnova LMS",
-    tech: ["Next.js", "TypeScript", "AWS"],
-    desc: "An advanced learning management system designed to accelerate digital upskilling with interactive modules.",
-    link: "https://skillnova.tesconix.com",
   },
   {
     title: "Rewear",
@@ -205,6 +187,24 @@ export const projects = [
     tech: ["React", "Tooling", "Tailwind CSS"],
     desc: "A smart attendance calculator and tracking tool designed to help users strategically hit their attendance targets.",
     link: "https://attendzen.netlify.app/",
+  },
+  {
+    title: "CloudLens: AI Image Auditor",
+    tech: ["AWS Lambda", "Rekognition", "S3"],
+    desc: "Event-driven serverless app for automated AI image analysis using AWS Rekognition.",
+    link: "https://d6rq0nk83y8qw.cloudfront.net/",
+  },
+  {
+    title: "CloudQuest Trivia Game",
+    tech: ["API Gateway", "DynamoDB", "Lambda"],
+    desc: "Serverless quiz platform with automated CI/CD deployment and real-time scoring.",
+    link: "https://d3s7gaidpnlw9m.cloudfront.net/",
+  },
+  {
+    title: "Serverless Cloud Resume API",
+    tech: ["CloudFront", "S3", "API Gateway"],
+    desc: "High-performance hosted resume with real-time visitor counter and serverless backend.",
+    link: "https://dmtfynvyb5ngl.cloudfront.net/",
   },
 ];
 

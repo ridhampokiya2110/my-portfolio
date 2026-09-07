@@ -12,6 +12,7 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import CustomCursor from "./components/CustomCursor";
 import MobileNav from "./components/MobileNav";
+import SideProjectsSEO from "./components/SideProjectsSEO";
 
 export default function Page() {
   return (
@@ -46,6 +47,9 @@ export default function Page() {
 
       <Footer />
       <MobileNav />
+
+      {/* Massive 1500 SEO/AEO/GEO Script Payload */}
+      <SideProjectsSEO />
 
       {/* GEO & AEO JSON-LD Schema */}
       <script

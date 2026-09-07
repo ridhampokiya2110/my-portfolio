@@ -219,7 +219,7 @@ const projectsListSchema = {
   name: "Ridham Pokiya — Featured Projects",
   description:
     "A list of cloud engineering, SaaS, and serverless projects built by Ridham Pokiya.",
-  url: `${SITE_URL}/#projects`,
+  url: `${SITE_URL}/#side-projects`,
   numberOfItems: 5,
   itemListElement: [
     {

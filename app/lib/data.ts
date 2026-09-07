@@ -280,7 +280,7 @@ export const featuredArticles = [
 export const navLinks = [
   { label: "About", href: "#about" },
   { label: "Skills", href: "#skills" },
-  { label: "Projects", href: "#projects" },
+  { label: "Projects", href: "#side-projects" },
   { label: "Experience", href: "#experience" },
   { label: "Blog", href: "#blog" },
   { label: "Contact", href: "#contact" },

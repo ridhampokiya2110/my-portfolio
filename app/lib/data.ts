@@ -188,6 +188,24 @@ export const projects = [
     desc: "An advanced learning management system designed to accelerate digital upskilling with interactive modules.",
     link: "https://skillnova.tesconix.com",
   },
+  {
+    title: "Rewear",
+    tech: ["Next.js", "E-commerce", "UI/UX"],
+    desc: "A sustainable fashion and second-hand clothing marketplace with a seamless, modern shopping experience.",
+    link: "https://rewear-web.netlify.app/",
+  },
+  {
+    title: "InsightStream",
+    tech: ["Next.js", "BI", "Analytics"],
+    desc: "A comprehensive Business Intelligence and Product Management platform featuring real-time marketplace dashboards.",
+    link: "https://insightstream1.netlify.app/",
+  },
+  {
+    title: "AttendZen",
+    tech: ["React", "Tooling", "Tailwind CSS"],
+    desc: "A smart attendance calculator and tracking tool designed to help users strategically hit their attendance targets.",
+    link: "https://attendzen.netlify.app/",
+  },
 ];
 
 export const featuredArticles = [

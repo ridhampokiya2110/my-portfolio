@@ -105,7 +105,7 @@ function BookCard({ book, index, visible }: { book: Book; index: number; visible
 
       {/* Top row: number + category + year */}
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 12, marginBottom: 32 }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 16, minWidth: 0, flex: 1 }}>
           {/* Book number */}
           <span style={{
             fontFamily: "var(--font-code)",
@@ -114,17 +114,21 @@ function BookCard({ book, index, visible }: { book: Book; index: number; visible
             letterSpacing: "0.4em",
             color: book.accent,
             opacity: 0.6,
+            flexShrink: 0,
           }}>
             NO. {book.number}
           </span>
-          <span style={{ width: 1, height: 16, background: "rgba(255,255,255,0.1)" }} />
+          <span style={{ width: 1, height: 16, background: "rgba(255,255,255,0.1)", flexShrink: 0 }} />
           <span style={{
             fontFamily: "var(--font-code)",
             fontSize: 10,
             fontWeight: 600,
-            letterSpacing: "0.25em",
+            letterSpacing: "0.18em",
             textTransform: "uppercase",
             color: "var(--t3)",
+            overflow: "hidden",
+            textOverflow: "ellipsis",
+            whiteSpace: "nowrap",
           }}>
             {book.category}
           </span>
@@ -284,11 +288,11 @@ function BookCard({ book, index, visible }: { book: Book; index: number; visible
             display: "inline-flex",
             alignItems: "center",
             gap: 8,
-            padding: "13px 28px",
+            padding: "12px 22px",
             borderRadius: 100,
             fontFamily: "var(--font-body)",
             fontWeight: 700,
-            fontSize: 12,
+            fontSize: 11,
             letterSpacing: "0.08em",
             textTransform: "uppercase",
             background: `linear-gradient(135deg, ${book.accent}dd, ${book.accentSecondary}aa)`,
@@ -296,6 +300,7 @@ function BookCard({ book, index, visible }: { book: Book; index: number; visible
             textDecoration: "none",
             boxShadow: `0 8px 32px ${book.accent}30`,
             transition: "transform 0.2s, box-shadow 0.2s",
+            whiteSpace: "nowrap",
           }}
           onMouseEnter={e => {
             (e.currentTarget as HTMLElement).style.transform = "translateY(-3px)";
@@ -306,7 +311,7 @@ function BookCard({ book, index, visible }: { book: Book; index: number; visible
             (e.currentTarget as HTMLElement).style.boxShadow = `0 8px 32px ${book.accent}30`;
           }}
         >
-          Read on Amazon US <AmazonIcon />
+          Amazon US <AmazonIcon />
         </a>
         <a
           href={book.amazonIn}
@@ -316,11 +321,11 @@ function BookCard({ book, index, visible }: { book: Book; index: number; visible
             display: "inline-flex",
             alignItems: "center",
             gap: 8,
-            padding: "13px 28px",
+            padding: "12px 22px",
             borderRadius: 100,
             fontFamily: "var(--font-body)",
             fontWeight: 600,
-            fontSize: 12,
+            fontSize: 11,
             letterSpacing: "0.08em",
             textTransform: "uppercase",
             background: `${book.accent}12`,
@@ -328,6 +333,7 @@ function BookCard({ book, index, visible }: { book: Book; index: number; visible
             border: `1.5px solid ${book.accent}40`,
             textDecoration: "none",
             transition: "all 0.2s",
+            whiteSpace: "nowrap",
           }}
           onMouseEnter={e => {
             (e.currentTarget as HTMLElement).style.background = `${book.accent}22`;
@@ -340,7 +346,7 @@ function BookCard({ book, index, visible }: { book: Book; index: number; visible
             (e.currentTarget as HTMLElement).style.transform = "";
           }}
         >
-          Read on Amazon India <AmazonIcon />
+          Amazon India <AmazonIcon />
         </a>
       </div>
 

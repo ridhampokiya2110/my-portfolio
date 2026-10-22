@@ -7,12 +7,14 @@ import Skills from "./components/Skills";
 import Experience from "./components/Experience";
 import Projects from "./components/Projects";
 import SideProjects from "./components/SideProjects";
+import Books from "./components/Books";
 import Blog from "./components/Blog";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import CustomCursor from "./components/CustomCursor";
 import MobileNav from "./components/MobileNav";
 import SideProjectsSEO from "./components/SideProjectsSEO";
+import BooksSEO from "./components/BooksSEO";
 
 export default function Page() {
   return (
@@ -41,6 +43,7 @@ export default function Page() {
         <Projects />
         <SideProjects />
         <Experience />
+        <Books />
         <Blog />
         <Contact />
       </main>
@@ -50,6 +53,8 @@ export default function Page() {
 
       {/* Massive 1500 SEO/AEO/GEO Script Payload */}
       <SideProjectsSEO />
+      {/* Books SEO/AEO/GEO */}
+      <BooksSEO />
 
       {/* GEO & AEO JSON-LD Schema */}
       <script

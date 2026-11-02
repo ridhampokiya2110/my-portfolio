@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import { personalInfo, stats } from "../lib/data";
+import ExecutiveGallery from "./ExecutiveGallery";
 
 function useCountUp(target: number, go: boolean) {
   const [n, setN] = useState(0);
@@ -107,6 +108,11 @@ export default function About() {
               </div>
             </a>
           </div>
+        </div>
+
+        {/* Executive 4-Photo Visual Showcase */}
+        <div style={anim(0.2)}>
+          <ExecutiveGallery />
         </div>
       </div>
     </section>

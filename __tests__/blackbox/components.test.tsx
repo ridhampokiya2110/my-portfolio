@@ -194,6 +194,12 @@ describe("About — black box rendering", () => {
     render(<About />);
     expect(screen.getByText(/projects/i)).toBeInTheDocument();
   });
+
+  it("renders 4 expert leadership photos with RP round icons", () => {
+    const { container } = render(<About />);
+    const images = container.querySelectorAll(".expert-gallery-grid img");
+    expect(images.length).toBe(4);
+  });
 });
 
 // ─────────────────────────────────────────────────────────────────────────────

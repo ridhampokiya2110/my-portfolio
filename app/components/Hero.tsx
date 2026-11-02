@@ -95,7 +95,7 @@ export default function Hero() {
           )}
         </div>
 
-        {/* Avatar (added extra top margin to prevent float collision with badges) */}
+        {/* Avatar (middle image preserved with side RP round icon) */}
         <div className="float" style={{ position:"relative", display:"inline-block", marginTop: 12 }}>
           {/* Multi-colour spinning ring */}
           <div style={{ position:"absolute", inset:-5, borderRadius:"50%", background:"conic-gradient(from 0deg, #00e5ff, #9b59ff, #ff3cac, #ffb700, #00e5ff)", animation:"spin-cw 4s linear infinite" }} />
@@ -103,6 +103,36 @@ export default function Hero() {
           <div style={{ position:"absolute", inset:-12, borderRadius:"50%", border:"1px dashed rgba(155,89,255,0.25)", animation:"spin-ccw 14s linear infinite" }} />
           <div style={{ position:"relative", width:"clamp(115px, 28vw, 140px)", aspectRatio:"1/1", borderRadius:"50%", overflow:"hidden", border:"2px solid rgba(255,255,255,0.07)" }}>
             <img src={personalInfo.profileImage} alt={personalInfo.name} style={{ width:"100%", height:"100%", objectFit:"cover", objectPosition:"center" }} />
+          </div>
+
+          {/* Side RP round icon badge */}
+          <div
+            className="rp-side-badge"
+            title="Ridham Pokiya • Verified Founder"
+            style={{
+              position: "absolute",
+              bottom: -4,
+              right: -4,
+              width: 36,
+              height: 36,
+              borderRadius: "50%",
+              background: "rgba(5, 3, 18, 0.92)",
+              backdropFilter: "blur(10px)",
+              WebkitBackdropFilter: "blur(10px)",
+              border: "1.5px solid var(--cyan)",
+              boxShadow: "0 0 16px rgba(0, 229, 255, 0.5), inset 0 0 8px rgba(0, 229, 255, 0.2)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              zIndex: 10,
+              fontFamily: "var(--font-code)",
+              fontSize: 10.5,
+              fontWeight: 800,
+              color: "var(--cyan)",
+              letterSpacing: "0.08em",
+            }}
+          >
+            RP<span style={{ color: "var(--emerald)" }}>.</span>
           </div>
         </div>
 

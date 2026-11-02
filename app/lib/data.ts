@@ -67,6 +67,49 @@ export const expertProfiles = [
   },
 ];
 
+export const expertPhotos = [
+  {
+    id: "founder-portrait",
+    src: "/images/ridham-portrait-color.jpg",
+    title: "Founder & CEO",
+    role: "Leadership & Strategy",
+    org: "Tesconix Technologies",
+    tag: "Founder",
+    accent: "var(--cyan)",
+    description: "Architecting zero-downtime cloud infrastructure and directing global engineering execution.",
+  },
+  {
+    id: "executive-full",
+    src: "/images/ridham-executive-full.jpg",
+    title: "Cloud Solutions Architect",
+    role: "Enterprise Systems",
+    org: "AWS & Serverless Architecture",
+    tag: "Architect",
+    accent: "var(--emerald)",
+    description: "Designing high-scale, cost-optimized multi-region cloud backbones and automated deployment pipelines.",
+  },
+  {
+    id: "monochrome-editorial",
+    src: "/images/ridham-monochrome-editorial.jpg",
+    title: "Enterprise SaaS Builder",
+    role: "Product Engineering",
+    org: "Heeratrack & Validexio",
+    tag: "SaaS Pioneer",
+    accent: "var(--violet)",
+    description: "Architect and builder of mission-critical diamond business ERP and live startup intelligence platforms.",
+  },
+  {
+    id: "monochrome-portrait",
+    src: "/images/ridham-monochrome-portrait.jpg",
+    title: "DevOps & Cloud Specialist",
+    role: "Reliability Engineering",
+    org: "Zero-Downtime CI/CD",
+    tag: "DevOps Expert",
+    accent: "#ffb700",
+    description: "Automating cloud operations with Docker, Kubernetes, Terraform, and high-concurrency GitHub Actions.",
+  },
+];
+
 export const skills = [
   {
     category: "Cloud",

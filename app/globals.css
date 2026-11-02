@@ -491,4 +491,46 @@ body {
   to   { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.92) translateY(12px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.gallery-card-sheen {
+  position: relative;
+}
+
+.gallery-card-sheen::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 100%
+  );
+  transform: skewX(-25deg);
+  transition: none;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.gallery-card-sheen:hover::after {
+  left: 160%;
+  transition: left 0.85s ease-in-out;
+}
+
+.rp-side-badge {
+  animation: float 4s ease-in-out infinite;
+}
+
 

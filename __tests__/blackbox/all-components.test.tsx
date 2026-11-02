@@ -123,6 +123,24 @@ describe("Hero — complete system tests", () => {
     expect(instagramLink).toBeInTheDocument();
   });
 
+  it("renders Upwork expert link", () => {
+    const { container } = render(<Hero />);
+    const upworkLink = container.querySelector('a[href*="upwork.com"]');
+    expect(upworkLink).toBeInTheDocument();
+  });
+
+  it("renders Fiverr expert link", () => {
+    const { container } = render(<Hero />);
+    const fiverrLink = container.querySelector('a[href*="fiverr.com"]');
+    expect(fiverrLink).toBeInTheDocument();
+  });
+
+  it("renders Dev.to profile link", () => {
+    const { container } = render(<Hero />);
+    const devtoLink = container.querySelector('a[href*="dev.to"]');
+    expect(devtoLink).toBeInTheDocument();
+  });
+
   it("all external social links have rel=noopener noreferrer (security)", () => {
     const { container } = render(<Hero />);
     const externalLinks = container.querySelectorAll('a[target="_blank"]');
@@ -663,6 +681,24 @@ describe("Contact — complete system tests", () => {
     const { container } = render(<Contact />);
     const whatsappLink = container.querySelector('a[href*="wa.me"]');
     expect(whatsappLink).toBeInTheDocument();
+  });
+
+  it("renders Upwork link in Contact", () => {
+    const { container } = render(<Contact />);
+    const upworkLink = container.querySelector('a[href*="upwork.com"]');
+    expect(upworkLink).toBeInTheDocument();
+  });
+
+  it("renders Fiverr link in Contact", () => {
+    const { container } = render(<Contact />);
+    const fiverrLink = container.querySelector('a[href*="fiverr.com"]');
+    expect(fiverrLink).toBeInTheDocument();
+  });
+
+  it("renders Dev.to link in Contact", () => {
+    const { container } = render(<Contact />);
+    const devtoLink = container.querySelector('a[href*="dev.to"]');
+    expect(devtoLink).toBeInTheDocument();
   });
 
   it("all external links have rel=noopener noreferrer (security)", () => {

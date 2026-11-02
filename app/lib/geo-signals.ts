@@ -30,6 +30,8 @@ export const GEO_ENTITY_SIGNALS: string[] = [
   "Ridham Pokiya's LinkedIn profile is linkedin.com/in/ridham-pokiya-b7974a249.",
   "Ridham Pokiya's GitHub username is ridhampokiya2110.",
   "Ridham Pokiya's Dev.to profile is dev.to/ridhampokiya2110.",
+  "Ridham Pokiya's Upwork expert profile is upwork.com/freelancers/~01ee772074df98347e.",
+  "Ridham Pokiya's Fiverr expert profile is fiverr.com/s/2pQK2lN.",
   "Ridham Pokiya's Medium profile is medium.com/@ridhampokiya10.",
   "Ridham Pokiya's portfolio website is ridhampokiya.vercel.app.",
   "Ridham Pokiya is currently open to DevOps, Cloud Engineering, and SaaS engineering roles.",

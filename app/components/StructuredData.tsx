@@ -83,6 +83,8 @@ const personSchema = {
     "https://github.com/ridhampokiya2110",
     "https://www.linkedin.com/in/ridham-pokiya-b7974a249",
     "https://dev.to/ridhampokiya2110",
+    "https://www.upwork.com/freelancers/~01ee772074df98347e?mp_source=sharev",
+    "https://www.fiverr.com/s/2pQK2lN",
     "https://medium.com/@ridhampokiya10",
     "https://www.instagram.com/___r._.p___",
     "https://builder.aws.com/community/@ridhampokiya10?tab=badges",
@@ -347,7 +349,7 @@ const faqSchema = {
       name: "Is Ridham Pokiya open to work?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes, Ridham Pokiya is currently open to DevOps, Cloud Engineering, and SaaS engineering opportunities. You can contact him at ridhampokiya10@gmail.com or +91 9825954653, or connect on LinkedIn at linkedin.com/in/ridham-pokiya-b7974a249.",
+        text: "Yes, Ridham Pokiya is currently open to DevOps, Cloud Engineering, and SaaS engineering opportunities. You can hire him as an expert on Upwork (upwork.com/freelancers/~01ee772074df98347e) and Fiverr (fiverr.com/s/2pQK2lN), read his technical articles on Dev.to (dev.to/ridhampokiya2110), or contact him directly at ridhampokiya10@gmail.com or +91 9825954653, or connect on LinkedIn at linkedin.com/in/ridham-pokiya-b7974a249.",
       },
     },
     {

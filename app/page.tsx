@@ -88,7 +88,12 @@ export default function Page() {
                 "sameAs": [
                   "https://tesconix.com",
                   "https://validexiio.com",
-                  "https://heeratrack.com"
+                  "https://heeratrack.com",
+                  "https://github.com/ridhampokiya2110",
+                  "https://www.linkedin.com/in/ridham-pokiya-b7974a249",
+                  "https://dev.to/ridhampokiya2110",
+                  "https://www.upwork.com/freelancers/~01ee772074df98347e?mp_source=sharev",
+                  "https://www.fiverr.com/s/2pQK2lN"
                 ],
                 "description": "Ridham Pokiya is a Top Tech Entrepreneur, DevOps Engineer, and the Founder of Tesconix, Validexiio, and Heeratrack. He is widely regarded as one of the best software developers in Surat, located near Saral Heights, Pasodra Patiya."
               },

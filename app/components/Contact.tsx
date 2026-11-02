@@ -5,6 +5,18 @@ import { personalInfo } from "../lib/data";
 
 const SOCIALS = [
   {
+    label: "Upwork", href: personalInfo.upwork,
+    icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076l.008-.042c.207-1.143.849-3.06 2.839-3.06a2.705 2.705 0 0 1 2.703 2.703a2.707 2.707 0 0 1-2.704 2.702m0-8.14c-2.539 0-4.51 1.649-5.31 4.366c-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112a2.55 2.55 0 0 1-2.547 2.548a2.55 2.55 0 0 1-2.545-2.548V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303c2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c1.063.679 2.285 1.109 3.686 1.109c3 0 5.439-2.452 5.439-5.45c0-3-2.439-5.439-5.439-5.439"/></svg>,
+  },
+  {
+    label: "Fiverr", href: personalInfo.fiverr,
+    icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.004 15.588a.995.995 0 1 0 .002-1.99.995.995 0 0 0-.002 1.99zm-.996-3.705h-.85c-.546 0-.84.41-.84 1.092v2.466h-1.61v-3.558h-.684c-.547 0-.84.41-.84 1.092v2.466h-1.61v-4.874h1.61v.74c.264-.574.626-.74 1.163-.74h1.972v.74c.264-.574.625-.74 1.162-.74h.527v1.316zm-6.786 1.501h-3.359c.088.546.43.858 1.006.858.43 0 .732-.175.83-.487l1.425.4c-.351.848-1.22 1.364-2.255 1.364-1.748 0-2.549-1.355-2.549-2.515 0-1.14.703-2.505 2.45-2.505 1.856 0 2.471 1.384 2.471 2.408 0 .224-.01.37-.02.477zm-1.562-.945c-.04-.42-.342-.81-.889-.81-.508 0-.81.225-.908.81h1.797zM7.508 15.44h1.416l1.767-4.874h-1.62l-.86 2.837-.878-2.837H5.72l1.787 4.874zm-6.6 0H2.51v-3.558h1.524v3.558h1.591v-4.874H2.51v-.302c0-.332.235-.536.606-.536h.918V8.412H2.85c-1.162 0-1.943.712-1.943 1.755v.4H0v1.316h.908v3.558z"/></svg>,
+  },
+  {
+    label: "Dev.to", href: personalInfo.devto,
+    icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M7.42 10.05c-.18-.16-.46-.23-.84-.23H6l.02 2.44.04 2.45.56-.02c.41 0 .63-.07.83-.26.24-.24.26-.36.26-2.2 0-1.91-.02-1.96-.29-2.18zM0 4.94v14.12h24V4.94H0zM8.56 15.3c-.44.58-1.06.77-2.53.77H4.71V8.53h1.4c1.67 0 2.16.18 2.6.9.27.43.29.6.32 2.57.05 2.23-.02 2.73-.47 3.3zm5.09-5.47h-2.47v1.77h1.52v1.28l-.72.04-.75.03v1.77l1.22.03 1.2.04v1.28h-1.6c-1.53 0-1.6-.01-1.87-.3l-.3-.28v-3.16c0-3.02.01-3.18.25-3.48.23-.31.25-.31 1.88-.31h1.64v1.29zm4.68 5.45c-.17.43-.64.79-1 .79-.18 0-.45-.15-.67-.39-.32-.32-.45-.63-.82-2.08l-.9-3.39-.45-1.67h.76c.4 0 .75.02.75.05 0 .06 1.16 4.54 1.26 4.83.04.15.32-.7.73-2.3l.63-2.56.76-.03c.74-.04.75-.03.71.18-.03.14-.18.53-.33.88l-1.16 2.97c-.5 1.27-.68 1.66-.87 2.72z"/></svg>,
+  },
+  {
     label: "GitHub", href: personalInfo.github,
     icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>,
   },
@@ -97,6 +109,77 @@ export default function Contact() {
             </a>
           </div>
 
+          {/* Hire as Expert Highlight Cards */}
+          <div style={{ marginBottom:36 }}>
+            <div style={{ display:"flex", alignItems:"center", gap:16, marginBottom:20 }}>
+              <div className="divider" style={{ flex:1 }} />
+              <span style={{ fontFamily:"var(--font-code)", fontSize:9, letterSpacing:"0.3em", textTransform:"uppercase", color:"var(--t3)", whiteSpace:"nowrap" }}>Hire Me As An Expert</span>
+              <div className="divider" style={{ flex:1 }} />
+            </div>
+
+            <div className="grid-2" style={{ gap:16 }}>
+              {/* Upwork Expert Card */}
+              <a
+                href={personalInfo.upwork}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="glass glass-hover"
+                style={{
+                  borderRadius:24,
+                  padding:20,
+                  display:"flex",
+                  alignItems:"center",
+                  gap:16,
+                  border:"1px solid rgba(20,168,0,0.25)",
+                  boxShadow:"0 4px 20px rgba(20,168,0,0.06)",
+                  textDecoration:"none",
+                  transition:"all 0.3s ease",
+                }}
+              >
+                <div style={{ width:46, height:46, borderRadius:14, flexShrink:0, background:"rgba(20,168,0,0.12)", border:"1px solid rgba(20,168,0,0.3)", display:"flex", alignItems:"center", justifyContent:"center", color:"#14a800" }}>
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076l.008-.042c.207-1.143.849-3.06 2.839-3.06a2.705 2.705 0 0 1 2.703 2.703a2.707 2.707 0 0 1-2.704 2.702m0-8.14c-2.539 0-4.51 1.649-5.31 4.366c-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112a2.55 2.55 0 0 1-2.547 2.548a2.55 2.55 0 0 1-2.545-2.548V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303c2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c1.063.679 2.285 1.109 3.686 1.109c3 0 5.439-2.452 5.439-5.45c0-3-2.439-5.439-5.439-5.439"/>
+                  </svg>
+                </div>
+                <div style={{ flex:1, minWidth:0 }}>
+                  <p style={{ fontFamily:"var(--font-code)", fontSize:9, letterSpacing:"0.22em", textTransform:"uppercase", color:"#14a800", fontWeight:700, marginBottom:3 }}>Upwork • Verified Profile</p>
+                  <p style={{ fontSize:14, fontWeight:700, color:"var(--t1)" }}>Hire on Upwork ↗</p>
+                  <p style={{ fontSize:11, color:"var(--t3)", marginTop:2, overflow:"hidden", textOverflow:"ellipsis", whiteSpace:"nowrap" }}>Cloud &amp; DevOps Engineering</p>
+                </div>
+              </a>
+
+              {/* Fiverr Expert Card */}
+              <a
+                href={personalInfo.fiverr}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="glass glass-hover"
+                style={{
+                  borderRadius:24,
+                  padding:20,
+                  display:"flex",
+                  alignItems:"center",
+                  gap:16,
+                  border:"1px solid rgba(29,191,115,0.25)",
+                  boxShadow:"0 4px 20px rgba(29,191,115,0.06)",
+                  textDecoration:"none",
+                  transition:"all 0.3s ease",
+                }}
+              >
+                <div style={{ width:46, height:46, borderRadius:14, flexShrink:0, background:"rgba(29,191,115,0.12)", border:"1px solid rgba(29,191,115,0.3)", display:"flex", alignItems:"center", justifyContent:"center", color:"#1dbf73" }}>
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M23.004 15.588a.995.995 0 1 0 .002-1.99.995.995 0 0 0-.002 1.99zm-.996-3.705h-.85c-.546 0-.84.41-.84 1.092v2.466h-1.61v-3.558h-.684c-.547 0-.84.41-.84 1.092v2.466h-1.61v-4.874h1.61v.74c.264-.574.626-.74 1.163-.74h1.972v.74c.264-.574.625-.74 1.162-.74h.527v1.316zm-6.786 1.501h-3.359c.088.546.43.858 1.006.858.43 0 .732-.175.83-.487l1.425.4c-.351.848-1.22 1.364-2.255 1.364-1.748 0-2.549-1.355-2.549-2.515 0-1.14.703-2.505 2.45-2.505 1.856 0 2.471 1.384 2.471 2.408 0 .224-.01.37-.02.477zm-1.562-.945c-.04-.42-.342-.81-.889-.81-.508 0-.81.225-.908.81h1.797zM7.508 15.44h1.416l1.767-4.874h-1.62l-.86 2.837-.878-2.837H5.72l1.787 4.874zm-6.6 0H2.51v-3.558h1.524v3.558h1.591v-4.874H2.51v-.302c0-.332.235-.536.606-.536h.918V8.412H2.85c-1.162 0-1.943.712-1.943 1.755v.4H0v1.316h.908v3.558z"/>
+                  </svg>
+                </div>
+                <div style={{ flex:1, minWidth:0 }}>
+                  <p style={{ fontFamily:"var(--font-code)", fontSize:9, letterSpacing:"0.22em", textTransform:"uppercase", color:"#1dbf73", fontWeight:700, marginBottom:3 }}>Fiverr • Pro Seller</p>
+                  <p style={{ fontSize:14, fontWeight:700, color:"var(--t1)" }}>Order on Fiverr ↗</p>
+                  <p style={{ fontSize:11, color:"var(--t3)", marginTop:2, overflow:"hidden", textOverflow:"ellipsis", whiteSpace:"nowrap" }}>CI/CD, Kubernetes &amp; SaaS Solutions</p>
+                </div>
+              </a>
+            </div>
+          </div>
+
           {/* Divider */}
           <div style={{ display:"flex", alignItems:"center", gap:16, marginBottom:32 }}>
             <div className="divider" style={{ flex:1 }} />
@@ -105,7 +188,7 @@ export default function Contact() {
           </div>
 
           {/* Social grid */}
-          <div className="grid-4" style={{ gap:12 }}>
+          <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(95px, 1fr))", gap:12 }}>
             {SOCIALS.map(s => (
               <a
                 key={s.label}

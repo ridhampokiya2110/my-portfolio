@@ -297,4 +297,22 @@ describe("Contact — black box rendering", () => {
     const githubLink = container.querySelector('a[href*="github.com"]');
     expect(githubLink).toBeInTheDocument();
   });
+
+  it("shows Upwork expert link", () => {
+    const { container } = render(<Contact />);
+    const upworkLink = container.querySelector('a[href*="upwork.com"]');
+    expect(upworkLink).toBeInTheDocument();
+  });
+
+  it("shows Fiverr expert link", () => {
+    const { container } = render(<Contact />);
+    const fiverrLink = container.querySelector('a[href*="fiverr.com"]');
+    expect(fiverrLink).toBeInTheDocument();
+  });
+
+  it("shows Dev.to link", () => {
+    const { container } = render(<Contact />);
+    const devtoLink = container.querySelector('a[href*="dev.to"]');
+    expect(devtoLink).toBeInTheDocument();
+  });
 });

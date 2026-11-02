@@ -77,7 +77,7 @@ export default function About() {
               ))}
             </div>
             <div style={{ display:"flex", flexWrap:"wrap", gap:8 }}>
-              {["Tesconix CEO", "AWS Certified", "CI/CD Expert", "SaaS Builder", "Open Source"].map(t => (
+              {["Tesconix CEO", "Upwork Expert", "Fiverr Pro", "AWS Certified", "CI/CD Expert", "Dev.to Author", "SaaS Builder"].map(t => (
                 <span key={t} className="tag" style={{ fontFamily:"var(--font-code)", color:"var(--cyan)", borderColor:"rgba(0,229,255,0.25)", fontSize:9 }}>{t}</span>
               ))}
             </div>

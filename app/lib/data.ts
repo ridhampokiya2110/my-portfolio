@@ -22,6 +22,8 @@ export const personalInfo = {
     }
   ],
   devto: "https://dev.to/ridhampokiya2110",
+  fiverr: "https://www.fiverr.com/s/2pQK2lN",
+  upwork: "https://www.upwork.com/freelancers/~01ee772074df98347e?mp_source=sharev",
   github: "https://github.com/ridhampokiya2110",
   linkedin: "https://www.linkedin.com/in/ridham-pokiya-b7974a249",
   instagram: "https://www.instagram.com/___r._.p___",
@@ -36,6 +38,33 @@ export const personalInfo = {
 export const stats = [
   { value: 10, suffix: "+", label: "Projects" },
   { value: 20, suffix: "+", label: "Certificates" },
+];
+
+export const expertProfiles = [
+  {
+    platform: "Upwork",
+    role: "DevOps & Cloud Solutions Architect",
+    badge: "Expert Freelancer",
+    url: "https://www.upwork.com/freelancers/~01ee772074df98347e?mp_source=sharev",
+    color: "#14a800",
+    description: "Enterprise AWS cloud architectures, CI/CD automation pipelines, and scalable serverless systems.",
+  },
+  {
+    platform: "Fiverr",
+    role: "Cloud Infrastructure & SaaS Specialist",
+    badge: "Verified Pro Seller",
+    url: "https://www.fiverr.com/s/2pQK2lN",
+    color: "#1dbf73",
+    description: "Docker, Kubernetes, Terraform provisioning, and high-performance production cloud deployment.",
+  },
+  {
+    platform: "Dev.to",
+    role: "Technical Author & Cloud Expert",
+    badge: "Verified Contributor",
+    url: "https://dev.to/ridhampokiya2110",
+    color: "#0a0a0a",
+    description: "In-depth engineering articles, DevOps guides, and cloud architecture deep-dives.",
+  },
 ];
 
 export const skills = [

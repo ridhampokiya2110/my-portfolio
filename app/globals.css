@@ -655,10 +655,10 @@ body {
 }
 
 @media (max-width: 768px) {
-  .cinema-gallery-container {
-    flex-direction: column !important;
-    height: auto !important;
-    min-height: auto !important;
+  /* Eliminate over 1,200px of excessive vertical dead space across mobile viewports */
+  section {
+    padding-top: clamp(44px, 6vw, 60px) !important;
+    padding-bottom: clamp(44px, 6vw, 60px) !important;
   }
   .collapsed-title {
     display: none !important;

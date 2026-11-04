@@ -350,6 +350,37 @@ export default function ExecutiveGallery() {
             );
           })}
         </div>
+
+        {/* Mobile Swipe Pagination Indicator */}
+        <div
+          className="mobile-gallery-indicators"
+          style={{
+            display: "none",
+            justifyContent: "center",
+            alignItems: "center",
+            gap: "8px",
+            marginTop: "16px",
+          }}
+        >
+          {expertPhotos.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setActiveIdx(i)}
+              aria-label={`View portrait slide ${i + 1}`}
+              style={{
+                width: activeIdx === i ? "24px" : "8px",
+                height: "8px",
+                borderRadius: "4px",
+                background:
+                  activeIdx === i ? "var(--accent, #2438FF)" : "var(--border-strong, #A89F8D)",
+                border: "none",
+                padding: 0,
+                cursor: "pointer",
+                transition: "all 0.3s ease",
+              }}
+            />
+          ))}
+        </div>
       </div>
 
       {/* Fullscreen High-Resolution Lightbox Modal */}
@@ -590,16 +621,34 @@ export default function ExecutiveGallery() {
         }
         @media (max-width: 899px) {
           .cinema-gallery-container {
-            flex-direction: column !important;
+            display: flex !important;
+            flex-direction: row !important;
+            overflow-x: auto !important;
+            scroll-snap-type: x mandatory !important;
+            -webkit-overflow-scrolling: touch !important;
+            gap: 14px !important;
+            padding: 4px 4px 18px 4px !important;
+            scrollbar-width: none !important;
             min-height: auto !important;
+            scroll-padding: 0 16px !important;
+          }
+          .cinema-gallery-container::-webkit-scrollbar {
+            display: none !important;
           }
           .cinema-card {
-            flex: 1 1 480px !important;
-            min-height: 480px !important;
+            flex: 0 0 84vw !important;
+            max-width: 340px !important;
+            height: 440px !important;
+            min-height: 440px !important;
+            scroll-snap-align: center !important;
+            border-radius: 6px !important;
           }
           .card-expanded-info {
             max-height: none !important;
             opacity: 1 !important;
+          }
+          .mobile-gallery-indicators {
+            display: flex !important;
           }
         }
       `}</style>

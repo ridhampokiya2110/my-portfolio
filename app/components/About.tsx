@@ -99,7 +99,7 @@ export default function About() {
                   viewport={{ once: false, amount: 0.2 }}
                   transition={maskTransition}
                 >
-                  The person{" "}
+                  The man{" "}
                   <span
                     style={{
                       fontStyle: "italic",
@@ -109,9 +109,9 @@ export default function About() {
                   >
                     behind
                   </span>{" "}
-                  it.
+                  the scenes.
                   {/* Accessible screen reader title for semantic hierarchy and test compatibility */}
-                  <span className="sr-only"> Who I Am</span>
+                  <span className="sr-only">The person behind it. Who I Am</span>
                 </motion.div>
               </div>
             </h2>
@@ -162,6 +162,7 @@ export default function About() {
             >
               {/* Framed Portrait Container */}
               <div
+                className="about-portrait-frame"
                 style={{
                   position: "relative",
                   width: "100%",
@@ -484,7 +485,15 @@ export default function About() {
         }
         @media (max-width: 1023px) {
           .about-portrait-col {
-            margin-bottom: clamp(32px, 6vw, 48px);
+            margin-bottom: clamp(24px, 4vw, 36px) !important;
+            position: relative !important;
+            top: auto !important;
+          }
+          .about-portrait-frame {
+            max-width: 330px !important;
+            margin: 0 auto !important;
+            aspect-ratio: 4 / 5 !important;
+            min-height: auto !important;
           }
         }
       `}</style>

@@ -147,6 +147,28 @@ export default function Hero() {
                 </h1>
               </div>
 
+              {/* Mobile-Only Full Founder Portrait: Full posture, 100% visible, no clipping */}
+              <div className="hero-mobile-portrait-wrapper">
+                <div className="hero-mobile-portrait-frame">
+                  <Image
+                    src="/images/1.jpeg"
+                    alt="Ridham Pokiya — Founder of Tesconix Technologies"
+                    width={540}
+                    height={675}
+                    priority
+                    unoptimized
+                    style={{
+                      width: "100%",
+                      height: "auto",
+                      aspectRatio: "4 / 5",
+                      objectFit: "cover",
+                      objectPosition: "center top",
+                      display: "block",
+                    }}
+                  />
+                </div>
+              </div>
+
               {/* High-Legibility Subline in Geist */}
               <motion.p
                 initial={{ opacity: 0, y: 16 }}
@@ -608,33 +630,47 @@ export default function Hero() {
           will-change: transform;
         }
 
+        .hero-mobile-portrait-wrapper {
+          display: none;
+        }
+
         /* Responsive Mobile Layout */
         @media (max-width: 991px) {
+          .hero-mobile-portrait-wrapper {
+            display: block;
+            margin: 18px auto 26px auto;
+            width: 100%;
+            max-width: 330px;
+          }
+
+          .hero-mobile-portrait-frame {
+            position: relative;
+            width: 100%;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid var(--border-hairline, #DAD6CC);
+            box-shadow: 0 16px 36px rgba(15, 15, 14, 0.12);
+            background: #0F0F0E;
+          }
+
+          .hero-right-col {
+            display: none !important;
+          }
+
           .hero-split-wrapper {
             min-height: auto;
             flex-direction: column;
           }
 
           .hero-split-grid {
-            display: flex;
-            flex-direction: column;
+            display: block;
             min-height: auto;
-          }
-
-          .hero-right-col {
-            position: relative;
-            order: -1;
-            width: 100%;
-            height: clamp(380px, 58vh, 520px);
-            min-height: auto;
-            right: auto;
-            top: auto;
-            bottom: auto;
           }
 
           .hero-left-col {
-            padding: 24px clamp(20px, 4vw, 36px) 36px clamp(20px, 4vw, 36px);
+            padding: 24px clamp(16px, 4vw, 28px) 32px clamp(16px, 4vw, 28px);
             max-width: 100%;
+            display: block;
           }
 
           .hero-blend-left {
@@ -642,19 +678,7 @@ export default function Hero() {
           }
 
           .hero-blend-bottom {
-            background: linear-gradient(
-              180deg,
-              transparent 35%,
-              var(--canvas, #F4F1EA) 100%
-            );
-          }
-
-          [data-theme="dark"] .hero-blend-bottom {
-            background: linear-gradient(
-              180deg,
-              transparent 35%,
-              #0A0A09 100%
-            );
+            display: none;
           }
         }
 

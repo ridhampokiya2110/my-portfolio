@@ -69,6 +69,7 @@ describe("Mobile QA Testing Suite (Black, Grey, White Box)", () => {
       expect(screen.getByRole("heading", { level: 1 })).toBeInTheDocument();
       expect(container.querySelector(".hero-right-col")).toBeInTheDocument();
       expect(container.querySelector(".hero-left-col")).toBeInTheDocument();
+      expect(container.querySelector(".hero-mobile-portrait-wrapper")).toBeInTheDocument();
       expect(container.querySelector("img[src*='1.jpeg']")).toBeInTheDocument();
       expect(screen.getByRole("link", { name: /book an architecture call/i })).toBeInTheDocument();
       expect(screen.getByRole("link", { name: /selected case studies/i })).toBeInTheDocument();
@@ -117,8 +118,10 @@ describe("Mobile QA Testing Suite (Black, Grey, White Box)", () => {
     it("renders About section with grayscale portrait plate and bio", () => {
       const { container } = render(<About />);
       expect(container.querySelector("img[src*='profile.jpeg']")).toBeInTheDocument();
+      expect(screen.getByText(/the man/i)).toBeInTheDocument();
+      expect(screen.getByText(/the scenes/i)).toBeInTheDocument();
       expect(screen.getByText(/the person/i)).toBeInTheDocument();
-      expect(screen.getByText(/behind/i)).toBeInTheDocument();
+      expect(screen.getAllByText(/behind/i).length).toBeGreaterThan(0);
       expect(screen.getByText(/cloud & devops specialist · founder/i)).toBeInTheDocument();
     });
 

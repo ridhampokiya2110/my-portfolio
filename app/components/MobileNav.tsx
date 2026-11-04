@@ -100,63 +100,7 @@ export default function MobileNav() {
 
       <style>{`
         .mobile-bottom-nav {
-          display: none;
-        }
-        @media (max-width: 767px) {
-          .mobile-bottom-nav {
-            display: flex;
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 9999;
-            background: linear-gradient(135deg, rgba(8, 6, 20, 0.97), rgba(12, 10, 28, 0.99));
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 100px;
-            padding: 6px;
-            gap: 2px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.8), inset 0 1px 0 rgba(255,255,255,0.05);
-            will-change: transform;
-            max-width: calc(100vw - 24px);
-            overflow-x: auto;
-            scrollbar-width: none;
-          }
-          .mobile-bottom-nav::-webkit-scrollbar { display: none; }
-          .nav-item {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-            height: 40px;
-            min-width: 40px;
-            padding: 0 10px;
-            border-radius: 100px;
-            color: var(--t2);
-            text-decoration: none;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            flex-shrink: 0;
-          }
-          .nav-item:active {
-            transform: scale(0.9);
-          }
-          .nav-item.active {
-            background: rgba(0, 229, 255, 0.1);
-            color: var(--cyan);
-            box-shadow: inset 0 0 12px rgba(0,229,255,0.1);
-          }
-          .nav-label {
-            font-family: var(--font-code);
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            animation: nav-reveal 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-            white-space: nowrap;
-          }
-          @keyframes nav-reveal {
-            from { width: 0; opacity: 0; transform: translateX(-10px); }
-            to { width: auto; opacity: 1; transform: none; }
-          }
+          display: none !important;
         }
       `}</style>
     </>

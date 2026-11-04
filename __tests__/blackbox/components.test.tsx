@@ -157,10 +157,10 @@ describe("Navbar — black box rendering", () => {
     expect(aboutLink).toBeInTheDocument();
   });
 
-  it("contains a link to Projects section", () => {
+  it("contains a link to Work / Projects section", () => {
     render(<Navbar />);
-    const projectsLink = screen.getByText(/projects/i);
-    expect(projectsLink).toBeInTheDocument();
+    const workLink = screen.getByText(/work|projects/i);
+    expect(workLink).toBeInTheDocument();
   });
 
   it("contains a link to Contact section", () => {
@@ -195,9 +195,9 @@ describe("About — black box rendering", () => {
     expect(screen.getByText(/projects/i)).toBeInTheDocument();
   });
 
-  it("renders 4 expert leadership photos with RP round icons", () => {
+  it("renders 4 expert leadership photos in cinema gallery", () => {
     const { container } = render(<About />);
-    const images = container.querySelectorAll(".expert-gallery-grid img");
+    const images = container.querySelectorAll(".cinema-gallery-container img");
     expect(images.length).toBe(4);
   });
 });

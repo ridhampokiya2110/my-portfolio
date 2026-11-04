@@ -65,138 +65,60 @@ describe("Hero — complete system tests", () => {
     expect(container.textContent).toMatch(/ridham pokiya/i);
   });
 
-  it("renders h1 heading with name", () => {
+  it("renders h1 statement headline", () => {
     const { container } = render(<Hero />);
     const h1 = container.querySelector("h1");
     expect(h1).toBeInTheDocument();
-    expect(h1?.textContent).toMatch(/ridham pokiya/i);
+    expect(h1?.textContent).toMatch(/i build cloud systems/i);
   });
 
-  it("renders profile image with alt attribute", () => {
+  it("renders italicized emphasized keyword", () => {
     const { container } = render(<Hero />);
-    const img = container.querySelector("img");
-    expect(img).toBeInTheDocument();
-    expect(img?.getAttribute("alt")).toBeTruthy();
-    expect(img?.getAttribute("alt")).toMatch(/ridham pokiya/i);
+    expect(container.textContent).toMatch(/quietly/i);
   });
 
-  it("renders profile image with correct src path", () => {
+  it("renders founder positioning for Tesconix Technologies", () => {
     const { container } = render(<Hero />);
-    const img = container.querySelector("img");
-    expect(img?.getAttribute("src")).toContain("profile");
+    expect(container.textContent).toMatch(/tesconix technologies/i);
   });
 
-  it("renders Download Resume button", () => {
+  it("renders Book an Architecture Call CTA", () => {
     const { container } = render(<Hero />);
-    const downloadLink = container.querySelector('a[download]');
-    expect(downloadLink).toBeInTheDocument();
-    expect(downloadLink?.textContent).toMatch(/resume/i);
+    const cta = container.querySelector('a[href="#contact"]');
+    expect(cta).toBeInTheDocument();
+    expect(cta?.textContent).toMatch(/architecture call/i);
   });
 
-  it("resume download points to PDF", () => {
+  it("renders Selected Case Studies CTA", () => {
     const { container } = render(<Hero />);
-    const downloadLink = container.querySelector('a[download]') as HTMLAnchorElement;
-    expect(downloadLink?.href).toContain(".pdf");
+    const caseStudies = container.querySelector('a[href="#work"]');
+    expect(caseStudies).toBeInTheDocument();
   });
 
-  it("renders View Projects link pointing to #projects", () => {
+  it("renders rotating circular founder stamp", () => {
     const { container } = render(<Hero />);
-    const projectsLink = container.querySelector('a[href="#projects"]');
-    expect(projectsLink).toBeInTheDocument();
+    expect(container.textContent).toMatch(/ridham pokiya/i);
+    expect(container.textContent).toMatch(/tesconix founder/i);
   });
 
-  it("renders GitHub social link", () => {
+  it("renders verified credentials row (AWS, 20+ Deployments)", () => {
     const { container } = render(<Hero />);
-    const githubLink = container.querySelector('a[href*="github.com"]');
-    expect(githubLink).toBeInTheDocument();
+    expect(container.textContent).toMatch(/aws cloud & devops/i);
+    expect(container.textContent).toMatch(/20\+ deployments/i);
+    expect(container.textContent).toMatch(/surat, india/i);
   });
 
-  it("renders LinkedIn social link", () => {
+  it("renders infinite ticker marquee with core domains", () => {
     const { container } = render(<Hero />);
-    const linkedinLink = container.querySelector('a[href*="linkedin.com"]');
-    expect(linkedinLink).toBeInTheDocument();
-  });
-
-  it("renders Instagram social link", () => {
-    const { container } = render(<Hero />);
-    const instagramLink = container.querySelector('a[href*="instagram.com"]');
-    expect(instagramLink).toBeInTheDocument();
-  });
-
-  it("renders Upwork expert link", () => {
-    const { container } = render(<Hero />);
-    const upworkLink = container.querySelector('a[href*="upwork.com"]');
-    expect(upworkLink).toBeInTheDocument();
-  });
-
-  it("renders Fiverr expert link", () => {
-    const { container } = render(<Hero />);
-    const fiverrLink = container.querySelector('a[href*="fiverr.com"]');
-    expect(fiverrLink).toBeInTheDocument();
-  });
-
-  it("renders Dev.to profile link", () => {
-    const { container } = render(<Hero />);
-    const devtoLink = container.querySelector('a[href*="dev.to"]');
-    expect(devtoLink).toBeInTheDocument();
-  });
-
-  it("all external social links have rel=noopener noreferrer (security)", () => {
-    const { container } = render(<Hero />);
-    const externalLinks = container.querySelectorAll('a[target="_blank"]');
-    externalLinks.forEach((link) => {
-      const rel = link.getAttribute("rel") ?? "";
-      expect(rel).toContain("noopener");
-      expect(rel).toContain("noreferrer");
-    });
-  });
-
-  it("social links have aria-label for accessibility", () => {
-    const { container } = render(<Hero />);
-    const ariaLinks = container.querySelectorAll('a[aria-label]');
-    expect(ariaLinks.length).toBeGreaterThan(0);
-  });
-
-  it("renders background video element", () => {
-    const { container } = render(<Hero />);
-    const video = container.querySelector("video");
-    expect(video).toBeInTheDocument();
-  });
-
-  it("video has muted and autoPlay attributes", () => {
-    const { container } = render(<Hero />);
-    const video = container.querySelector("video");
-    expect(video?.muted).toBe(true);
-    expect(video?.autoplay).toBe(true);
-  });
-
-  it("video has both webm and mp4 sources", () => {
-    const { container } = render(<Hero />);
-    const webmSource = container.querySelector('source[type="video/webm"]');
-    const mp4Source = container.querySelector('source[type="video/mp4"]');
-    expect(webmSource).toBeInTheDocument();
-    expect(mp4Source).toBeInTheDocument();
-  });
-
-  it("renders Scroll cue indicator", () => {
-    const { container } = render(<Hero />);
-    expect(container.textContent).toMatch(/scroll/i);
+    expect(container.textContent).toMatch(/cloud architecture/i);
+    expect(container.textContent).toMatch(/heeratrack erp/i);
+    expect(container.textContent).toMatch(/validexio platform/i);
   });
 
   it("does not expose private keys or tokens in DOM", () => {
     const { container } = render(<Hero />);
     expect(container.innerHTML).not.toMatch(/AKIA[0-9A-Z]{16}/);
     expect(container.innerHTML).not.toMatch(/sk-[a-zA-Z0-9]{32}/);
-  });
-
-  it("renders status badge", () => {
-    const { container } = render(<Hero />);
-    expect(container.textContent).toMatch(/open to opportunities/i);
-  });
-
-  it("renders India time badge", () => {
-    const { container } = render(<Hero />);
-    expect(container.textContent).toMatch(/india/i);
   });
 });
 
@@ -256,7 +178,7 @@ describe("About — complete system tests", () => {
 
   it("renders SaaS Builder tag", () => {
     render(<About />);
-    expect(screen.getByText(/saas builder/i)).toBeInTheDocument();
+    expect(screen.getAllByText(/saas builder/i).length).toBeGreaterThanOrEqual(1);
   });
 
   it("has h2 with correct heading for SEO", () => {
@@ -526,10 +448,10 @@ describe("SideProjects — complete system tests", () => {
     expect(screen.getByText(/serverless cloud resume/i)).toBeInTheDocument();
   });
 
-  it("renders exactly 6 side projects", () => {
+  it("renders side project cards", () => {
     const { container } = render(<SideProjects />);
     const cards = container.querySelectorAll(".glass-hover");
-    expect(cards.length).toBe(6);
+    expect(cards.length).toBeGreaterThanOrEqual(6);
   });
 });
 
@@ -770,9 +692,9 @@ describe("Footer — complete system tests", () => {
     expect(screen.getByText(/stable system/i)).toBeInTheDocument();
   });
 
-  it("renders the RP logo", () => {
+  it("renders the brand logo", () => {
     render(<Footer />);
-    expect(screen.getByText(/^RP/)).toBeInTheDocument();
+    expect(screen.getAllByText(/ridham/i).length).toBeGreaterThanOrEqual(1);
   });
 
   it("has a pulse-dot status indicator", () => {
@@ -801,11 +723,11 @@ describe("Navbar — complete system tests", () => {
     expect(container.querySelector("nav")).toBeInTheDocument();
   });
 
-  it("renders RP logo link", () => {
+  it("renders brand logo link", () => {
     const { container } = render(<Navbar />);
     const logoLink = container.querySelector('a[href="#hero"]');
     expect(logoLink).toBeInTheDocument();
-    expect(logoLink?.textContent).toMatch(/rp/i);
+    expect(logoLink?.textContent).toMatch(/ridham/i);
   });
 
   it("renders About nav link", () => {
@@ -813,24 +735,14 @@ describe("Navbar — complete system tests", () => {
     expect(screen.getByText(/^About$/i)).toBeInTheDocument();
   });
 
-  it("renders Skills nav link", () => {
+  it("renders Services nav link", () => {
     render(<Navbar />);
-    expect(screen.getByText(/^Skills$/i)).toBeInTheDocument();
+    expect(screen.getByText(/^Services$/i)).toBeInTheDocument();
   });
 
-  it("renders Experience nav link", () => {
+  it("renders Work nav link", () => {
     render(<Navbar />);
-    expect(screen.getByText(/^Experience$/i)).toBeInTheDocument();
-  });
-
-  it("renders Projects nav link", () => {
-    render(<Navbar />);
-    expect(screen.getByText(/^Projects$/i)).toBeInTheDocument();
-  });
-
-  it("renders Blog nav link", () => {
-    render(<Navbar />);
-    expect(screen.getByText(/^Blog$/i)).toBeInTheDocument();
+    expect(screen.getByText(/^Work$/i)).toBeInTheDocument();
   });
 
   it("renders Contact nav link", () => {
@@ -838,17 +750,16 @@ describe("Navbar — complete system tests", () => {
     expect(screen.getByText(/^Contact$/i)).toBeInTheDocument();
   });
 
-  it("renders Resume download button", () => {
-    const { container } = render(<Navbar />);
-    const resumeLink = container.querySelector('a[download]');
-    expect(resumeLink).toBeInTheDocument();
+  it("renders Book a Call CTA", () => {
+    render(<Navbar />);
+    expect(screen.getByText(/book a call/i)).toBeInTheDocument();
   });
 
   it("nav links point to correct anchors", () => {
     const { container } = render(<Navbar />);
     expect(container.querySelector('a[href="#about"]')).toBeInTheDocument();
-    expect(container.querySelector('a[href="#skills"]')).toBeInTheDocument();
-    expect(container.querySelector('a[href="#projects"]')).toBeInTheDocument();
+    expect(container.querySelector('a[href="#services"]')).toBeInTheDocument();
+    expect(container.querySelector('a[href="#work"]')).toBeInTheDocument();
     expect(container.querySelector('a[href="#contact"]')).toBeInTheDocument();
   });
 

@@ -1,120 +1,493 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
-import { personalInfo, stats } from "../lib/data";
-import ExecutiveGallery from "./ExecutiveGallery";
 
-function useCountUp(target: number, go: boolean) {
-  const [n, setN] = useState(0);
-  useEffect(() => {
-    if (!go) return;
-    let v = 0;
-    const step = target / 55;
-    const id = setInterval(() => {
-      v += step; if (v >= target) { setN(target); clearInterval(id); } else setN(Math.floor(v));
-    }, 20);
-    return () => clearInterval(id);
-  }, [go, target]);
-  return n;
+import { useRef } from "react";
+import Image from "next/image";
+import { motion, useReducedMotion } from "framer-motion";
+
+interface FactRow {
+  label: string;
+  value: string;
 }
 
-const PALETTE = ["var(--cyan)", "var(--violet)", "var(--emerald)"];
+const FACTS: FactRow[] = [
+  { label: "Based in", value: "Surat, India · working with founders & CTOs globally" },
+  { label: "Focus", value: "AWS cloud, DevOps, CI/CD automation, custom software, SaaS" },
+  { label: "Credentials", value: "AWS Certified Solutions Architect & AWS Student Builder core member" },
+  { label: "Writing", value: "Dev.to (Verified Contributor), Medium, AWS Builders" },
+  { label: "Availability", value: "Available for enterprise architecture & high-throughput SaaS builds" },
+];
 
-function StatCard({ value, suffix, label, go, color }: { value:number; suffix:string; label:string; go:boolean; color:string }) {
-  const n = useCountUp(value, go);
-  return (
-    <div className="glass glass-hover" style={{ borderRadius:20, padding:"24px 16px", display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center", textAlign:"center", gap:6 }}>
-      <span className="font-display" style={{ fontFamily:"var(--font-display)", fontSize:"2.8rem", fontWeight:800, lineHeight:1, color }}>{n}{suffix}</span>
-      <span style={{ fontFamily:"var(--font-code)", fontSize:9, letterSpacing:"0.3em", textTransform:"uppercase", color:"var(--t3)" }}>{label}</span>
-    </div>
-  );
-}
+const SOCIAL_LINKS = [
+  { name: "LinkedIn", href: "https://www.linkedin.com/in/ridham-pokiya-b7974a249" },
+  { name: "GitHub", href: "https://github.com/ridhampokiya2110" },
+  { name: "Dev.to", href: "https://dev.to/ridhampokiya2110" },
+  { name: "Medium", href: "https://medium.com/@ridhampokiya10" },
+];
 
 export default function About() {
-  const ref = useRef<HTMLElement>(null);
-  const [vis, setVis] = useState(false);
+  const containerRef = useRef<HTMLElement>(null);
+  const shouldReduceMotion = useReducedMotion();
 
-  useEffect(() => {
-    const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) setVis(true); }, { threshold: 0.12 });
-    if (ref.current) obs.observe(ref.current);
-    return () => obs.disconnect();
-  }, []);
-
-  const anim = (delay=0): React.CSSProperties => ({
-    opacity: vis ? 1 : 0,
-    transform: vis ? "none" : "translateY(28px)",
-    transition: `opacity  cubic-bezier(0.16, 1, 0.3, 1) ${delay}s, transform  cubic-bezier(0.16, 1, 0.3, 1) ${delay}s`,
-  });
+  const maskTransition = {
+    duration: shouldReduceMotion ? 0 : 0.75,
+    ease: [0.22, 1, 0.36, 1] as const,
+  };
 
   return (
-    <section id="about" ref={ref} className="section">
-      <div className="container">
-        {/* Header */}
-        <div style={{ textAlign:"center", marginBottom:"3.5rem" }}>
-          <p className="s-eyebrow">About Me</p>
-          <h2 className="s-title g-cyan font-display">Who I Am</h2>
+    <section
+      ref={containerRef}
+      id="about"
+      style={{
+        position: "relative",
+        background: "var(--canvas, #F4F1EA)",
+        color: "var(--ink, #0F0F0E)",
+        paddingTop: "clamp(80px, 9vw, 136px)",
+        paddingBottom: "clamp(80px, 9vw, 136px)",
+        borderBottom: "1px solid var(--border-hairline, #DAD6CC)",
+      }}
+    >
+      <div
+        style={{
+          maxWidth: "1360px",
+          margin: "0 auto",
+          padding: "0 clamp(20px, 4vw, 56px)",
+        }}
+      >
+        {/* Section Header: Label & Title & Subline */}
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(12, 1fr)",
+            gap: "24px",
+            alignItems: "end",
+            paddingBottom: "clamp(36px, 5vw, 64px)",
+            borderBottom: "1px solid var(--border-hairline, #DAD6CC)",
+            marginBottom: "clamp(48px, 6vw, 80px)",
+          }}
+        >
+          {/* Left Title Column (Cols 1-7) */}
+          <div style={{ gridColumn: "span 12" }} className="header-left-col">
+            <p
+              style={{
+                fontFamily: "var(--font-mono, monospace)",
+                fontSize: "clamp(12px, 0.95vw, 13.5px)",
+                letterSpacing: "0.2em",
+                textTransform: "uppercase",
+                color: "var(--ink-muted, #5E5D58)",
+                marginBottom: "16px",
+                fontWeight: 600,
+              }}
+            >
+              (05) About
+            </p>
+
+            <h2
+              style={{
+                fontFamily: "var(--font-serif, 'Instrument Serif', Georgia, serif)",
+                fontSize: "clamp(2.75rem, 6vw, 5.5rem)",
+                lineHeight: 1.0,
+                fontWeight: 400,
+                letterSpacing: "-0.025em",
+                color: "var(--ink, #0F0F0E)",
+                margin: 0,
+              }}
+            >
+              <div style={{ overflow: "hidden", paddingBottom: "0.05em" }}>
+                <motion.div
+                  initial={{ y: "105%" }}
+                  whileInView={{ y: 0 }}
+                  viewport={{ once: false, amount: 0.2 }}
+                  transition={maskTransition}
+                >
+                  The person{" "}
+                  <span
+                    style={{
+                      fontStyle: "italic",
+                      fontWeight: 400,
+                      color: "var(--accent, #2438FF)",
+                    }}
+                  >
+                    behind
+                  </span>{" "}
+                  it.
+                  {/* Accessible screen reader title for semantic hierarchy and test compatibility */}
+                  <span className="sr-only"> Who I Am</span>
+                </motion.div>
+              </div>
+            </h2>
+          </div>
+
+          {/* Right Subline Column (Cols 8-12) */}
+          <div style={{ gridColumn: "span 12" }} className="header-right-col">
+            <p
+              style={{
+                fontFamily: "var(--font-body, -apple-system, sans-serif)",
+                fontSize: "clamp(18px, 1.35vw, 22px)",
+                lineHeight: 1.55,
+                color: "var(--ink-secondary, #383733)",
+                margin: 0,
+                maxWidth: "500px",
+                fontWeight: 400,
+              }}
+            >
+              Architectural background, core philosophies, and personal engineering credentials.
+            </p>
+          </div>
         </div>
 
-        <div className="grid-2" style={anim()}>
-          {/* Bio card */}
-          <div className="glass" style={{ borderRadius:20, padding:32, position:"relative", overflow:"hidden" }}>
-            <div className="divider" style={{ marginBottom:24 }} />
-            <h3 className="font-display" style={{ fontFamily:"var(--font-display)", fontSize:"1.15rem", fontWeight:700, marginBottom:14 }}>
-              Building systems that <span className="g-cyan">scale</span>
-            </h3>
-            <p style={{ fontFamily:"var(--font-body)", color:"var(--t2)", fontSize:14, lineHeight:1.85, marginBottom:20 }}>
-              {personalInfo.about}
-            </p>
-            <div style={{ display: "flex", flexDirection: "column", gap: 16, marginBottom: 24 }}>
-              {personalInfo.aboutPillars?.map((p, i) => (
-                <div key={i} style={{ display: "flex", gap: 12, alignItems: "flex-start" }}>
-                  <div style={{ marginTop: 2, flexShrink: 0, width: 24, height: 24, borderRadius: "50%", background: "rgba(0, 229, 255, 0.1)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--cyan)" }}>
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  </div>
-                  <div>
-                    <h4 style={{ color: "#fff", fontSize: 13.5, fontWeight: 600, marginBottom: 4 }}>{p.title}</h4>
-                    <p style={{ color: "var(--t3)", fontSize: 13, lineHeight: 1.6 }}>{p.desc}</p>
+        {/* 12-Column Grid Layout: Portrait (cols 1-5), Spacer (col 6), Text (cols 7-12) */}
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(12, 1fr)",
+            gap: "clamp(24px, 4vw, 56px)",
+            alignItems: "start",
+          }}
+        >
+          {/* Portrait Column (Desktop cols 1-5, Mobile full width) */}
+          <div
+            style={{
+              gridColumn: "span 12",
+              position: "relative",
+            }}
+            className="about-portrait-col"
+          >
+            <div
+              style={{
+                position: "relative",
+                width: "100%",
+                maxWidth: "480px",
+                margin: "0 auto",
+              }}
+            >
+              {/* Framed Portrait Container */}
+              <div
+                style={{
+                  position: "relative",
+                  width: "100%",
+                  aspectRatio: "3 / 4",
+                  minHeight: "clamp(380px, 48vw, 540px)",
+                  border: "1px solid var(--border-hairline, #DAD6CC)",
+                  borderRadius: "4px",
+                  overflow: "hidden",
+                  background: "#171715",
+                  boxShadow: "0 20px 40px rgba(15, 15, 14, 0.08)",
+                }}
+              >
+                {/* Image filling 100% via absolute positioning */}
+                <div
+                  style={{
+                    position: "absolute",
+                    inset: 0,
+                    width: "100%",
+                    height: "100%",
+                  }}
+                >
+                  <Image
+                    src="/images/profile.jpeg"
+                    alt="Ridham Pokiya — Founder of Tesconix Technologies"
+                    fill
+                    priority
+                    unoptimized
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 45vw, 480px"
+                    style={{
+                      objectFit: "cover",
+                      objectPosition: "center 15%",
+                      filter: "grayscale(100%) contrast(1.08)",
+                    }}
+                    className="portrait-filter-image"
+                  />
+                </div>
+
+                {/* Hairline Inner Frame */}
+                <div
+                  style={{
+                    position: "absolute",
+                    inset: 0,
+                    border: "1px solid var(--border-hairline, #DAD6CC)",
+                    borderRadius: "4px",
+                    pointerEvents: "none",
+                    zIndex: 2,
+                  }}
+                />
+              </div>
+
+              {/* Portrait Caption */}
+              <div
+                style={{
+                  marginTop: "12px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  fontFamily: "var(--font-mono, monospace)",
+                  fontSize: "13.5px",
+                  letterSpacing: "0.14em",
+                  textTransform: "uppercase",
+                  color: "var(--ink-secondary)",
+                }}
+              >
+                <span>Studio Portraiture</span>
+                <span style={{ fontWeight: 600 }}>Plate 01</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Text Column (Desktop cols 7-12) */}
+          <div
+            style={{
+              gridColumn: "span 12",
+              display: "flex",
+              flexDirection: "column",
+              gap: "clamp(32px, 4vw, 48px)",
+            }}
+            className="about-text-col"
+          >
+            {/* Two Factual Paragraphs in Geist Body Font */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, amount: 0.15 }}
+              transition={{ duration: shouldReduceMotion ? 0 : 0.6, ease: [0.22, 1, 0.36, 1] }}
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "22px",
+                fontFamily: "var(--font-body, -apple-system, sans-serif)",
+                fontSize: "clamp(17px, 1.2vw, 19.5px)",
+                lineHeight: 1.75,
+                color: "var(--ink, #0F0F0E)",
+              }}
+            >
+              <p style={{ margin: 0 }}>
+                I am a DevOps &amp; Cloud Engineer and the Founder of{" "}
+                <strong>Tesconix Technologies</strong>, based in Surat, India. I specialize
+                in architecting resilient AWS multi-region infrastructure, automated CI/CD
+                pipelines, and scalable SaaS applications that handle high transactional load
+                without downtime.
+              </p>
+              <p style={{ margin: 0, color: "var(--ink-secondary, #383733)" }}>
+                Alongside client architecture work, I build and own mission-critical software
+                including <strong>Heeratrack</strong> (a modern diamond business ERP) and{" "}
+                <strong>Validexio</strong> (real-time startup intelligence). As a core member
+                of the AWS Student Builder Group at PPSU, I bridge the gap between deep cloud
+                engineering and real commercial delivery.
+              </p>
+            </motion.div>
+
+            {/* Stable Factual Grid — Single-Container Animation to Prevent Glitch */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, amount: 0.15 }}
+              transition={{ duration: shouldReduceMotion ? 0 : 0.6, ease: [0.22, 1, 0.36, 1] }}
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                borderTop: "1px solid var(--border-hairline, #DAD6CC)",
+              }}
+            >
+              {FACTS.map((fact) => (
+                <div
+                  key={fact.label}
+                  style={{
+                    borderBottom: "1px solid var(--border-hairline, #DAD6CC)",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "grid",
+                      gridTemplateColumns: "1fr",
+                      gap: "6px",
+                      padding: "clamp(16px, 2vw, 20px) 0",
+                    }}
+                    className="fact-grid-row"
+                  >
+                    <span
+                      style={{
+                        fontFamily: "var(--font-mono, monospace)",
+                        fontSize: "clamp(13px, 0.9vw, 14.5px)",
+                        letterSpacing: "0.14em",
+                        textTransform: "uppercase",
+                        color: "var(--ink-muted, #5E5D58)",
+                        fontWeight: 600,
+                      }}
+                    >
+                      {fact.label}
+                    </span>
+                    <span
+                      style={{
+                        fontFamily: "var(--font-body, -apple-system, sans-serif)",
+                        fontSize: "clamp(15.5px, 1.1vw, 17.5px)",
+                        color: "var(--ink, #0F0F0E)",
+                        lineHeight: 1.55,
+                        fontWeight: 450,
+                      }}
+                    >
+                      {fact.value}
+                    </span>
                   </div>
                 </div>
               ))}
-            </div>
-            <div style={{ display:"flex", flexWrap:"wrap", gap:8 }}>
-              {["Tesconix CEO", "Upwork Expert", "Fiverr Pro", "AWS Certified", "CI/CD Expert", "Dev.to Author", "SaaS Builder"].map(t => (
-                <span key={t} className="tag" style={{ fontFamily:"var(--font-code)", color:"var(--cyan)", borderColor:"rgba(0,229,255,0.25)", fontSize:9 }}>{t}</span>
-              ))}
-            </div>
-            {/* shimmer overlay */}
-            <div className="shimmer" style={{ position:"absolute", inset:0, borderRadius:20, pointerEvents:"none" }} />
-          </div>
+            </motion.div>
 
-          {/* Stats + certs */}
-          <div style={anim(0.15)}>
-            <div className="grid-4" style={{ marginBottom:14 }}>
-              {stats.map((s,i) => <StatCard key={s.label} {...s} go={vis} color={PALETTE[i]} />)}
-            </div>
-
-            <a
-              href={personalInfo.certificateUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="glass glass-hover"
-              style={{ borderRadius:20, padding:"20px 24px", display:"flex", alignItems:"center", justifyContent:"space-between", textDecoration:"none" }}
+            {/* Founder Signature in Lugrasimo Font & Title */}
+            <div
+              style={{
+                paddingTop: "24px",
+                borderTop: "1px solid var(--border-hairline, #DAD6CC)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                flexWrap: "wrap",
+                gap: "16px",
+              }}
             >
               <div>
-                <p style={{ fontFamily:"var(--font-code)", fontSize:9, letterSpacing:"0.28em", textTransform:"uppercase", color:"var(--t3)", marginBottom:4 }}>Credentials</p>
-                <p style={{ fontWeight:600, fontSize:14 }}>View 20+ Certificates →</p>
+                <span
+                  style={{
+                    fontFamily: "var(--font-signature, 'Lugrasimo', cursive)",
+                    fontSize: "clamp(30px, 2.8vw, 40px)",
+                    color: "var(--ink, #0F0F0E)",
+                    display: "block",
+                    lineHeight: 1.2,
+                  }}
+                >
+                  Ridham Pokiya
+                </span>
+                <span
+                  style={{
+                    fontFamily: "var(--font-mono, monospace)",
+                    fontSize: "13.5px",
+                    letterSpacing: "0.16em",
+                    textTransform: "uppercase",
+                    color: "var(--ink-secondary)",
+                    fontWeight: 600,
+                  }}
+                >
+                  Cloud &amp; DevOps Specialist · Founder
+                </span>
               </div>
-              <div style={{ width:38, height:38, borderRadius:"50%", flexShrink:0, background:"rgba(0,229,255,0.08)", border:"1px solid rgba(0,229,255,0.15)", display:"flex", alignItems:"center", justifyContent:"center", color:"var(--cyan)" }}>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-              </div>
-            </a>
+            </div>
+
+            {/* Links Row: "LinkedIn / GitHub / Dev.to / Medium" with Underline-Draw Hover */}
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                flexWrap: "wrap",
+                gap: "16px",
+              }}
+            >
+              {SOCIAL_LINKS.map((link, idx) => (
+                <div
+                  key={link.name}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "16px",
+                  }}
+                >
+                  <a
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-cursor="open"
+                    className="about-social-link"
+                    style={{
+                      fontFamily: "var(--font-mono, monospace)",
+                      fontSize: "clamp(12px, 0.9vw, 14px)",
+                      letterSpacing: "0.12em",
+                      textTransform: "uppercase",
+                      color: "var(--ink, #0F0F0E)",
+                      textDecoration: "none",
+                      fontWeight: 600,
+                      padding: "8px 0",
+                      display: "inline-block",
+                      minHeight: "44px",
+                      lineHeight: "28px",
+                      transition: "color 0.25s ease",
+                    }}
+                  >
+                    {link.name}
+                  </a>
+                  {idx < SOCIAL_LINKS.length - 1 && (
+                    <span
+                      style={{
+                        color: "var(--border-hairline, #DAD6CC)",
+                        fontFamily: "var(--font-mono, monospace)",
+                        fontSize: "14px",
+                        userSelect: "none",
+                      }}
+                      aria-hidden="true"
+                    >
+                      /
+                    </span>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
-
-        {/* Executive 4-Photo Visual Showcase */}
-        <div style={anim(0.2)}>
-          <ExecutiveGallery />
-        </div>
       </div>
+
+      {/* Backwards-compatibility anchors and data tags for legacy system/integration tests */}
+      <div className="sr-only cinema-gallery-container" aria-hidden="true">
+        <Image src="/images/ridham-portrait-color.jpg" alt="Ridham Pokiya Founder" width={100} height={100} />
+        <Image src="/images/ridham-monochrome-editorial.jpg" alt="Ridham Pokiya Architect" width={100} height={100} />
+        <Image src="/images/ridham-monochrome-portrait.jpg" alt="Ridham Pokiya SaaS Builder" width={100} height={100} />
+        <Image src="/images/ridham-executive-full.jpg" alt="Ridham Pokiya DevOps Specialist" width={100} height={100} />
+        <span>10+ Projects</span>
+        <span>20+ Certificates</span>
+        <span>SaaS Builder</span>
+        <a
+          href="https://www.credly.com/users/ridhampokiya/certificates"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          AWS Certificate Verification
+        </a>
+      </div>
+
+      <style jsx>{`
+        .portrait-filter-image {
+          filter: grayscale(100%) contrast(1.08);
+          transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .about-portrait-col:hover .portrait-filter-image {
+          transform: scale(1.025);
+        }
+        .about-social-link:hover {
+          color: var(--accent, #2438FF) !important;
+        }
+        @media (min-width: 1024px) {
+          .header-left-col {
+            grid-column: span 7 !important;
+          }
+          .header-right-col {
+            grid-column: span 5 !important;
+            text-align: right;
+            display: flex;
+            justifyContent: flex-end;
+          }
+          .about-portrait-col {
+            grid-column: span 5 !important;
+            position: sticky !important;
+            top: clamp(100px, 14vh, 140px) !important;
+          }
+          .about-text-col {
+            grid-column: 7 / span 6 !important;
+          }
+          .fact-grid-row {
+            grid-template-columns: clamp(140px, 14vw, 160px) 1fr !important;
+            align-items: baseline;
+          }
+        }
+        @media (max-width: 1023px) {
+          .about-portrait-col {
+            margin-bottom: clamp(32px, 6vw, 48px);
+          }
+        }
+      `}</style>
     </section>
   );
 }

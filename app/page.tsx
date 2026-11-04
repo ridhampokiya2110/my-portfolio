@@ -2,13 +2,16 @@
 
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
+import SelectedWork from "./components/SelectedWork";
+import Services from "./components/Services";
+import Products from "./components/Products";
+import Approach from "./components/Approach";
 import About from "./components/About";
-import Skills from "./components/Skills";
+import ExecutiveGallery from "./components/ExecutiveGallery";
 import Experience from "./components/Experience";
-import Projects from "./components/Projects";
-import SideProjects from "./components/SideProjects";
-import Books from "./components/Books";
+import Skills from "./components/Skills";
 import Blog from "./components/Blog";
+import SideProjects from "./components/SideProjects";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import CustomCursor from "./components/CustomCursor";
@@ -22,29 +25,22 @@ export default function Page() {
       {/* Custom cursor */}
       <CustomCursor />
 
-      {/* Aurora background orbs */}
-      <div className="aurora" aria-hidden>
-        <div className="orb orb-1" />
-        <div className="orb orb-2" />
-        <div className="orb orb-3" />
-      </div>
-
-      {/* Subtle grid overlay */}
-      <div className="bg-grid" aria-hidden />
-
       {/* Nav */}
       <Navbar />
 
       {/* Content */}
       <main>
         <Hero />
+        <ExecutiveGallery />
+        <SelectedWork />
+        <Services />
+        <Products />
+        <Approach />
         <About />
-        <Skills />
-        <Projects />
-        <SideProjects />
         <Experience />
-        <Books />
+        <Skills />
         <Blog />
+        <SideProjects />
         <Contact />
       </main>
 

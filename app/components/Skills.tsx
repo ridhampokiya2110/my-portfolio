@@ -1,65 +1,252 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+
+import { motion, useReducedMotion } from "framer-motion";
 import { skills } from "../lib/data";
 
 export default function Skills() {
-  const ref = useRef<HTMLElement>(null);
-  const [vis, setVis] = useState(false);
+  const shouldReduceMotion = useReducedMotion();
 
-  useEffect(() => {
-    const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) setVis(true); }, { threshold: 0.08 });
-    if (ref.current) obs.observe(ref.current);
-    return () => obs.disconnect();
-  }, []);
+  const maskTransition = {
+    duration: shouldReduceMotion ? 0 : 0.8,
+    ease: [0.22, 1, 0.36, 1] as const,
+  };
 
   return (
-    <section id="skills" ref={ref} className="section">
-      <div className="container">
-        <div style={{ textAlign:"center", marginBottom:"3.5rem" }}>
-          <p className="s-eyebrow">Skills</p>
-          <h2 className="s-title font-display g-violet">Technical Arsenal</h2>
-          <p className="s-sub">Technologies I use daily to build, ship, and scale production systems.</p>
-        </div>
-
-        <div className="grid-2">
-          {skills.map((group, gi) => (
-            <div
-              key={group.category}
-              className="glass"
+    <section
+      id="skills"
+      style={{
+        position: "relative",
+        background: "var(--canvas, #F4F1EA)",
+        color: "var(--ink, #0F0F0E)",
+        paddingTop: "clamp(80px, 9vw, 136px)",
+        paddingBottom: "clamp(80px, 9vw, 136px)",
+        borderBottom: "1px solid var(--border-hairline, #DAD6CC)",
+      }}
+    >
+      <div
+        style={{
+          maxWidth: "1360px",
+          margin: "0 auto",
+          padding: "0 clamp(20px, 4vw, 56px)",
+        }}
+      >
+        {/* Section Header: Label, Title & Subline */}
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(12, 1fr)",
+            gap: "24px",
+            alignItems: "end",
+            paddingBottom: "clamp(36px, 5vw, 64px)",
+            borderBottom: "1px solid var(--border-hairline, #DAD6CC)",
+            marginBottom: "clamp(48px, 6vw, 72px)",
+          }}
+        >
+          {/* Left Title Column (Cols 1-7) */}
+          <div style={{ gridColumn: "span 12" }} className="header-left-col">
+            <p
               style={{
-                borderRadius: 20, padding: 28, position: "relative", overflow: "hidden",
-                opacity: vis ? 1 : 0,
-                transform: vis ? "none" : "translateY(24px)",
-                transition: `opacity  cubic-bezier(0.16, 1, 0.3, 1) ${gi*0.08}s, transform  cubic-bezier(0.16, 1, 0.3, 1) ${gi*0.08}s`,
+                fontFamily: "var(--font-mono, monospace)",
+                fontSize: "clamp(12px, 0.95vw, 13.5px)",
+                letterSpacing: "0.2em",
+                textTransform: "uppercase",
+                color: "var(--ink-muted, #5E5D58)",
+                marginBottom: "16px",
+                fontWeight: 600,
               }}
             >
-              {/* Category */}
-              <div style={{ display:"flex", alignItems:"center", gap:10, marginBottom:22 }}>
-                <div style={{ width:8, height:8, borderRadius:"50%", background:group.color, boxShadow:`0 0 10px ${group.color}`, flexShrink:0 }} />
-                <span style={{ fontFamily:"var(--font-code)", fontSize: 11, fontWeight:700, letterSpacing:"0.28em", textTransform:"uppercase", color:group.color }}>{group.category}</span>
-                <div style={{ flex:1, height:1, background:`${group.color}18` }} />
+              (07) Capabilities / Toolchain Matrix
+            </p>
+
+            <h2
+              style={{
+                fontFamily: "var(--font-serif, 'Instrument Serif', Georgia, serif)",
+                fontSize: "clamp(2.75rem, 6vw, 5.5rem)",
+                lineHeight: 1.02,
+                fontWeight: 400,
+                letterSpacing: "-0.025em",
+                color: "var(--ink, #0F0F0E)",
+                margin: 0,
+              }}
+            >
+              <div style={{ overflow: "hidden", paddingBottom: "0.05em" }}>
+                <motion.div
+                  initial={{ y: "105%" }}
+                  whileInView={{ y: 0 }}
+                  viewport={{ once: false, amount: 0.2 }}
+                  transition={maskTransition}
+                >
+                  Technical Arsenal
+                </motion.div>
+              </div>
+            </h2>
+          </div>
+
+          {/* Right Subline Column (Cols 8-12) */}
+          <div style={{ gridColumn: "span 12" }} className="header-right-col">
+            <p
+              style={{
+                fontFamily: "var(--font-body, -apple-system, sans-serif)",
+                fontSize: "clamp(18px, 1.35vw, 22px)",
+                lineHeight: 1.55,
+                color: "var(--ink-secondary, #383733)",
+                margin: 0,
+                maxWidth: "500px",
+                fontWeight: 400,
+              }}
+            >
+              Technologies and infrastructure tools I use daily to build, ship, and scale production systems.
+            </p>
+          </div>
+        </div>
+
+        {/* 4-Column Clean Editorial Grid */}
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 280px), 1fr))",
+            gap: "clamp(20px, 2.5vw, 32px)",
+          }}
+        >
+          {skills.map((group, gi) => (
+            <motion.div
+              key={group.category}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, amount: 0.15 }}
+              transition={{
+                duration: shouldReduceMotion ? 0 : 0.6,
+                delay: shouldReduceMotion ? 0 : gi * 0.08,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+              style={{
+                border: "1px solid var(--border-hairline, #DAD6CC)",
+                borderRadius: "4px",
+                padding: "clamp(24px, 2.8vw, 32px)",
+                background: "var(--canvas-surface, #EDEAE2)",
+                transition: "border-color 0.3s ease, background 0.3s ease",
+                display: "flex",
+                flexDirection: "column",
+              }}
+              className="glass skill-card"
+            >
+              {/* Category Header */}
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  paddingBottom: "16px",
+                  borderBottom: "1px solid var(--border-hairline, #DAD6CC)",
+                  marginBottom: "20px",
+                }}
+              >
+                <h3
+                  style={{
+                    fontFamily: "var(--font-serif, 'Instrument Serif', Georgia, serif)",
+                    fontSize: "1.85rem",
+                    fontWeight: 400,
+                    color: "var(--ink, #0F0F0E)",
+                    margin: 0,
+                  }}
+                >
+                  {group.category}
+                </h3>
+                <span
+                  style={{
+                    fontFamily: "var(--font-mono, monospace)",
+                    fontSize: "13px",
+                    letterSpacing: "0.14em",
+                    textTransform: "uppercase",
+                    color: "var(--ink-muted, #5E5D58)",
+                    fontWeight: 600,
+                  }}
+                >
+                  0{gi + 1}
+                </span>
               </div>
 
-              {/* Skill rows */}
-              <div style={{ display:"flex", flexDirection:"column", gap:10 }}>
-                {group.items.map(skill => (
-                  <div key={skill.name} className="neo" style={{ borderRadius:12, padding:"11px 16px", display:"flex", alignItems:"center", justifyContent:"space-between", gap:12 }}>
-                    <span style={{ fontFamily:"var(--font-code)", fontSize: 13.5, fontWeight:600, letterSpacing:"0.05em", color:"var(--t1)" }}>{skill.name}</span>
-                    <div style={{ display:"flex", gap:5, flexShrink:0 }}>
-                      {Array.from({length:5}).map((_,i) => (
-                        <div key={i} className={`dot${i<skill.level?" on":""}`} style={i<skill.level?{background:group.color,boxShadow:`0 0 6px ${group.color}`}:{}} />
-                      ))}
+              {/* Skill Items List */}
+              <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+                {group.items.map((skill) => (
+                  <div
+                    key={skill.name}
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                      padding: "8px 12px",
+                      borderRadius: "2px",
+                      background: "var(--canvas-muted)",
+                      border: "1px solid var(--border-hairline, #DAD6CC)",
+                    }}
+                  >
+                    <span
+                      style={{
+                        fontFamily: "var(--font-body, sans-serif)",
+                        fontSize: "14.5px",
+                        fontWeight: 500,
+                        color: "var(--ink, #0F0F0E)",
+                      }}
+                    >
+                      {skill.name}
+                    </span>
+                    <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                      <div className="skill-dots-track" style={{ display: "flex", gap: "4px" }}>
+                        {Array.from({ length: 5 }).map((_, di) => (
+                          <div
+                            key={di}
+                            className={`dot ${di < skill.level ? "on" : ""}`}
+                            style={{
+                              width: "6px",
+                              height: "6px",
+                              borderRadius: "50%",
+                              background:
+                                di < skill.level
+                                   ? "var(--accent, #2438FF)"
+                                   : "var(--border-hairline, #DAD6CC)",
+                            }}
+                          />
+                        ))}
+                      </div>
+                      <span
+                        style={{
+                          fontFamily: "var(--font-mono, monospace)",
+                          fontSize: "12.5px",
+                          letterSpacing: "0.06em",
+                          textTransform: "uppercase",
+                          color: "var(--ink-secondary)",
+                          fontWeight: 600,
+                        }}
+                      >
+                        Lv.{skill.level}
+                      </span>
                     </div>
                   </div>
                 ))}
               </div>
-
-              {/* Corner glow */}
-              <div style={{ position:"absolute", top:0, right:0, width:100, height:100, background:`radial-gradient(circle, ${group.color}0a, transparent 70%)`, transform:"translate(30%,-30%)", pointerEvents:"none" }} />
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
+
+      <style jsx>{`
+        .skill-card:hover {
+          border-color: var(--accent, #2438FF) !important;
+          background: var(--canvas-muted) !important;
+        }
+        @media (min-width: 900px) {
+          .header-left-col {
+            grid-column: span 7 !important;
+          }
+          .header-right-col {
+            grid-column: span 5 !important;
+            text-align: right;
+            display: flex;
+            justifyContent: flex-end;
+          }
+        }
+      `}</style>
     </section>
   );
 }

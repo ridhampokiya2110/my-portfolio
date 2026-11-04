@@ -1,27 +1,30 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import Image from "next/image";
+import { motion, useReducedMotion } from "framer-motion";
 import { expertPhotos } from "../lib/data";
 
 export default function ExecutiveGallery() {
-  const [activeIdx, setActiveIdx] = useState<number | null>(null);
-  const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
+  const [activeIdx, setActiveIdx] = useState<number>(0);
+  const [fullscreenIdx, setFullscreenIdx] = useState<number | null>(null);
+  const shouldReduceMotion = useReducedMotion();
 
-  // Close lightbox on Escape key & handle arrow navigation
+  // Keyboard navigation for fullscreen lightbox
   const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {
-      if (activeIdx === null) return;
-      if (e.key === "Escape") setActiveIdx(null);
+      if (fullscreenIdx === null) return;
+      if (e.key === "Escape") setFullscreenIdx(null);
       if (e.key === "ArrowRight") {
-        setActiveIdx((prev) => ((prev ?? 0) + 1) % expertPhotos.length);
+        setFullscreenIdx((prev) => ((prev ?? 0) + 1) % expertPhotos.length);
       }
       if (e.key === "ArrowLeft") {
-        setActiveIdx((prev) =>
+        setFullscreenIdx((prev) =>
           (prev ?? 0) === 0 ? expertPhotos.length - 1 : (prev ?? 0) - 1
         );
       }
     },
-    [activeIdx]
+    [fullscreenIdx]
   );
 
   useEffect(() => {
@@ -29,397 +32,435 @@ export default function ExecutiveGallery() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [handleKeyDown]);
 
+  const maskTransition = {
+    duration: shouldReduceMotion ? 0 : 0.8,
+    ease: [0.22, 1, 0.36, 1] as const,
+  };
+
   return (
-    <div style={{ marginTop: "4.5rem", position: "relative" }}>
-      {/* Section Header */}
-      <div style={{ textAlign: "center", marginBottom: "2.5rem" }}>
-        <div
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: 8,
-            padding: "5px 16px",
-            borderRadius: 100,
-            background: "rgba(0, 229, 255, 0.06)",
-            border: "1px solid rgba(0, 229, 255, 0.2)",
-            marginBottom: 14,
-          }}
-        >
-          <span
-            className="pulse-dot"
-            style={{
-              width: 7,
-              height: 7,
-              borderRadius: "50%",
-              background: "var(--cyan)",
-              boxShadow: "0 0 8px var(--cyan)",
-            }}
-          />
-          <span
-            style={{
-              fontFamily: "var(--font-code)",
-              fontSize: 10,
-              letterSpacing: "0.24em",
-              textTransform: "uppercase",
-              color: "var(--cyan)",
-              fontWeight: 700,
-            }}
-          >
-            Visual Portfolio • Executive Leadership
-          </span>
-        </div>
-
-        <h3
-          className="font-display"
-          style={{
-            fontSize: "clamp(1.75rem, 4.5vw, 2.5rem)",
-            fontWeight: 800,
-            letterSpacing: "-0.02em",
-            lineHeight: 1.15,
-            marginBottom: 10,
-          }}
-        >
-          The Engineer Behind The <span className="g-cyan">Systems</span>
-        </h3>
-        <p
-          style={{
-            color: "var(--t3)",
-            fontSize: 14,
-            maxWidth: "58ch",
-            margin: "0 auto",
-            lineHeight: 1.7,
-          }}
-        >
-          A visual perspective on executive leadership, high-performance cloud architecture, and mission-critical SaaS delivery.
-        </p>
-      </div>
-
-      {/* 4-Image Aesthetic Gallery Grid */}
+    <section
+      id="presence"
+      style={{
+        position: "relative",
+        background: "var(--canvas, #F4F1EA)",
+        color: "var(--ink, #0F0F0E)",
+        paddingTop: "clamp(80px, 9vw, 136px)",
+        paddingBottom: "clamp(80px, 9vw, 136px)",
+        borderBottom: "1px solid var(--border-hairline, #DAD6CC)",
+      }}
+    >
       <div
-        className="expert-gallery-grid"
         style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(230px, 1fr))",
-          gap: 20,
+          maxWidth: "1440px",
+          margin: "0 auto",
+          padding: "0 clamp(20px, 4vw, 56px)",
         }}
       >
-        {expertPhotos.map((photo, index) => {
-          const isHovered = hoveredIdx === index;
-          return (
-            <div
-              key={photo.id}
-              onClick={() => setActiveIdx(index)}
-              onMouseEnter={() => setHoveredIdx(index)}
-              onMouseLeave={() => setHoveredIdx(null)}
+        {/* Section Header: Label, Title & Subline */}
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(12, 1fr)",
+            gap: "24px",
+            alignItems: "end",
+            paddingBottom: "clamp(36px, 5vw, 64px)",
+            borderBottom: "1px solid var(--border-hairline, #DAD6CC)",
+            marginBottom: "clamp(48px, 6vw, 72px)",
+          }}
+        >
+          {/* Left Title Column (Cols 1-7) */}
+          <div style={{ gridColumn: "span 12" }} className="header-left-col">
+            <p
               style={{
-                position: "relative",
-                borderRadius: 24,
-                overflow: "hidden",
-                aspectRatio: "3 / 4",
-                cursor: "pointer",
-                border: isHovered
-                  ? `1px solid ${photo.accent}`
-                  : "1px solid rgba(255, 255, 255, 0.08)",
-                boxShadow: isHovered
-                  ? `0 24px 50px rgba(0, 0, 0, 0.7), 0 0 35px ${photo.accent}35`
-                  : "0 10px 30px rgba(0, 0, 0, 0.45)",
-                transform: isHovered ? "translateY(-8px) scale(1.015)" : "none",
-                transition: "all 0.5s cubic-bezier(0.16, 1, 0.3, 1)",
-                background: "var(--bg-1)",
+                fontFamily: "var(--font-mono, monospace)",
+                fontSize: "clamp(11.5px, 0.9vw, 13px)",
+                letterSpacing: "0.22em",
+                textTransform: "uppercase",
+                color: "var(--ink-secondary, #403F3C)",
+                marginBottom: "16px",
+                fontWeight: 500,
               }}
-              className="gallery-card-sheen"
             >
-              {/* Image */}
-              <img
-                src={photo.src}
-                alt={`${photo.title} - Ridham Pokiya`}
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "cover",
-                  objectPosition: "top center",
-                  transform: isHovered ? "scale(1.08)" : "scale(1)",
-                  transition: "transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)",
-                }}
-              />
+              (06) Studio portraiture / Leadership
+            </p>
 
-              {/* Side RP Round Icon Badge */}
-              <div
-                style={{
-                  position: "absolute",
-                  top: 14,
-                  right: 14,
-                  width: 40,
-                  height: 40,
-                  borderRadius: "50%",
-                  background: "rgba(5, 3, 18, 0.82)",
-                  backdropFilter: "blur(12px)",
-                  WebkitBackdropFilter: "blur(12px)",
-                  border: isHovered
-                    ? `1.5px solid ${photo.accent}`
-                    : "1px solid rgba(0, 229, 255, 0.4)",
-                  boxShadow: isHovered
-                    ? `0 0 18px ${photo.accent}70, inset 0 0 10px ${photo.accent}30`
-                    : "0 4px 14px rgba(0, 0, 0, 0.6), inset 0 0 8px rgba(0, 229, 255, 0.15)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  zIndex: 3,
-                  transform: isHovered ? "scale(1.1) rotate(6deg)" : "scale(1)",
-                  transition: "all 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
-                }}
-                title="Ridham Pokiya • Verified Expert"
-              >
-                <span
-                  style={{
-                    fontFamily: "var(--font-code)",
-                    fontSize: 11,
-                    fontWeight: 800,
-                    color: isHovered ? photo.accent : "var(--cyan)",
-                    letterSpacing: "0.08em",
-                    lineHeight: 1,
-                  }}
+            <h2
+              style={{
+                fontFamily: "var(--font-serif, 'Instrument Serif', Georgia, serif)",
+                fontSize: "clamp(2.5rem, 6vw, 5.25rem)",
+                lineHeight: 0.98,
+                fontWeight: 400,
+                letterSpacing: "-0.025em",
+                color: "var(--ink, #0F0F0E)",
+                margin: 0,
+              }}
+            >
+              <div style={{ overflow: "hidden", paddingBottom: "0.05em" }}>
+                <motion.div
+                  initial={{ y: "105%" }}
+                  whileInView={{ y: 0 }}
+                  viewport={{ once: false, amount: 0.2 }}
+                  transition={maskTransition}
                 >
-                  RP<span style={{ color: "var(--emerald)" }}>.</span>
-                </span>
-              </div>
-
-              {/* Tag / Category Badge */}
-              <div
-                style={{
-                  position: "absolute",
-                  top: 14,
-                  left: 14,
-                  zIndex: 3,
-                }}
-              >
-                <span
-                  style={{
-                    fontFamily: "var(--font-code)",
-                    fontSize: 9,
-                    letterSpacing: "0.2em",
-                    textTransform: "uppercase",
-                    padding: "4px 10px",
-                    borderRadius: 100,
-                    background: "rgba(5, 3, 18, 0.75)",
-                    backdropFilter: "blur(10px)",
-                    border: "1px solid rgba(255, 255, 255, 0.12)",
-                    color: "var(--t2)",
-                    fontWeight: 700,
-                  }}
-                >
-                  {photo.tag}
-                </span>
-              </div>
-
-              {/* Bottom Gradient Scrim & Info */}
-              <div
-                style={{
-                  position: "absolute",
-                  inset: "auto 0 0 0",
-                  padding: "40px 18px 18px",
-                  background:
-                    "linear-gradient(180deg, transparent 0%, rgba(3, 1, 14, 0.7) 35%, rgba(3, 1, 14, 0.96) 100%)",
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: 4,
-                  zIndex: 2,
-                  transition: "transform 0.4s ease",
-                }}
-              >
-                <p
-                  style={{
-                    fontFamily: "var(--font-display)",
-                    fontSize: 16,
-                    fontWeight: 700,
-                    color: "#ffffff",
-                    letterSpacing: "-0.01em",
-                    margin: 0,
-                  }}
-                >
-                  {photo.title}
-                </p>
-                <p
-                  style={{
-                    fontFamily: "var(--font-code)",
-                    fontSize: 11,
-                    color: photo.accent,
-                    letterSpacing: "0.05em",
-                    fontWeight: 600,
-                    margin: 0,
-                  }}
-                >
-                  {photo.org}
-                </p>
-
-                {/* Hover reveal hint */}
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: 6,
-                    marginTop: 6,
-                    opacity: isHovered ? 1 : 0.65,
-                    transform: isHovered ? "translateX(2px)" : "none",
-                    transition: "all 0.3s ease",
-                  }}
-                >
+                  The engineer behind the{" "}
                   <span
                     style={{
-                      fontFamily: "var(--font-code)",
-                      fontSize: 9,
-                      letterSpacing: "0.18em",
-                      textTransform: "uppercase",
-                      color: "var(--t3)",
+                      fontStyle: "italic",
+                      fontWeight: 400,
+                      color: "var(--accent, #2438FF)",
                     }}
                   >
-                    View HD Portrait ↗
+                    systems
                   </span>
+                  .
+                  <span className="sr-only">Executive Leadership</span>
+                </motion.div>
+              </div>
+            </h2>
+          </div>
+
+          {/* Right Subline Column (Cols 8-12) */}
+          <div style={{ gridColumn: "span 12" }} className="header-right-col">
+            <p
+              style={{
+                fontFamily: "var(--font-body, -apple-system, sans-serif)",
+                fontSize: "clamp(18px, 1.35vw, 22px)",
+                lineHeight: 1.55,
+                color: "var(--ink-secondary, #383733)",
+                margin: 0,
+                maxWidth: "520px",
+                fontWeight: 400,
+              }}
+            >
+              A visual perspective on founder leadership, high-performance cloud architecture, and engineering execution.
+            </p>
+          </div>
+        </div>
+
+        {/* Big-Screen Interactive Cinema Canvas */}
+        <div
+          className="cinema-gallery-container"
+          style={{
+            display: "flex",
+            gap: "20px",
+            width: "100%",
+            minHeight: "clamp(640px, 80vh, 880px)",
+            position: "relative",
+          }}
+        >
+          {expertPhotos.map((photo, index) => {
+            const isActive = activeIdx === index;
+            return (
+              <div
+                key={photo.id}
+                onClick={() => {
+                  if (isActive) {
+                    setFullscreenIdx(index);
+                  } else {
+                    setActiveIdx(index);
+                  }
+                }}
+                onMouseEnter={() => setActiveIdx(index)}
+                style={{
+                  position: "relative",
+                  flex: isActive ? 2.1 : 1.2,
+                  borderRadius: "6px",
+                  overflow: "hidden",
+                  cursor: "pointer",
+                  transition: "flex 0.7s cubic-bezier(0.22, 1, 0.36, 1)",
+                  background: "#0F0F0E",
+                  border: "1px solid var(--border-hairline, #DAD6CC)",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "space-between",
+                }}
+                className="cinema-card"
+                data-cursor="expand"
+              >
+                {/* Background Portrait Image */}
+                <div
+                  style={{
+                    position: "absolute",
+                    inset: 0,
+                    width: "100%",
+                    height: "100%",
+                    overflow: "hidden",
+                  }}
+                >
+                  <img
+                    src={photo.src}
+                    alt={`${photo.title} — Ridham Pokiya`}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      objectPosition: "top center",
+                      transform: isActive ? "scale(1.025)" : "scale(1)",
+                      filter: isActive
+                        ? "contrast(1.03) brightness(0.92)"
+                        : "contrast(1.0) brightness(0.7) grayscale(20%)",
+                      transition:
+                        "transform 0.8s cubic-bezier(0.22, 1, 0.36, 1), filter 0.6s ease",
+                      display: "block",
+                    }}
+                  />
+                  {/* Subtle dark gradient overlay for text legibility */}
+                  <div
+                    style={{
+                      position: "absolute",
+                      inset: 0,
+                      background:
+                        "linear-gradient(180deg, rgba(15,15,14,0.3) 0%, rgba(15,15,14,0.05) 40%, rgba(15,15,14,0.85) 100%)",
+                      pointerEvents: "none",
+                    }}
+                  />
+                </div>
+
+                {/* Top Meta Bar */}
+                <div
+                  style={{
+                    position: "relative",
+                    zIndex: 2,
+                    padding: "20px 24px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                  }}
+                >
+                  <div
+                    style={{
+                      fontFamily: "var(--font-mono, monospace)",
+                      fontSize: "13.5px",
+                      letterSpacing: "0.22em",
+                      textTransform: "uppercase",
+                      color: "#F4F1EA",
+                      fontWeight: 600,
+                      background: "rgba(15, 15, 14, 0.6)",
+                      backdropFilter: "blur(8px)",
+                      padding: "4px 10px",
+                      borderRadius: "2px",
+                      border: "1px solid rgba(255, 255, 255, 0.15)",
+                    }}
+                  >
+                    0{index + 1}
+                  </div>
+
+                  <div
+                    style={{
+                      fontFamily: "var(--font-mono, monospace)",
+                      fontSize: "12.5px",
+                      letterSpacing: "0.18em",
+                      textTransform: "uppercase",
+                      color: "#C7C4BC",
+                      background: "rgba(15, 15, 14, 0.6)",
+                      backdropFilter: "blur(8px)",
+                      padding: "4px 10px",
+                      borderRadius: "2px",
+                      border: "1px solid rgba(255, 255, 255, 0.12)",
+                    }}
+                  >
+                    {photo.tag}
+                  </div>
+                </div>
+
+                {/* Bottom Content Tray */}
+                <div
+                  style={{
+                    position: "relative",
+                    zIndex: 2,
+                    padding: "clamp(20px, 3vw, 32px)",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "flex-end",
+                  }}
+                >
+                  {/* Domain Tag */}
+                  <p
+                    style={{
+                      fontFamily: "var(--font-mono, monospace)",
+                      fontSize: "12.5px",
+                      letterSpacing: "0.2em",
+                      textTransform: "uppercase",
+                      color: "var(--accent, #2438FF)",
+                      margin: "0 0 6px 0",
+                      fontWeight: 600,
+                    }}
+                  >
+                    {photo.org}
+                  </p>
+
+                  {/* Title */}
+                  <h3
+                    style={{
+                      fontFamily: "var(--font-serif, 'Instrument Serif', Georgia, serif)",
+                      fontSize: "clamp(1.75rem, 2.5vw, 2.65rem)",
+                      lineHeight: 1.05,
+                      fontWeight: 400,
+                      letterSpacing: "-0.015em",
+                      color: "#F4F1EA",
+                      margin: "0 0 12px 0",
+                    }}
+                  >
+                    {photo.title}
+                  </h3>
+
+                  {/* Expanded description (visible when card is active or hovered) */}
+                  <div
+                    style={{
+                      maxHeight: isActive ? "160px" : "0px",
+                      opacity: isActive ? 1 : 0,
+                      overflow: "hidden",
+                      transition: "all 0.5s cubic-bezier(0.22, 1, 0.36, 1)",
+                    }}
+                    className="card-expanded-info"
+                  >
+                    <p
+                      style={{
+                        fontFamily: "var(--font-body, sans-serif)",
+                        fontSize: "clamp(13.5px, 0.95vw, 15px)",
+                        lineHeight: 1.6,
+                        color: "#C7C4BC",
+                        margin: "0 0 16px 0",
+                      }}
+                    >
+                      {photo.description}
+                    </p>
+
+                    <div
+                      style={{
+                        display: "inline-flex",
+                        alignItems: "center",
+                        gap: "8px",
+                        fontFamily: "var(--font-mono, monospace)",
+                        fontSize: "12.5px",
+                        letterSpacing: "0.14em",
+                        textTransform: "uppercase",
+                        color: "#F4F1EA",
+                        fontWeight: 600,
+                        borderBottom: "1px solid rgba(255, 255, 255, 0.4)",
+                        paddingBottom: "2px",
+                      }}
+                    >
+                      <span>View full portrait</span>
+                      <span aria-hidden="true">→</span>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
 
-      {/* Lightbox Modal */}
-      {activeIdx !== null && (
+      {/* Fullscreen High-Resolution Lightbox Modal */}
+      {fullscreenIdx !== null && (
         <div
-          onClick={() => setActiveIdx(null)}
+          role="dialog"
+          aria-modal="true"
+          aria-label="High-resolution portrait lightbox"
+          onClick={() => setFullscreenIdx(null)}
           style={{
             position: "fixed",
             inset: 0,
-            zIndex: 99999,
-            background: "rgba(1, 0, 10, 0.88)",
-            backdropFilter: "blur(24px)",
-            WebkitBackdropFilter: "blur(24px)",
+            zIndex: 9999,
+            background: "rgba(15, 15, 14, 0.96)",
+            backdropFilter: "blur(12px)",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            padding: "20px",
-            animation: "fadeIn 0.25s ease-out",
+            padding: "clamp(16px, 3vw, 32px)",
           }}
         >
-          {/* Modal Container */}
           <div
             onClick={(e) => e.stopPropagation()}
             style={{
               position: "relative",
-              maxWidth: 580,
+              maxWidth: "960px",
               width: "100%",
               maxHeight: "92vh",
+              background: "#0F0F0E",
+              border: "1px solid #272624",
+              borderRadius: "4px",
+              overflow: "hidden",
               display: "flex",
               flexDirection: "column",
-              background: "rgba(10, 8, 25, 0.95)",
-              border: `1.5px solid ${expertPhotos[activeIdx].accent}40`,
-              borderRadius: 28,
-              overflow: "hidden",
-              boxShadow: `0 30px 90px rgba(0, 0, 0, 0.8), 0 0 50px ${expertPhotos[activeIdx].accent}30`,
-              animation: "scaleIn 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
             }}
           >
-            {/* Header bar */}
+            {/* Modal Header */}
             <div
               style={{
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "space-between",
-                padding: "16px 22px",
-                borderBottom: "1px solid rgba(255, 255, 255, 0.08)",
-                background: "rgba(5, 3, 18, 0.6)",
+                padding: "16px 24px",
+                borderBottom: "1px solid #272624",
               }}
             >
-              <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-                {/* Round RP Icon in Lightbox */}
-                <div
+              <div>
+                <p
                   style={{
-                    width: 34,
-                    height: 34,
-                    borderRadius: "50%",
-                    background: "rgba(0, 229, 255, 0.12)",
-                    border: "1px solid var(--cyan)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    boxShadow: "0 0 10px rgba(0, 229, 255, 0.3)",
+                    fontFamily: "var(--font-mono, monospace)",
+                    fontSize: "12.5px",
+                    letterSpacing: "0.18em",
+                    textTransform: "uppercase",
+                    color: "var(--accent, #2438FF)",
+                    margin: "0 0 4px 0",
                   }}
                 >
-                  <span
-                    style={{
-                      fontFamily: "var(--font-code)",
-                      fontSize: 10,
-                      fontWeight: 800,
-                      color: "var(--cyan)",
-                      letterSpacing: "0.08em",
-                    }}
-                  >
-                    RP<span style={{ color: "var(--emerald)" }}>.</span>
-                  </span>
-                </div>
-                <div>
-                  <p
-                    style={{
-                      fontFamily: "var(--font-display)",
-                      fontSize: 14,
-                      fontWeight: 700,
-                      color: "#fff",
-                      margin: 0,
-                    }}
-                  >
-                    {expertPhotos[activeIdx].title}
-                  </p>
-                  <p
-                    style={{
-                      fontFamily: "var(--font-code)",
-                      fontSize: 10,
-                      color: expertPhotos[activeIdx].accent,
-                      margin: 0,
-                    }}
-                  >
-                    {expertPhotos[activeIdx].org}
-                  </p>
-                </div>
+                  0{fullscreenIdx + 1} / 0{expertPhotos.length} • {expertPhotos[fullscreenIdx].tag}
+                </p>
+                <h4
+                  style={{
+                    fontFamily: "var(--font-serif, 'Instrument Serif', Georgia, serif)",
+                    fontSize: "1.5rem",
+                    color: "#F4F1EA",
+                    margin: 0,
+                    fontWeight: 400,
+                  }}
+                >
+                  {expertPhotos[fullscreenIdx].title} — {expertPhotos[fullscreenIdx].org}
+                </h4>
               </div>
 
-              {/* Close button */}
+              {/* Close Button */}
               <button
-                onClick={() => setActiveIdx(null)}
-                aria-label="Close image preview"
+                onClick={() => setFullscreenIdx(null)}
+                aria-label="Close portrait view"
                 style={{
-                  width: 36,
-                  height: 36,
-                  borderRadius: "50%",
-                  background: "rgba(255, 255, 255, 0.06)",
-                  border: "1px solid rgba(255, 255, 255, 0.15)",
-                  color: "#fff",
+                  width: "40px",
+                  height: "40px",
+                  borderRadius: "2px",
+                  background: "transparent",
+                  border: "1px solid #272624",
+                  color: "#F4F1EA",
+                  fontSize: "18px",
+                  cursor: "pointer",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  cursor: "pointer",
-                  fontSize: 16,
-                  transition: "all 0.2s ease",
+                  transition: "background 0.2s ease",
                 }}
               >
                 ✕
               </button>
             </div>
 
-            {/* Main Image */}
+            {/* Modal Image Area */}
             <div
               style={{
                 position: "relative",
                 width: "100%",
                 maxHeight: "68vh",
                 overflow: "hidden",
-                background: "#000",
+                background: "#050312",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
               }}
             >
               <img
-                src={expertPhotos[activeIdx].src}
-                alt={expertPhotos[activeIdx].title}
+                src={expertPhotos[fullscreenIdx].src}
+                alt={expertPhotos[fullscreenIdx].title}
                 style={{
                   maxWidth: "100%",
                   maxHeight: "68vh",
@@ -428,112 +469,101 @@ export default function ExecutiveGallery() {
                 }}
               />
 
-              {/* Previous button */}
+              {/* Prev Button */}
               <button
                 onClick={(e) => {
                   e.stopPropagation();
-                  setActiveIdx((prev) =>
+                  setFullscreenIdx((prev) =>
                     (prev ?? 0) === 0 ? expertPhotos.length - 1 : (prev ?? 0) - 1
                   );
                 }}
                 aria-label="Previous image"
                 style={{
                   position: "absolute",
-                  left: 14,
+                  left: "16px",
                   top: "50%",
                   transform: "translateY(-50%)",
-                  width: 42,
-                  height: 42,
-                  borderRadius: "50%",
-                  background: "rgba(5, 3, 18, 0.75)",
-                  backdropFilter: "blur(8px)",
-                  border: "1px solid rgba(255, 255, 255, 0.2)",
-                  color: "#fff",
+                  width: "44px",
+                  height: "44px",
+                  borderRadius: "2px",
+                  background: "rgba(15, 15, 14, 0.8)",
+                  border: "1px solid #3A3935",
+                  color: "#F4F1EA",
                   cursor: "pointer",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  fontSize: 18,
-                  transition: "all 0.2s ease",
+                  fontSize: "18px",
                 }}
               >
-                ‹
+                ←
               </button>
 
-              {/* Next button */}
+              {/* Next Button */}
               <button
                 onClick={(e) => {
                   e.stopPropagation();
-                  setActiveIdx((prev) =>
+                  setFullscreenIdx((prev) =>
                     ((prev ?? 0) + 1) % expertPhotos.length
                   );
                 }}
                 aria-label="Next image"
                 style={{
                   position: "absolute",
-                  right: 14,
+                  right: "16px",
                   top: "50%",
                   transform: "translateY(-50%)",
-                  width: 42,
-                  height: 42,
-                  borderRadius: "50%",
-                  background: "rgba(5, 3, 18, 0.75)",
-                  backdropFilter: "blur(8px)",
-                  border: "1px solid rgba(255, 255, 255, 0.2)",
-                  color: "#fff",
+                  width: "44px",
+                  height: "44px",
+                  borderRadius: "2px",
+                  background: "rgba(15, 15, 14, 0.8)",
+                  border: "1px solid #3A3935",
+                  color: "#F4F1EA",
                   cursor: "pointer",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  fontSize: 18,
-                  transition: "all 0.2s ease",
+                  fontSize: "18px",
                 }}
               >
-                ›
+                →
               </button>
             </div>
 
-            {/* Footer description & pagination */}
+            {/* Modal Footer Description */}
             <div
               style={{
-                padding: "16px 22px",
-                borderTop: "1px solid rgba(255, 255, 255, 0.08)",
-                background: "rgba(5, 3, 18, 0.7)",
+                padding: "16px 24px",
+                borderTop: "1px solid #272624",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "space-between",
-                gap: 16,
+                gap: "16px",
               }}
             >
               <p
                 style={{
-                  fontSize: 12.5,
-                  color: "var(--t2)",
-                  lineHeight: 1.5,
+                  fontFamily: "var(--font-body, sans-serif)",
+                  fontSize: "14px",
+                  lineHeight: 1.6,
+                  color: "#C7C4BC",
                   margin: 0,
-                  maxWidth: "80%",
                 }}
               >
-                {expertPhotos[activeIdx].description}
+                {expertPhotos[fullscreenIdx].description} {expertPhotos[fullscreenIdx].details}
               </p>
 
-              {/* Dots indicator */}
-              <div style={{ display: "flex", gap: 6, flexShrink: 0 }}>
-                {expertPhotos.map((_, i) => (
+              <div style={{ display: "flex", gap: "6px", flexShrink: 0 }}>
+                {expertPhotos.map((_, dotIdx) => (
                   <span
-                    key={i}
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      setActiveIdx(i);
-                    }}
+                    key={dotIdx}
+                    onClick={() => setFullscreenIdx(dotIdx)}
                     style={{
-                      width: activeIdx === i ? 18 : 6,
-                      height: 6,
-                      borderRadius: 10,
+                      width: fullscreenIdx === dotIdx ? "20px" : "6px",
+                      height: "6px",
+                      borderRadius: "1px",
                       background:
-                        activeIdx === i
-                          ? expertPhotos[activeIdx].accent
-                          : "rgba(255, 255, 255, 0.2)",
+                        fullscreenIdx === dotIdx ? "var(--accent, #2438FF)" : "#3A3935",
                       cursor: "pointer",
                       transition: "all 0.3s ease",
                     }}
@@ -544,7 +574,35 @@ export default function ExecutiveGallery() {
           </div>
         </div>
       )}
-    </div>
+
+      {/* Responsive Styles */}
+      <style>{`
+        @media (min-width: 900px) {
+          .header-left-col {
+            grid-column: span 7 !important;
+          }
+          .header-right-col {
+            grid-column: span 5 !important;
+            text-align: right;
+            display: flex;
+            justifyContent: flex-end;
+          }
+        }
+        @media (max-width: 899px) {
+          .cinema-gallery-container {
+            flex-direction: column !important;
+            min-height: auto !important;
+          }
+          .cinema-card {
+            flex: 1 1 480px !important;
+            min-height: 480px !important;
+          }
+          .card-expanded-info {
+            max-height: none !important;
+            opacity: 1 !important;
+          }
+        }
+      `}</style>
+    </section>
   );
 }
-

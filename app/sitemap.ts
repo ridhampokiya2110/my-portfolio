@@ -19,6 +19,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1.0,
     },
     {
+      url: `${SITE_URL}/#work`,
+      lastModified: NOW,
+      changeFrequency: "monthly",
+      priority: 0.95,
+    },
+    {
+      url: `${SITE_URL}/#services`,
+      lastModified: NOW,
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${SITE_URL}/#approach`,
+      lastModified: NOW,
+      changeFrequency: "monthly",
+      priority: 0.85,
+    },
+    {
       url: `${SITE_URL}/#about`,
       lastModified: NOW,
       changeFrequency: "monthly",
@@ -37,8 +55,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.85,
     },
     {
+      url: `${SITE_URL}/#projects`,
+      lastModified: NOW,
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
       url: `${SITE_URL}/#side-projects`,
-      lastModified: new Date(),
+      lastModified: NOW,
       changeFrequency: "monthly",
       priority: 0.9,
     },

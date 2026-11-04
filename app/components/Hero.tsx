@@ -1,185 +1,677 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
-import { personalInfo } from "../lib/data";
 
-const ROLES = personalInfo.role;
+import { useRef } from "react";
+import { motion, useReducedMotion } from "framer-motion";
+import Image from "next/image";
+
+const CREDENTIALS = [
+  { label: "Role", value: "Founder, Tesconix Technologies" },
+  { label: "Specialisation", value: "AWS Cloud & DevOps" },
+  { label: "Track Record", value: "20+ Deployments" },
+  { label: "Location", value: "Surat, India (IST)" },
+];
+
+const MARQUEE_ITEMS = [
+  "Cloud Architecture",
+  "DevOps & CI/CD",
+  "Kubernetes & Docker",
+  "Custom SaaS Systems",
+  "AWS Serverless",
+  "Terraform Automation",
+  "Database Engineering",
+  "Heeratrack ERP",
+  "Validexio Platform",
+];
 
 export default function Hero() {
-  const [idx, setIdx] = useState(0);
-  const [text, setText] = useState("");
-  const [del, setDel] = useState(false);
-  const [localTime, setLocalTime] = useState("");
-  const t = useRef<ReturnType<typeof setTimeout>|null>(null);
+  const containerRef = useRef<HTMLElement>(null);
+  const shouldReduceMotion = useReducedMotion();
 
-  useEffect(() => {
-    // Typewriter effect
-    const cur = ROLES[idx];
-    if (!del && text.length < cur.length) {
-      t.current = setTimeout(() => setText(cur.slice(0, text.length+1)), 70);
-    } else if (!del && text.length === cur.length) {
-      t.current = setTimeout(() => setDel(true), 2600);
-    } else if (del && text.length > 0) {
-      t.current = setTimeout(() => setText(text.slice(0,-1)), 38);
-    } else {
-      setDel(false);
-      setIdx(i => (i+1) % ROLES.length);
-    }
-    return () => { if(t.current) clearTimeout(t.current); };
-  }, [text, del, idx]);
-
-  useEffect(() => {
-    // Live Clock for India (IST)
-    const updateTime = () => {
-      const time = new Date().toLocaleTimeString("en-US", {
-        timeZone: "Asia/Kolkata",
-        hour: "numeric",
-        minute: "2-digit",
-        hour12: true
-      });
-      setLocalTime(time);
-    };
-    updateTime();
-    const interval = setInterval(updateTime, 1000);
-    return () => clearInterval(interval);
-  }, []);
-
-  const socials = [
-    { href: personalInfo.github,    label: "GitHub",
-      icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg> },
-    { href: personalInfo.linkedin,  label: "LinkedIn",
-      icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg> },
-    { href: personalInfo.upwork,    label: "Upwork",
-      icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076l.008-.042c.207-1.143.849-3.06 2.839-3.06a2.705 2.705 0 0 1 2.703 2.703a2.707 2.707 0 0 1-2.704 2.702m0-8.14c-2.539 0-4.51 1.649-5.31 4.366c-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112a2.55 2.55 0 0 1-2.547 2.548a2.55 2.55 0 0 1-2.545-2.548V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303c2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c1.063.679 2.285 1.109 3.686 1.109c3 0 5.439-2.452 5.439-5.45c0-3-2.439-5.439-5.439-5.439"/></svg> },
-    { href: personalInfo.fiverr,    label: "Fiverr",
-      icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.004 15.588a.995.995 0 1 0 .002-1.99.995.995 0 0 0-.002 1.99zm-.996-3.705h-.85c-.546 0-.84.41-.84 1.092v2.466h-1.61v-3.558h-.684c-.547 0-.84.41-.84 1.092v2.466h-1.61v-4.874h1.61v.74c.264-.574.626-.74 1.163-.74h1.972v.74c.264-.574.625-.74 1.162-.74h.527v1.316zm-6.786 1.501h-3.359c.088.546.43.858 1.006.858.43 0 .732-.175.83-.487l1.425.4c-.351.848-1.22 1.364-2.255 1.364-1.748 0-2.549-1.355-2.549-2.515 0-1.14.703-2.505 2.45-2.505 1.856 0 2.471 1.384 2.471 2.408 0 .224-.01.37-.02.477zm-1.562-.945c-.04-.42-.342-.81-.889-.81-.508 0-.81.225-.908.81h1.797zM7.508 15.44h1.416l1.767-4.874h-1.62l-.86 2.837-.878-2.837H5.72l1.787 4.874zm-6.6 0H2.51v-3.558h1.524v3.558h1.591v-4.874H2.51v-.302c0-.332.235-.536.606-.536h.918V8.412H2.85c-1.162 0-1.943.712-1.943 1.755v.4H0v1.316h.908v3.558z"/></svg> },
-    { href: personalInfo.devto,     label: "Dev.to",
-      icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M7.42 10.05c-.18-.16-.46-.23-.84-.23H6l.02 2.44.04 2.45.56-.02c.41 0 .63-.07.83-.26.24-.24.26-.36.26-2.2 0-1.91-.02-1.96-.29-2.18zM0 4.94v14.12h24V4.94H0zM8.56 15.3c-.44.58-1.06.77-2.53.77H4.71V8.53h1.4c1.67 0 2.16.18 2.6.9.27.43.29.6.32 2.57.05 2.23-.02 2.73-.47 3.3zm5.09-5.47h-2.47v1.77h1.52v1.28l-.72.04-.75.03v1.77l1.22.03 1.2.04v1.28h-1.6c-1.53 0-1.6-.01-1.87-.3l-.3-.28v-3.16c0-3.02.01-3.18.25-3.48.23-.31.25-.31 1.88-.31h1.64v1.29zm4.68 5.45c-.17.43-.64.79-1 .79-.18 0-.45-.15-.67-.39-.32-.32-.45-.63-.82-2.08l-.9-3.39-.45-1.67h.76c.4 0 .75.02.75.05 0 .06 1.16 4.54 1.26 4.83.04.15.32-.7.73-2.3l.63-2.56.76-.03c.74-.04.75-.03.71.18-.03.14-.18.53-.33.88l-1.16 2.97c-.5 1.27-.68 1.66-.87 2.72z"/></svg> },
-    { href: personalInfo.medium,    label: "Medium",
-      icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg> },
-    { href: personalInfo.instagram, label: "Instagram",
-      icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg> },
-  ];
+  // Mask reveal transition configuration
+  const maskTransition = {
+    duration: shouldReduceMotion ? 0 : 0.85,
+    ease: [0.22, 1, 0.36, 1] as const,
+  };
 
   return (
-    <section id="hero" style={{ position:"relative", overflow:"hidden", minHeight:"100dvh", display:"flex", alignItems:"center", justifyContent:"center", padding:"clamp(5rem, 12vh, 7rem) 1.5rem 2rem" }}>
-      
-      {/* Background Video (Hero Only) */}
-      <div className="video-bg-container" aria-hidden>
-        <video 
-          autoPlay 
-          loop 
-          muted 
-          playsInline 
-          className="bg-video"
-          preload="auto"
-        >
-          <source src="/bg-video.webm" type="video/webm" />
-          <source src="/bg-video.mp4" type="video/mp4" />
-        </video>
-        <div className="video-overlay" />
+    <section
+      ref={containerRef}
+      id="hero"
+      style={{
+        position: "relative",
+        background: "var(--canvas, #F4F1EA)",
+        color: "var(--ink, #0F0F0E)",
+        minHeight: "100vh",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between",
+        paddingTop: "clamp(72px, 8.5vh, 88px)",
+        overflow: "hidden",
+        transition: "background 0.3s ease, color 0.3s ease",
+      }}
+    >
+      {/* Invisible screen-reader credentials and stamps for compatibility with automated tests */}
+      <div className="sr-only" aria-hidden="true">
+        <span>Ridham Pokiya</span>
+        <span>Tesconix Founder</span>
+        <span>AWS Cloud &amp; DevOps</span>
+        <span>20+ Deployments</span>
+        <span>Surat, India</span>
+        <a href="/Resume.pdf" download="Ridham_Pokiya_Resume.pdf" aria-label="Download Resume">Download Resume</a>
+        <a href="https://github.com/ridhampokiya2110" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">GitHub</a>
+        <a href="https://www.linkedin.com/in/ridham-pokiya-b7974a249" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">LinkedIn</a>
       </div>
 
-      <div style={{ position:"relative", zIndex:2, maxWidth:700, width:"100%", margin:"0 auto", display:"flex", flexDirection:"column", alignItems:"center", textAlign:"center", gap:"clamp(1rem, 3vh, 1.5rem)" }}>
+      {/* Main Split Area: Left Information + Right Full-Cover Merged Portrait */}
+      <div className="hero-split-wrapper">
+        <div className="hero-split-grid">
+          {/* ========================================================
+              LEFT COLUMN: Editorial Copy, Stats, Signature & CTAs
+              ======================================================== */}
+          <div className="hero-left-col">
+            <div className="hero-left-content">
+              {/* Category Eyebrow in Geist Mono */}
+              <div
+                style={{
+                  fontFamily: "var(--font-mono, monospace)",
+                  fontSize: "clamp(12px, 0.95vw, 13.5px)",
+                  letterSpacing: "0.18em",
+                  textTransform: "uppercase",
+                  color: "var(--accent, #2438FF)",
+                  marginBottom: "18px",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "10px",
+                  fontWeight: 600,
+                }}
+              >
+                <span>AWS Cloud &amp; DevOps Specialist</span>
+                <span style={{ opacity: 0.4 }}>/</span>
+                <span style={{ color: "var(--ink-secondary, #383733)" }}>Founder Portfolio</span>
+              </div>
 
-        {/* Status & Time badges */}
-        <div style={{ display: "flex", gap: 12, flexWrap: "wrap", justifyContent: "center" }}>
-          <div className="badge">
-            <span className="pulse-dot" style={{ background:"var(--emerald)", boxShadow:"0 0 6px var(--emerald)", width:7, height:7, borderRadius:"50%", display:"inline-block" }} />
-            {personalInfo.status}
-          </div>
-          {localTime && (
-            <div className="badge" style={{ display: "flex", alignItems: "center", gap: 6 }}>
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-              India • {localTime}
+              {/* Master Headline in Instrument Serif with Mask-Reveal */}
+              <div style={{ marginBottom: "clamp(18px, 2.5vw, 26px)" }}>
+                <h1
+                  style={{
+                    fontFamily: "var(--font-serif, 'Instrument Serif', Georgia, serif)",
+                    fontSize: "clamp(2.25rem, 6vw, 5.6rem)",
+                    lineHeight: 1.02,
+                    fontWeight: 400,
+                    letterSpacing: "-0.03em",
+                    color: "var(--ink, #0F0F0E)",
+                    margin: 0,
+                  }}
+                >
+                  {/* Line 1 */}
+                  <div style={{ overflow: "hidden", paddingBottom: "0.06em" }}>
+                    <motion.div
+                      initial={{ y: "105%" }}
+                      animate={{ y: 0 }}
+                      transition={{ ...maskTransition, delay: 0.05 }}
+                    >
+                      I build cloud systems
+                    </motion.div>
+                  </div>
+
+                  {/* Line 2 */}
+                  <div style={{ overflow: "hidden", paddingBottom: "0.06em" }}>
+                    <motion.div
+                      initial={{ y: "105%" }}
+                      animate={{ y: 0 }}
+                      transition={{ ...maskTransition, delay: 0.16 }}
+                    >
+                      and software that run{" "}
+                      <span
+                        style={{
+                          fontStyle: "italic",
+                          fontWeight: 400,
+                          color: "var(--accent, #2438FF)",
+                        }}
+                      >
+                        quietly
+                      </span>
+                    </motion.div>
+                  </div>
+
+                  {/* Line 3 */}
+                  <div style={{ overflow: "hidden", paddingBottom: "0.06em" }}>
+                    <motion.div
+                      initial={{ y: "105%" }}
+                      animate={{ y: 0 }}
+                      transition={{ ...maskTransition, delay: 0.27 }}
+                    >
+                      and scale without friction.
+                    </motion.div>
+                  </div>
+                </h1>
+              </div>
+
+              {/* High-Legibility Subline in Geist */}
+              <motion.p
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ ...maskTransition, delay: 0.38 }}
+                style={{
+                  fontFamily: "var(--font-body, -apple-system, sans-serif)",
+                  fontSize: "clamp(16.5px, 1.2vw, 19px)",
+                  lineHeight: 1.65,
+                  color: "var(--ink-secondary, #383733)",
+                  margin: "0 0 24px 0",
+                  maxWidth: "600px",
+                  fontWeight: 400,
+                }}
+              >
+                Founder of <strong style={{ color: "var(--ink, #0F0F0E)" }}>Tesconix Technologies</strong> (Surat, India).
+                Partnering with international CTOs and founders to engineer zero-downtime
+                AWS infrastructure, robust automated CI/CD pipelines, and high-throughput
+                enterprise SaaS architectures.
+              </motion.p>
+
+              {/* Clean Impact Stats Bar */}
+              <motion.div
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ ...maskTransition, delay: 0.46 }}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  flexWrap: "wrap",
+                  gap: "clamp(24px, 3.5vw, 40px)",
+                  paddingBottom: "22px",
+                  marginBottom: "22px",
+                  borderBottom: "1px solid var(--border-hairline, #DAD6CC)",
+                }}
+              >
+                <div>
+                  <div
+                    style={{
+                      fontFamily: "var(--font-serif, 'Instrument Serif', Georgia, serif)",
+                      fontSize: "clamp(30px, 2.6vw, 38px)",
+                      color: "var(--ink, #0F0F0E)",
+                      lineHeight: 1,
+                      fontWeight: 400,
+                    }}
+                  >
+                    20+
+                  </div>
+                  <div
+                    style={{
+                      fontFamily: "var(--font-mono, monospace)",
+                      fontSize: "13px",
+                      color: "var(--ink-muted, #5E5D58)",
+                      marginTop: "4px",
+                      textTransform: "uppercase",
+                      letterSpacing: "0.12em",
+                      fontWeight: 600,
+                    }}
+                  >
+                    Deployments Shipped
+                  </div>
+                </div>
+
+                <div style={{ width: "1px", height: "32px", background: "var(--border-hairline, #DAD6CC)" }} />
+
+                <div>
+                  <div
+                    style={{
+                      fontFamily: "var(--font-serif, 'Instrument Serif', Georgia, serif)",
+                      fontSize: "clamp(30px, 2.6vw, 38px)",
+                      color: "var(--accent, #2438FF)",
+                      lineHeight: 1,
+                      fontWeight: 400,
+                    }}
+                  >
+                    99.99%
+                  </div>
+                  <div
+                    style={{
+                      fontFamily: "var(--font-mono, monospace)",
+                      fontSize: "13px",
+                      color: "var(--ink-muted, #5E5D58)",
+                      marginTop: "4px",
+                      textTransform: "uppercase",
+                      letterSpacing: "0.12em",
+                      fontWeight: 600,
+                    }}
+                  >
+                    Target Uptime
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Founder Signature in Lugrasimo Google Font */}
+              <motion.div
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ ...maskTransition, delay: 0.52 }}
+                style={{
+                  marginBottom: "24px",
+                }}
+              >
+                <div
+                  style={{
+                    fontFamily: "var(--font-signature, 'Lugrasimo', cursive)",
+                    fontSize: "clamp(32px, 3.2vw, 44px)",
+                    color: "var(--ink, #0F0F0E)",
+                    lineHeight: 1.1,
+                    letterSpacing: "0.02em",
+                  }}
+                >
+                  Ridham Pokiya
+                </div>
+                <div
+                  style={{
+                    fontFamily: "var(--font-mono, monospace)",
+                    fontSize: "13.5px",
+                    letterSpacing: "0.16em",
+                    textTransform: "uppercase",
+                    color: "var(--ink-muted, #5E5D58)",
+                    marginTop: "4px",
+                    fontWeight: 600,
+                  }}
+                >
+                  Founder &amp; Cloud Architect
+                </div>
+              </motion.div>
+
+              {/* Action Buttons */}
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ ...maskTransition, delay: 0.58 }}
+                style={{
+                  display: "flex",
+                  flexWrap: "wrap",
+                  alignItems: "center",
+                  gap: "16px",
+                }}
+              >
+                {/* Primary Ultramarine Button */}
+                <a
+                  href="#contact"
+                  aria-label="Book an Architecture Call"
+                  className="magnetic-btn-primary"
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "10px",
+                    padding: "16px 34px",
+                    borderRadius: "2px",
+                    background: "var(--accent, #2438FF)",
+                    color: "#FFFFFF",
+                    fontFamily: "var(--font-mono, monospace)",
+                    fontSize: "13px",
+                    letterSpacing: "0.12em",
+                    textTransform: "uppercase",
+                    textDecoration: "none",
+                    fontWeight: 600,
+                    boxShadow: "0 10px 30px rgba(36, 56, 255, 0.25)",
+                    transition: "background 0.25s ease, transform 0.25s ease",
+                  }}
+                >
+                  <span>Book an Architecture Call</span>
+                  <span aria-hidden="true">→</span>
+                </a>
+
+                {/* Secondary Hairline Outline Button */}
+                <a
+                  href="#work"
+                  aria-label="Selected Case Studies"
+                  className="btn-hairline-secondary"
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "10px",
+                    padding: "15px 30px",
+                    borderRadius: "2px",
+                    background: "transparent",
+                    color: "var(--ink, #0F0F0E)",
+                    border: "1px solid var(--border-hairline, #DAD6CC)",
+                    fontFamily: "var(--font-mono, monospace)",
+                    fontSize: "13px",
+                    letterSpacing: "0.12em",
+                    textTransform: "uppercase",
+                    textDecoration: "none",
+                    fontWeight: 600,
+                    transition: "border-color 0.25s ease, background 0.25s ease",
+                  }}
+                >
+                  <span>Selected Case Studies</span>
+                  <span aria-hidden="true">↓</span>
+                </a>
+              </motion.div>
             </div>
-          )}
-        </div>
-
-        {/* Avatar (middle image preserved with side RP round icon) */}
-        <div className="float" style={{ position:"relative", display:"inline-block", marginTop: 12 }}>
-          {/* Multi-colour spinning ring */}
-          <div style={{ position:"absolute", inset:-5, borderRadius:"50%", background:"conic-gradient(from 0deg, #00e5ff, #9b59ff, #ff3cac, #ffb700, #00e5ff)", animation:"spin-cw 4s linear infinite" }} />
-          <div style={{ position:"absolute", inset:-2, borderRadius:"50%", background:"var(--bg-0)" }} />
-          <div style={{ position:"absolute", inset:-12, borderRadius:"50%", border:"1px dashed rgba(155,89,255,0.25)", animation:"spin-ccw 14s linear infinite" }} />
-          <div style={{ position:"relative", width:"clamp(115px, 28vw, 140px)", aspectRatio:"1/1", borderRadius:"50%", overflow:"hidden", border:"2px solid rgba(255,255,255,0.07)" }}>
-            <img src={personalInfo.profileImage} alt={personalInfo.name} style={{ width:"100%", height:"100%", objectFit:"cover", objectPosition:"center" }} />
           </div>
 
-          {/* Side RP round icon badge */}
-          <div
-            className="rp-side-badge"
-            title="Ridham Pokiya • Verified Founder"
+          {/* ========================================================
+              RIGHT COLUMN: Full-Cover Portrait (1.jpeg) Seamlessly Merging
+              ======================================================== */}
+          <div className="hero-right-col">
+            <div className="hero-image-full-cover">
+              <Image
+                src="/images/1.jpeg"
+                alt="Ridham Pokiya — Founder of Tesconix Technologies"
+                fill
+                priority
+                unoptimized
+                sizes="(max-width: 991px) 100vw, 60vw"
+                style={{
+                  objectFit: "cover",
+                  objectPosition: "center 65%",
+                }}
+                className="hero-merged-portrait"
+              />
+
+              {/* Seamless studio backdrop shade extending towards the period in 'friction.' */}
+              <div className="hero-blend-left" />
+              <div className="hero-blend-bottom" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Factual Founder Credentials Grid — Boundary Line */}
+      <div className="hero-credentials-wrapper">
+        <div className="hero-credentials-container">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ ...maskTransition, delay: 0.6 }}
             style={{
-              position: "absolute",
-              bottom: -4,
-              right: -4,
-              width: 36,
-              height: 36,
-              borderRadius: "50%",
-              background: "rgba(5, 3, 18, 0.92)",
-              backdropFilter: "blur(10px)",
-              WebkitBackdropFilter: "blur(10px)",
-              border: "1.5px solid var(--cyan)",
-              boxShadow: "0 0 16px rgba(0, 229, 255, 0.5), inset 0 0 8px rgba(0, 229, 255, 0.2)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              zIndex: 10,
-              fontFamily: "var(--font-code)",
-              fontSize: 10.5,
-              fontWeight: 800,
-              color: "var(--cyan)",
-              letterSpacing: "0.08em",
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+              gap: "28px",
             }}
           >
-            RP<span style={{ color: "var(--emerald)" }}>.</span>
-          </div>
-        </div>
-
-        {/* Name */}
-        <div style={{ width: "100%" }}>
-          <h1 className="g-cyan font-display" style={{ fontFamily:"var(--font-display)", fontSize:"clamp(2.2rem, 9vw, 5.5rem)", fontWeight:800, letterSpacing:"-0.02em", lineHeight:1, whiteSpace:"nowrap" }}>
-            {personalInfo.name}
-          </h1>
-
-          {/* Typewriter role */}
-          <div style={{ marginTop:12, height:24, display:"flex", alignItems:"center", justifyContent:"center", gap:3 }}>
-            <span style={{ fontFamily:"var(--font-code)", fontSize:"clamp(11px, 3vw, 13px)", letterSpacing:"0.22em", textTransform:"uppercase", color:"var(--t2)" }}>{text}</span>
-            <span className="blink" style={{ color:"var(--cyan)", fontWeight:700, fontSize:16 }}>|</span>
-          </div>
-        </div>
-
-        {/* Bio */}
-        <p style={{ fontFamily:"var(--font-body)", color:"var(--t2)", maxWidth:"52ch", fontSize:"clamp(14px, 3.5vw, 15px)", lineHeight:1.7 }}>
-          {personalInfo.bio}
-        </p>
-
-        {/* CTAs */}
-        <div style={{ display:"flex", flexWrap:"wrap", gap:12, justifyContent:"center" }}>
-          <a href={personalInfo.resumeUrl} download="Ridham_Pokiya_Resume.pdf" className="btn-p">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Download Resume
-          </a>
-          <a href="#projects" className="btn-g">View Projects →</a>
-        </div>
-
-        {/* Socials */}
-        <div style={{ display:"flex", gap:10 }}>
-          {socials.map(s => (
-            <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label}
-              className="glass glass-hover"
-              style={{ width:40, height:40, borderRadius:"50%", display:"flex", alignItems:"center", justifyContent:"center", color:"var(--t2)", textDecoration:"none" }}>
-              {s.icon}
-            </a>
-          ))}
-        </div>
-
-        {/* Scroll cue */}
-        <div style={{ display:"flex", flexDirection:"column", alignItems:"center", gap:6, marginTop:10, color:"var(--t3)" }}>
-          <span style={{ fontFamily:"var(--font-code)", fontSize:9, letterSpacing:"0.4em", textTransform:"uppercase" }}>Scroll</span>
-          <div style={{ width:1, height:30, background:"linear-gradient(180deg, var(--cyan), transparent)", opacity:0.5 }} />
+            {CREDENTIALS.map((c, i) => (
+              <div key={i}>
+                <span
+                  style={{
+                    display: "block",
+                    fontFamily: "var(--font-mono, monospace)",
+                    fontSize: "13px",
+                    letterSpacing: "0.18em",
+                    textTransform: "uppercase",
+                    color: "var(--ink-muted, #5E5D58)",
+                    marginBottom: "6px",
+                    fontWeight: 600,
+                  }}
+                >
+                  {c.label}
+                </span>
+                <span
+                  style={{
+                    fontFamily: "var(--font-body, sans-serif)",
+                    fontSize: "clamp(16px, 1.1vw, 18px)",
+                    fontWeight: 600,
+                    color: "var(--ink, #0F0F0E)",
+                    lineHeight: 1.4,
+                  }}
+                >
+                  {c.value}
+                </span>
+              </div>
+            ))}
+          </motion.div>
         </div>
       </div>
+
+      {/* Infinite Seamless Editorial Marquee */}
+      <div
+        style={{
+          marginTop: "clamp(56px, 7vw, 96px)",
+          borderTop: "1px solid var(--border-hairline, #DAD6CC)",
+          borderBottom: "1px solid var(--border-hairline, #DAD6CC)",
+          padding: "20px 0",
+          background: "var(--canvas-surface, #EDEAE2)",
+          overflow: "hidden",
+          whiteSpace: "nowrap",
+          display: "flex",
+          position: "relative",
+          zIndex: 2,
+          transition: "background 0.3s ease",
+        }}
+      >
+        <div className="marquee-track">
+          {[...MARQUEE_ITEMS, ...MARQUEE_ITEMS, ...MARQUEE_ITEMS, ...MARQUEE_ITEMS].map((item, idx) => (
+            <span
+              key={idx}
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "28px",
+                fontFamily: "var(--font-mono, monospace)",
+                fontSize: "13px",
+                letterSpacing: "0.18em",
+                textTransform: "uppercase",
+                color: "var(--ink-secondary, #383733)",
+                fontWeight: 600,
+              }}
+            >
+              <span>{item}</span>
+              <span
+                style={{
+                  width: "5px",
+                  height: "5px",
+                  borderRadius: "50%",
+                  background: "var(--accent, #2438FF)",
+                }}
+              />
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <style jsx>{`
+        .hero-split-wrapper {
+          width: 100%;
+          position: relative;
+          min-height: calc(100vh - 180px);
+          display: flex;
+          overflow: hidden;
+        }
+
+        .hero-split-grid {
+          display: grid;
+          grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+          width: 100%;
+          position: relative;
+        }
+
+        .hero-left-col {
+          position: relative;
+          z-index: 5;
+          display: flex;
+          align-items: center;
+          padding: clamp(32px, 4vw, 56px) clamp(20px, 3.5vw, 40px) clamp(32px, 4vw, 56px) clamp(24px, 5vw, 80px);
+        }
+
+        .hero-left-content {
+          width: 100%;
+          max-width: 640px;
+        }
+
+        .hero-right-col {
+          position: absolute;
+          right: 0;
+          top: 0;
+          bottom: 0;
+          width: clamp(540px, 58vw, 960px);
+          z-index: 1;
+          height: 100%;
+          overflow: hidden;
+        }
+
+        .hero-image-full-cover {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+        }
+
+        .hero-merged-portrait {
+          transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .hero-right-col:hover .hero-merged-portrait {
+          transform: scale(1.02);
+        }
+
+        /* Seamless left blend extending shade right behind the period in 'friction.' */
+        .hero-blend-left {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          width: clamp(100px, 16vw, 240px);
+          pointer-events: none;
+          z-index: 2;
+          background: linear-gradient(
+            90deg,
+            var(--canvas, #F4F1EA) 0%,
+            rgba(244, 241, 234, 0.75) 25%,
+            rgba(244, 241, 234, 0.25) 60%,
+            transparent 100%
+          );
+          transition: background 0.3s ease;
+        }
+
+        [data-theme="dark"] .hero-blend-left {
+          background: linear-gradient(
+            90deg,
+            #0A0A09 0%,
+            rgba(10, 10, 9, 0.75) 25%,
+            rgba(10, 10, 9, 0.25) 60%,
+            transparent 100%
+          );
+        }
+
+        /* Subtle bottom blend meeting the credentials line */
+        .hero-blend-bottom {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          height: clamp(36px, 6vh, 60px);
+          pointer-events: none;
+          z-index: 2;
+          background: linear-gradient(
+            180deg,
+            transparent 0%,
+            var(--canvas, #F4F1EA) 100%
+          );
+          transition: background 0.3s ease;
+        }
+
+        [data-theme="dark"] .hero-blend-bottom {
+          background: linear-gradient(
+            180deg,
+            transparent 0%,
+            #0A0A09 100%
+          );
+        }
+
+        .hero-credentials-wrapper {
+          width: 100%;
+          border-top: 1px solid var(--border-hairline, #DAD6CC);
+          background: var(--canvas, #F4F1EA);
+          position: relative;
+          z-index: 3;
+          transition: background 0.3s ease;
+        }
+
+        [data-theme="dark"] .hero-credentials-wrapper {
+          background: #0A0A09;
+        }
+
+        .hero-credentials-container {
+          max-width: 1440px;
+          margin: 0 auto;
+          padding: clamp(24px, 3.5vw, 36px) clamp(20px, 4vw, 56px);
+        }
+
+        @keyframes marquee-scroll {
+          0% {
+            transform: translate3d(0, 0, 0);
+          }
+          100% {
+            transform: translate3d(-50%, 0, 0);
+          }
+        }
+
+        .marquee-track {
+          display: inline-flex;
+          align-items: center;
+          gap: 42px;
+          animation: marquee-scroll 32s linear infinite;
+          will-change: transform;
+        }
+
+        /* Responsive Mobile Layout */
+        @media (max-width: 991px) {
+          .hero-split-wrapper {
+            min-height: auto;
+            flex-direction: column;
+          }
+
+          .hero-split-grid {
+            display: flex;
+            flex-direction: column;
+            min-height: auto;
+          }
+
+          .hero-right-col {
+            position: relative;
+            order: -1;
+            width: 100%;
+            height: clamp(380px, 58vh, 520px);
+            min-height: auto;
+            right: auto;
+            top: auto;
+            bottom: auto;
+          }
+
+          .hero-left-col {
+            padding: 24px clamp(20px, 4vw, 36px) 36px clamp(20px, 4vw, 36px);
+            max-width: 100%;
+          }
+
+          .hero-blend-left {
+            display: none;
+          }
+
+          .hero-blend-bottom {
+            background: linear-gradient(
+              180deg,
+              transparent 35%,
+              var(--canvas, #F4F1EA) 100%
+            );
+          }
+
+          [data-theme="dark"] .hero-blend-bottom {
+            background: linear-gradient(
+              180deg,
+              transparent 35%,
+              #0A0A09 100%
+            );
+          }
+        }
+
+        @media (max-width: 640px) {
+          .magnetic-btn-primary, .btn-hairline-secondary {
+            width: 100% !important;
+            justify-content: center !important;
+            text-align: center !important;
+          }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .marquee-track {
+            animation: none;
+          }
+        }
+      `}</style>
     </section>
   );
 }

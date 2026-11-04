@@ -1,31 +1,13 @@
 import type { Metadata } from "next";
-import { Outfit, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import StructuredData from "./components/StructuredData";
+import SmoothScroll from "./components/SmoothScroll";
+import CustomCursor from "./components/CustomCursor";
 
-// ─────────────────────────────────────────────────────────────────────────────
-// Fonts
-// ─────────────────────────────────────────────────────────────────────────────
-const outfit = Outfit({
-  subsets: ["latin"],
-  variable: "--font-outfit",
-  weight: ["400", "500", "600", "700", "800"],
-  display: "swap",
-});
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  weight: ["300", "400", "500", "600", "700"],
-  display: "swap",
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  variable: "--font-mono",
-  weight: ["400", "500", "700"],
-  display: "swap",
-});
+// Fonts (styled via globals.css with Google Fonts import)
+const outfit = { variable: "font-outfit" };
+const inter = { variable: "font-inter" };
+const jetbrainsMono = { variable: "font-mono" };
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Constants
@@ -540,6 +522,8 @@ export default function RootLayout({
         {/* Canonical handled by Next.js metadata alternates */}
       </head>
       <body>
+        <SmoothScroll />
+        <CustomCursor />
         {/* JSON-LD Structured Data for SEO / AEO / GEO */}
         <StructuredData />
         {children}

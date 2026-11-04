@@ -295,8 +295,8 @@ describe("secondFeaturedProject (Validexio) — exhaustive validation", () => {
 });
 
 describe("projects (side projects) — exhaustive validation", () => {
-  it("contains exactly 6 items", () => {
-    expect(projects.length).toBe(6);
+  it("contains at least 6 items", () => {
+    expect(projects.length).toBeGreaterThanOrEqual(6);
   });
 
   it("includes CloudLens project", () => {

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { expertPhotos } from "../lib/data";
@@ -9,6 +9,64 @@ export default function ExecutiveGallery() {
   const [activeIdx, setActiveIdx] = useState<number>(0);
   const [fullscreenIdx, setFullscreenIdx] = useState<number | null>(null);
   const shouldReduceMotion = useReducedMotion();
+
+  const galleryContainerRef = useRef<HTMLDivElement>(null);
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  // Real-time active index sync with touch/wheel horizontal scrolling
+  const handleGalleryScroll = useCallback(() => {
+    const container = galleryContainerRef.current;
+    if (!container) return;
+
+    const scrollLeft = container.scrollLeft;
+    const containerWidth = container.clientWidth;
+
+    let bestIdx = 0;
+    let minDistance = Infinity;
+
+    cardRefs.current.forEach((card, idx) => {
+      if (!card) return;
+      const cardCenter = card.offsetLeft + card.offsetWidth / 2;
+      const scrollCenter = scrollLeft + containerWidth / 2;
+      const distance = Math.abs(cardCenter - scrollCenter);
+
+      if (distance < minDistance) {
+        minDistance = distance;
+        bestIdx = idx;
+      }
+    });
+
+    setActiveIdx((prev) => (prev === bestIdx ? prev : bestIdx));
+  }, []);
+
+  // Programmatic smooth scroll to specific card on mobile pill tap
+  const scrollToCard = useCallback((index: number) => {
+    setActiveIdx(index);
+    const container = galleryContainerRef.current;
+    const card = cardRefs.current[index];
+    if (card && container) {
+      const cardCenter = card.offsetLeft + card.offsetWidth / 2;
+      const containerWidth = container.clientWidth;
+      const targetScroll = cardCenter - containerWidth / 2;
+      if (typeof container.scrollTo === "function") {
+        container.scrollTo({
+          left: targetScroll,
+          behavior: "smooth",
+        });
+      } else {
+        container.scrollLeft = targetScroll;
+      }
+    }
+  }, []);
+
+  // Attach passive scroll listener for high-refresh mobile displays
+  useEffect(() => {
+    const container = galleryContainerRef.current;
+    if (!container) return;
+
+    container.addEventListener("scroll", handleGalleryScroll, { passive: true });
+    return () => container.removeEventListener("scroll", handleGalleryScroll);
+  }, [handleGalleryScroll]);
 
   // Keyboard navigation for fullscreen lightbox
   const handleKeyDown = useCallback(
@@ -139,6 +197,8 @@ export default function ExecutiveGallery() {
 
         {/* Big-Screen Interactive Cinema Canvas */}
         <div
+          ref={galleryContainerRef}
+          onScroll={handleGalleryScroll}
           className="cinema-gallery-container"
           style={{
             display: "flex",
@@ -153,6 +213,9 @@ export default function ExecutiveGallery() {
             return (
               <div
                 key={photo.id}
+                ref={(el) => {
+                  cardRefs.current[index] = el;
+                }}
                 onClick={() => {
                   if (isActive) {
                     setFullscreenIdx(index);
@@ -356,30 +419,54 @@ export default function ExecutiveGallery() {
           className="mobile-gallery-indicators"
           style={{
             display: "none",
-            justifyContent: "center",
+            flexDirection: "column",
             alignItems: "center",
-            gap: "8px",
-            marginTop: "16px",
+            gap: "10px",
+            marginTop: "18px",
           }}
         >
-          {expertPhotos.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setActiveIdx(i)}
-              aria-label={`View portrait slide ${i + 1}`}
-              style={{
-                width: activeIdx === i ? "24px" : "8px",
-                height: "8px",
-                borderRadius: "4px",
-                background:
-                  activeIdx === i ? "var(--accent, #2438FF)" : "var(--border-strong, #A89F8D)",
-                border: "none",
-                padding: 0,
-                cursor: "pointer",
-                transition: "all 0.3s ease",
-              }}
-            />
-          ))}
+          {/* Active slide counter tag */}
+          <div
+            style={{
+              fontFamily: "var(--font-mono, monospace)",
+              fontSize: "12px",
+              letterSpacing: "0.18em",
+              textTransform: "uppercase",
+              color: "var(--ink-muted, #5E5D58)",
+              fontWeight: 600,
+            }}
+          >
+            <span style={{ color: "var(--accent, #2438FF)" }}>0{activeIdx + 1}</span> / 0{expertPhotos.length} • {expertPhotos[activeIdx]?.tag}
+          </div>
+
+          {/* Interactive Navigation Pills */}
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "8px",
+            }}
+          >
+            {expertPhotos.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => scrollToCard(i)}
+                aria-label={`View portrait slide ${i + 1}`}
+                style={{
+                  width: activeIdx === i ? "28px" : "10px",
+                  height: "8px",
+                  borderRadius: "4px",
+                  background:
+                    activeIdx === i ? "var(--accent, #2438FF)" : "var(--border-strong, #A89F8D)",
+                  border: "none",
+                  padding: 0,
+                  cursor: "pointer",
+                  transition: "all 0.3s cubic-bezier(0.22, 1, 0.36, 1)",
+                  boxShadow: activeIdx === i ? "0 0 10px rgba(36, 56, 255, 0.4)" : "none",
+                }}
+              />
+            ))}
+          </div>
         </div>
       </div>
 

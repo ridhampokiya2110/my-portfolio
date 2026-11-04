@@ -125,10 +125,18 @@ describe("Mobile QA Testing Suite (Black, Grey, White Box)", () => {
       expect(screen.getByText(/cloud & devops specialist · founder/i)).toBeInTheDocument();
     });
 
-    it("renders Executive Gallery on mobile with three leadership photo plates", () => {
+    it("renders Executive Gallery on mobile with three leadership photo plates and live pagination", () => {
       const { container } = render(<ExecutiveGallery />);
       const galleryCards = container.querySelectorAll(".cinema-card");
       expect(galleryCards.length).toBe(3);
+
+      const indicatorButtons = container.querySelectorAll(".mobile-gallery-indicators button");
+      expect(indicatorButtons.length).toBe(3);
+
+      // Tap 3rd indicator button
+      fireEvent.click(indicatorButtons[2]);
+      expect(screen.getAllByText(/03/i).length).toBeGreaterThan(0);
+      expect(screen.getAllByText(/Systems Engineering/i).length).toBeGreaterThan(0);
     });
 
     it("renders Skills, SideProjects, Blog, Contact, and Footer on mobile", () => {

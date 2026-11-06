@@ -615,21 +615,22 @@ export default function Hero() {
           background: linear-gradient(
             90deg,
             var(--canvas, #FFFFFF) 0%,
-            rgba(255, 255, 255, 0.85) 25%,
-            rgba(255, 255, 255, 0.3) 60%,
+            var(--canvas, #FFFFFF) 20%,
+            color-mix(in srgb, var(--canvas, #FFFFFF) 75%, transparent) 55%,
             transparent 100%
           );
           transition: background 0.3s ease;
         }
 
-        [data-theme="dark"] .hero-blend-left {
+        :global([data-theme="dark"]) .hero-blend-left {
           background: linear-gradient(
             90deg,
             #07090E 0%,
-            rgba(7, 9, 14, 0.85) 25%,
-            rgba(7, 9, 14, 0.3) 60%,
+            #07090E 25%,
+            rgba(7, 9, 14, 0.92) 55%,
+            rgba(7, 9, 14, 0.45) 80%,
             transparent 100%
-          );
+          ) !important;
         }
 
         /* Subtle bottom blend meeting the credentials line */
@@ -649,12 +650,12 @@ export default function Hero() {
           transition: background 0.3s ease;
         }
 
-        [data-theme="dark"] .hero-blend-bottom {
+        :global([data-theme="dark"]) .hero-blend-bottom {
           background: linear-gradient(
             180deg,
             transparent 0%,
             #07090E 100%
-          );
+          ) !important;
         }
 
         .hero-credentials-wrapper {
@@ -666,8 +667,9 @@ export default function Hero() {
           transition: background 0.3s ease;
         }
 
-        [data-theme="dark"] .hero-credentials-wrapper {
-          background: #07090E;
+        :global([data-theme="dark"]) .hero-credentials-wrapper {
+          background: #07090E !important;
+          border-top: 1px solid #1E293B !important;
         }
 
         .hero-credentials-container {

@@ -115,11 +115,11 @@ function ProductCard({
   );
 
   const isInk = product.theme === "ink";
-  const bg = isInk ? "var(--inverted-canvas, #0F0F0E)" : product.id === "validexio" ? "var(--validexio-bg, #FFFFFF)" : "var(--canvas-surface, #F4F1EA)";
-  const textColor = isInk ? "var(--inverted-ink, #F4F1EA)" : product.id === "validexio" ? "var(--validexio-ink, #0F0F0E)" : "var(--ink, #0F0F0E)";
-  const secondaryText = isInk ? "var(--inverted-muted, #C7C4BC)" : "var(--ink-secondary, #403F3C)";
-  const mutedText = isInk ? "var(--inverted-muted, #9E9C96)" : "var(--ink-muted, #595854)";
-  const borderColor = isInk ? "var(--inverted-border, #272624)" : "var(--border-hairline, #DAD6CC)";
+  const bg = isInk ? "var(--inverted-canvas, #07090E)" : product.id === "validexio" ? "var(--validexio-bg, #0F172A)" : "var(--canvas-surface, #F1F5F9)";
+  const textColor = isInk ? "var(--inverted-ink, #F8FAFC)" : product.id === "validexio" ? "var(--validexio-ink, #F8FAFC)" : "var(--ink, #0B0F19)";
+  const secondaryText = isInk ? "var(--inverted-muted, #94A3B8)" : "var(--ink-secondary, #334155)";
+  const mutedText = isInk ? "var(--inverted-muted, #64748B)" : "var(--ink-muted, #64748B)";
+  const borderColor = isInk ? "var(--border-strong, #334155)" : "var(--border-hairline, #CBD5E1)";
 
   return (
     <div

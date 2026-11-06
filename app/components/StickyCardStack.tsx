@@ -66,11 +66,11 @@ function SingleCard({ card, index, total }: SingleCardProps) {
 
   // Theme-adaptive palettes respecting user contrast request
   const isInk = card.theme === "ink";
-  const bg = isInk ? "var(--inverted-surface, #1C1C19)" : "var(--canvas-surface, #E8E4D9)";
-  const textColor = isInk ? "var(--inverted-ink, #F4F1EA)" : "var(--ink, #0F0F0E)";
-  const secondaryText = isInk ? "var(--inverted-muted, #C7C4BC)" : "var(--ink-secondary, #302F2C)";
-  const mutedText = isInk ? "var(--inverted-muted, #9E9C96)" : "var(--ink-muted, #5E5D58)";
-  const borderColor = isInk ? "var(--border-strong, #3A3934)" : "var(--border-hairline, #CFC7B7)";
+  const bg = isInk ? "var(--inverted-surface, #0F172A)" : "var(--canvas-surface, #F1F5F9)";
+  const textColor = isInk ? "var(--inverted-ink, #F8FAFC)" : "var(--ink, #0B0F19)";
+  const secondaryText = isInk ? "var(--inverted-muted, #94A3B8)" : "var(--ink-secondary, #334155)";
+  const mutedText = isInk ? "var(--inverted-muted, #64748B)" : "var(--ink-muted, #64748B)";
+  const borderColor = isInk ? "var(--border-strong, #334155)" : "var(--border-hairline, #CBD5E1)";
 
   const ease = [0.22, 1, 0.36, 1] as const;
 

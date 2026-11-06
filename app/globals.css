@@ -77,20 +77,23 @@
 }
 
 [data-theme="dark"] {
-  /* Deep Space OLED Obsidian Black & Elevated Titanium */
+  /* Deep Space OLED Obsidian Black & Elevated Titanium Architecture */
   --canvas:          #07090E;
-  --canvas-surface:  #141A28;
-  --canvas-muted:    #1E263B;
+  --canvas-surface:  #0F172A;
+  --canvas-muted:    #1E293B;
   --ink:             #F8FAFC;
-  --ink-secondary:   #CBD5E1;
-  --ink-muted:       #94A3B8;
-  --border-hairline: #26334D;
-  --border-strong:   #3B4B6E;
-  --validexio-bg:    #111624;
+  --ink-secondary:   #94A3B8;
+  --ink-muted:       #64748B;
+  --border-hairline: #1E293B;
+  --border-strong:   #334155;
+  --validexio-bg:    #0F172A;
   --validexio-ink:   #F8FAFC;
   --accent:          #3B82F6;
   --accent-hover:    #60A5FA;
   --accent-soft:     rgba(59, 130, 246, 0.16);
+  --accent-cyan:     #38BDF8;
+  --accent-emerald:  #10B981;
+  --accent-amber:    #F59E0B;
   --inverted-canvas: #FFFFFF;
   --inverted-surface:#F1F5F9;
   --inverted-ink:    #0B0F19;
@@ -98,12 +101,116 @@
   --inverted-border: #CBD5E1;
 
   --bg-0: #07090E;
-  --bg-1: #141A28;
-  --bg-2: #1E263B;
+  --bg-1: #0F172A;
+  --bg-2: #1E293B;
   --t1: #F8FAFC;
-  --t2: #CBD5E1;
-  --t3: #94A3B8;
+  --t2: #94A3B8;
+  --t3: #64748B;
   --cyan: #3B82F6;
+}
+
+/* ================================================================
+   DARK THEME SEAMLESS BLENDS & ELEVATIONS (Fix white-line issue)
+   ================================================================ */
+[data-theme="dark"] .hero-blend-left {
+  background: linear-gradient(
+    90deg,
+    #07090E 0%,
+    #07090E 25%,
+    rgba(7, 9, 14, 0.92) 55%,
+    rgba(7, 9, 14, 0.45) 80%,
+    transparent 100%
+  ) !important;
+}
+
+[data-theme="dark"] .hero-blend-bottom {
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    #07090E 100%
+  ) !important;
+}
+
+[data-theme="dark"] .hero-credentials-wrapper {
+  background: #07090E !important;
+  border-top: 1px solid #1E293B !important;
+}
+
+/* ================================================================
+   ARCHITECTURE DIAGRAM ADAPTIVE THEME RULES (Fix white-on-white text)
+   ================================================================ */
+.arch-box-region {
+  fill: var(--canvas-surface, #F1F5F9);
+  stroke: var(--border-hairline, #CBD5E1);
+  transition: fill 0.3s ease, stroke 0.3s ease;
+}
+[data-theme="dark"] .arch-box-region {
+  fill: #111827 !important;
+  stroke: #1E293B !important;
+}
+
+.arch-box-node {
+  fill: var(--canvas, #FFFFFF);
+  stroke: var(--border-hairline, #CBD5E1);
+  transition: fill 0.3s ease, stroke 0.3s ease;
+}
+[data-theme="dark"] .arch-box-node {
+  fill: #0B0F19 !important;
+  stroke: #334155 !important;
+}
+
+.arch-text-primary {
+  fill: var(--ink, #0B0F19);
+  transition: fill 0.3s ease;
+}
+[data-theme="dark"] .arch-text-primary {
+  fill: #F8FAFC !important;
+}
+
+.arch-text-muted {
+  fill: var(--ink-secondary, #334155);
+  transition: fill 0.3s ease;
+}
+[data-theme="dark"] .arch-text-muted {
+  fill: #94A3B8 !important;
+}
+
+.arch-text-accent {
+  fill: var(--accent, #2563EB);
+  transition: fill 0.3s ease;
+}
+[data-theme="dark"] .arch-text-accent {
+  fill: #60A5FA !important;
+}
+
+.arch-line {
+  stroke: var(--border-hairline, #CBD5E1);
+  transition: stroke 0.3s ease;
+}
+[data-theme="dark"] .arch-line {
+  stroke: #334155 !important;
+}
+
+/* ================================================================
+   DARK THEME RICH TYPOGRAPHY & CARD ELEVATION
+   ================================================================ */
+[data-theme="dark"] strong {
+  color: #F8FAFC;
+}
+
+[data-theme="dark"] .glass,
+[data-theme="dark"] .service-row,
+[data-theme="dark"] .experience-card,
+[data-theme="dark"] .skill-card,
+[data-theme="dark"] .book-showcase-card {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.45);
+}
+
+[data-theme="dark"] .tag,
+[data-theme="dark"] .chip {
+  background: rgba(59, 130, 246, 0.12) !important;
+  color: #60A5FA !important;
+  border-color: rgba(59, 130, 246, 0.28) !important;
 }
 
 /* ================================================================

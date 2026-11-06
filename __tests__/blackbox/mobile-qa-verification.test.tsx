@@ -157,12 +157,15 @@ describe("Mobile QA Testing Suite (Black, Grey, White Box)", () => {
       expect(screen.getByText(/surat, india \(ist\)/i)).toBeInTheDocument();
     });
 
-    it("renders Books section on mobile with Millionaire's Mindset and Amazon links", () => {
+    it("renders Books section on mobile with Millionaire's Mindset and single Buy on Amazon link", () => {
       const { container } = render(<Books />);
       const headings = screen.getAllByText(/millionaire's mindset/i);
       expect(headings.length).toBeGreaterThanOrEqual(1);
-      expect(container.querySelector('a[href*="amazon.com"]')).toBeInTheDocument();
-      expect(container.querySelector('a[href*="amazon.in"]')).toBeInTheDocument();
+      const buyLink = container.querySelector('a[href*="amazon"]');
+      expect(buyLink).toBeInTheDocument();
+      expect(buyLink?.textContent).toMatch(/buy on amazon/i);
+      expect(buyLink?.textContent).not.toMatch(/india/i);
+      expect(buyLink?.textContent).not.toMatch(/us/i);
     });
   });
 

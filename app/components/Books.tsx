@@ -552,33 +552,30 @@ export default function Books() {
                 ))}
               </div>
 
-              {/* Action Buttons: Dual Amazon Purchase Links */}
+              {/* Action Button: Single Direct Purchase CTA */}
               <div
                 style={{
                   display: "flex",
                   alignItems: "center",
-                  flexWrap: "wrap",
-                  gap: "14px",
-                  paddingTop: "6px",
+                  paddingTop: "8px",
                 }}
                 className="book-cta-row"
               >
-                {/* Primary Amazon US Button */}
                 <a
-                  href={BOOK.amazonUs}
+                  href={BOOK.amazonIn}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="book-btn-primary"
                   style={{
                     display: "inline-flex",
                     alignItems: "center",
-                    gap: "8px",
-                    padding: "14px 26px",
+                    gap: "10px",
+                    padding: "16px 36px",
                     borderRadius: "2px",
                     background: "var(--accent, #2563EB)",
                     color: "#FFFFFF",
                     fontFamily: "var(--font-mono, monospace)",
-                    fontSize: "12.5px",
+                    fontSize: "13px",
                     letterSpacing: "0.12em",
                     textTransform: "uppercase",
                     textDecoration: "none",
@@ -587,35 +584,7 @@ export default function Books() {
                     transition: "all 0.25s ease",
                   }}
                 >
-                  <span>Get on Amazon US</span>
-                  <span aria-hidden="true">↗</span>
-                </a>
-
-                {/* Secondary Amazon India Button */}
-                <a
-                  href={BOOK.amazonIn}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="book-btn-secondary"
-                  style={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    gap: "8px",
-                    padding: "13px 24px",
-                    borderRadius: "2px",
-                    background: "transparent",
-                    color: "var(--ink, #0B0F19)",
-                    border: "1px solid var(--border-hairline, #CBD5E1)",
-                    fontFamily: "var(--font-mono, monospace)",
-                    fontSize: "12.5px",
-                    letterSpacing: "0.12em",
-                    textTransform: "uppercase",
-                    textDecoration: "none",
-                    fontWeight: 600,
-                    transition: "all 0.25s ease",
-                  }}
-                >
-                  <span>Amazon India (Kindle)</span>
+                  <span>Buy on Amazon (Kindle)</span>
                   <span aria-hidden="true">↗</span>
                 </a>
               </div>
@@ -653,11 +622,9 @@ export default function Books() {
 
         @media (max-width: 640px) {
           .book-cta-row {
-            flex-direction: column !important;
-            align-items: stretch !important;
+            width: 100% !important;
           }
-          .book-btn-primary,
-          .book-btn-secondary {
+          .book-btn-primary {
             width: 100% !important;
             justify-content: center !important;
             text-align: center !important;
@@ -669,12 +636,6 @@ export default function Books() {
 
         .book-btn-primary:hover {
           background: var(--accent-hover, #1D4ED8) !important;
-          transform: translateY(-2px);
-        }
-
-        .book-btn-secondary:hover {
-          border-color: var(--ink, #0B0F19) !important;
-          background: var(--canvas-muted, #E2E8F0) !important;
           transform: translateY(-2px);
         }
 

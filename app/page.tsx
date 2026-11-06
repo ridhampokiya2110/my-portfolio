@@ -12,6 +12,7 @@ import Experience from "./components/Experience";
 import Skills from "./components/Skills";
 import Blog from "./components/Blog";
 import SideProjects from "./components/SideProjects";
+import Books from "./components/Books";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import CustomCursor from "./components/CustomCursor";
@@ -41,6 +42,7 @@ export default function Page() {
         <Skills />
         <Blog />
         <SideProjects />
+        <Books />
         <Contact />
       </main>
 

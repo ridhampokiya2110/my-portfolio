@@ -74,11 +74,11 @@ export default function Blog() {
       id="blog"
       style={{
         position: "relative",
-        background: "var(--canvas, #F4F1EA)",
-        color: "var(--ink, #0F0F0E)",
-        paddingTop: "clamp(80px, 9vw, 136px)",
-        paddingBottom: "clamp(80px, 9vw, 136px)",
-        borderBottom: "1px solid var(--border-hairline, #DAD6CC)",
+        background: "var(--canvas, #FFFFFF)",
+        color: "var(--ink, #0B0F19)",
+        paddingTop: "clamp(64px, 8vw, 120px)",
+        paddingBottom: "clamp(64px, 8vw, 120px)",
+        borderBottom: "1px solid var(--border-hairline, #CBD5E1)",
       }}
     >
       {/* Anchor alias for #writing */}
@@ -98,9 +98,9 @@ export default function Blog() {
             gridTemplateColumns: "repeat(12, 1fr)",
             gap: "24px",
             alignItems: "end",
-            paddingBottom: "clamp(36px, 5vw, 64px)",
-            borderBottom: "1px solid var(--border-hairline, #DAD6CC)",
-            marginBottom: "clamp(40px, 5vw, 64px)",
+            paddingBottom: "clamp(32px, 4.5vw, 56px)",
+            borderBottom: "1px solid var(--border-hairline, #CBD5E1)",
+            marginBottom: "clamp(32px, 4.5vw, 56px)",
           }}
         >
           {/* Left Title Column (Cols 1-7) */}
@@ -111,12 +111,12 @@ export default function Blog() {
                 fontSize: "clamp(12px, 0.95vw, 13.5px)",
                 letterSpacing: "0.2em",
                 textTransform: "uppercase",
-                color: "var(--ink-muted, #5E5D58)",
+                color: "var(--ink-muted, #64748B)",
                 marginBottom: "16px",
                 fontWeight: 600,
               }}
             >
-              (08) Writing
+              (08) Writing / Publications
             </p>
 
             <h2

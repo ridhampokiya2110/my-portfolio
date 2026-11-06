@@ -16,11 +16,11 @@ export default function SideProjects() {
       id="side-projects"
       style={{
         position: "relative",
-        background: "var(--canvas, #F4F1EA)",
-        color: "var(--ink, #0F0F0E)",
-        paddingTop: "clamp(80px, 9vw, 136px)",
-        paddingBottom: "clamp(80px, 9vw, 136px)",
-        borderBottom: "1px solid var(--border-hairline, #DAD6CC)",
+        background: "var(--canvas, #FFFFFF)",
+        color: "var(--ink, #0B0F19)",
+        paddingTop: "clamp(64px, 8vw, 120px)",
+        paddingBottom: "clamp(64px, 8vw, 120px)",
+        borderBottom: "1px solid var(--border-hairline, #CBD5E1)",
       }}
     >
       {/* Anchor alias for #lab */}
@@ -40,9 +40,9 @@ export default function SideProjects() {
             gridTemplateColumns: "repeat(12, 1fr)",
             gap: "24px",
             alignItems: "end",
-            paddingBottom: "clamp(36px, 5vw, 64px)",
-            borderBottom: "1px solid var(--border-hairline, #DAD6CC)",
-            marginBottom: "clamp(48px, 6vw, 72px)",
+            paddingBottom: "clamp(32px, 4.5vw, 56px)",
+            borderBottom: "1px solid var(--border-hairline, #CBD5E1)",
+            marginBottom: "clamp(32px, 4.5vw, 56px)",
           }}
         >
           {/* Left Title Column (Cols 1-7) */}
@@ -53,12 +53,12 @@ export default function SideProjects() {
                 fontSize: "clamp(12px, 0.95vw, 13.5px)",
                 letterSpacing: "0.2em",
                 textTransform: "uppercase",
-                color: "var(--ink-muted, #5E5D58)",
+                color: "var(--ink-muted, #64748B)",
                 marginBottom: "16px",
                 fontWeight: 600,
               }}
             >
-              (09) Lab
+              (09) Lab / Experiments
             </p>
 
             <h2
@@ -138,10 +138,10 @@ export default function SideProjects() {
                 position: "relative",
                 display: "flex",
                 flexDirection: "column",
-                border: "1px solid var(--border-hairline, #DAD6CC)",
+                border: "1px solid var(--border-hairline, #CBD5E1)",
                 borderRadius: "4px",
-                padding: "clamp(24px, 2.8vw, 32px)",
-                background: "var(--canvas-surface, #EDEAE2)",
+                padding: "clamp(20px, 2.5vw, 28px)",
+                background: "var(--canvas-surface, #F1F5F9)",
                 transition: "border-color 0.3s ease, background 0.3s ease",
               }}
             >
@@ -264,8 +264,8 @@ export default function SideProjects() {
 
       <style jsx>{`
         .lab-card:hover {
-          border-color: var(--ink, #0F0F0E) !important;
-          background: #E5E1D7 !important;
+          border-color: var(--accent, #2563EB) !important;
+          background: var(--canvas-muted) !important;
         }
         @media (min-width: 1024px) {
           .header-left-col {
@@ -273,6 +273,11 @@ export default function SideProjects() {
           }
           .header-right-col {
             grid-column: span 5 !important;
+          }
+        }
+        @media (max-width: 640px) {
+          .lab-card {
+            padding: 18px 14px !important;
           }
         }
       `}</style>

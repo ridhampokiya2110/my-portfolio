@@ -16,11 +16,11 @@ export default function Skills() {
       id="skills"
       style={{
         position: "relative",
-        background: "var(--canvas, #F4F1EA)",
-        color: "var(--ink, #0F0F0E)",
-        paddingTop: "clamp(80px, 9vw, 136px)",
-        paddingBottom: "clamp(80px, 9vw, 136px)",
-        borderBottom: "1px solid var(--border-hairline, #DAD6CC)",
+        background: "var(--canvas, #FFFFFF)",
+        color: "var(--ink, #0B0F19)",
+        paddingTop: "clamp(64px, 8vw, 120px)",
+        paddingBottom: "clamp(64px, 8vw, 120px)",
+        borderBottom: "1px solid var(--border-hairline, #CBD5E1)",
       }}
     >
       <div
@@ -37,9 +37,9 @@ export default function Skills() {
             gridTemplateColumns: "repeat(12, 1fr)",
             gap: "24px",
             alignItems: "end",
-            paddingBottom: "clamp(36px, 5vw, 64px)",
-            borderBottom: "1px solid var(--border-hairline, #DAD6CC)",
-            marginBottom: "clamp(48px, 6vw, 72px)",
+            paddingBottom: "clamp(32px, 4.5vw, 56px)",
+            borderBottom: "1px solid var(--border-hairline, #CBD5E1)",
+            marginBottom: "clamp(36px, 5vw, 64px)",
           }}
         >
           {/* Left Title Column (Cols 1-7) */}
@@ -50,7 +50,7 @@ export default function Skills() {
                 fontSize: "clamp(12px, 0.95vw, 13.5px)",
                 letterSpacing: "0.2em",
                 textTransform: "uppercase",
-                color: "var(--ink-muted, #5E5D58)",
+                color: "var(--ink-muted, #64748B)",
                 marginBottom: "16px",
                 fontWeight: 600,
               }}
@@ -120,10 +120,10 @@ export default function Skills() {
                 ease: [0.22, 1, 0.36, 1],
               }}
               style={{
-                border: "1px solid var(--border-hairline, #DAD6CC)",
+                border: "1px solid var(--border-hairline, #CBD5E1)",
                 borderRadius: "4px",
-                padding: "clamp(24px, 2.8vw, 32px)",
-                background: "var(--canvas-surface, #EDEAE2)",
+                padding: "clamp(20px, 2.5vw, 28px)",
+                background: "var(--canvas-surface, #F1F5F9)",
                 transition: "border-color 0.3s ease, background 0.3s ease",
                 display: "flex",
                 flexDirection: "column",
@@ -137,7 +137,7 @@ export default function Skills() {
                   alignItems: "center",
                   justifyContent: "space-between",
                   paddingBottom: "16px",
-                  borderBottom: "1px solid var(--border-hairline, #DAD6CC)",
+                  borderBottom: "1px solid var(--border-hairline, #CBD5E1)",
                   marginBottom: "20px",
                 }}
               >
@@ -146,7 +146,7 @@ export default function Skills() {
                     fontFamily: "var(--font-serif, 'Instrument Serif', Georgia, serif)",
                     fontSize: "1.85rem",
                     fontWeight: 400,
-                    color: "var(--ink, #0F0F0E)",
+                    color: "var(--ink, #0B0F19)",
                     margin: 0,
                   }}
                 >
@@ -232,7 +232,7 @@ export default function Skills() {
 
       <style jsx>{`
         .skill-card:hover {
-          border-color: var(--accent, #2438FF) !important;
+          border-color: var(--accent, #2563EB) !important;
           background: var(--canvas-muted) !important;
         }
         @media (min-width: 900px) {
@@ -244,6 +244,11 @@ export default function Skills() {
             text-align: right;
             display: flex;
             justifyContent: flex-end;
+          }
+        }
+        @media (max-width: 640px) {
+          .skill-card {
+            padding: 18px 14px !important;
           }
         }
       `}</style>

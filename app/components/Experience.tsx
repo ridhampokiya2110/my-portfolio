@@ -16,11 +16,11 @@ export default function Experience() {
       id="experience"
       style={{
         position: "relative",
-        background: "var(--canvas, #F4F1EA)",
-        color: "var(--ink, #0F0F0E)",
-        paddingTop: "clamp(80px, 9vw, 136px)",
-        paddingBottom: "clamp(80px, 9vw, 136px)",
-        borderBottom: "1px solid var(--border-hairline, #DAD6CC)",
+        background: "var(--canvas, #FFFFFF)",
+        color: "var(--ink, #0B0F19)",
+        paddingTop: "clamp(64px, 8vw, 120px)",
+        paddingBottom: "clamp(64px, 8vw, 120px)",
+        borderBottom: "1px solid var(--border-hairline, #CBD5E1)",
       }}
     >
       <div
@@ -37,9 +37,9 @@ export default function Experience() {
             gridTemplateColumns: "repeat(12, 1fr)",
             gap: "24px",
             alignItems: "end",
-            paddingBottom: "clamp(36px, 5vw, 64px)",
-            borderBottom: "1px solid var(--border-hairline, #DAD6CC)",
-            marginBottom: "clamp(48px, 6vw, 72px)",
+            paddingBottom: "clamp(32px, 4.5vw, 56px)",
+            borderBottom: "1px solid var(--border-hairline, #CBD5E1)",
+            marginBottom: "clamp(36px, 5vw, 64px)",
           }}
         >
           {/* Left Title Column (Cols 1-7) */}
@@ -50,12 +50,12 @@ export default function Experience() {
                 fontSize: "clamp(12px, 0.95vw, 13.5px)",
                 letterSpacing: "0.2em",
                 textTransform: "uppercase",
-                color: "var(--ink-muted, #5E5D58)",
+                color: "var(--ink-muted, #64748B)",
                 marginBottom: "16px",
                 fontWeight: 600,
               }}
             >
-              (05) Experience / Career History
+              (06) Experience / Career History
             </p>
 
             <h2
@@ -114,10 +114,10 @@ export default function Experience() {
                 ease: [0.22, 1, 0.36, 1],
               }}
               style={{
-                border: "1px solid var(--border-hairline, #DAD6CC)",
+                border: "1px solid var(--border-hairline, #CBD5E1)",
                 borderRadius: "4px",
-                padding: "clamp(24px, 3.5vw, 40px)",
-                background: "var(--canvas-surface, #EDEAE2)",
+                padding: "clamp(20px, 3.5vw, 36px)",
+                background: "var(--canvas-surface, #F1F5F9)",
                 transition: "border-color 0.3s ease, background 0.3s ease",
                 position: "relative",
               }}
@@ -233,8 +233,8 @@ export default function Experience() {
 
       <style jsx>{`
         .experience-card:hover {
-          border-color: var(--ink, #0F0F0E) !important;
-          background: #E5E1D7 !important;
+          border-color: var(--border-strong, #94A3B8) !important;
+          background: var(--canvas-muted, #E2E8F0) !important;
         }
         @media (min-width: 900px) {
           .header-left-col {
@@ -251,6 +251,11 @@ export default function Experience() {
           }
           .exp-right {
             grid-column: span 7 !important;
+          }
+        }
+        @media (max-width: 640px) {
+          .experience-card {
+            padding: 18px 14px !important;
           }
         }
       `}</style>

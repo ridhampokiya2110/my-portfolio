@@ -16,6 +16,7 @@ import About from "../../app/components/About";
 import ExecutiveGallery from "../../app/components/ExecutiveGallery";
 import Skills from "../../app/components/Skills";
 import SideProjects from "../../app/components/SideProjects";
+import Books from "../../app/components/Books";
 import Blog from "../../app/components/Blog";
 import Contact from "../../app/components/Contact";
 import Footer from "../../app/components/Footer";
@@ -154,6 +155,14 @@ describe("Mobile QA Testing Suite (Black, Grey, White Box)", () => {
       expect(screen.getByText(/read more on:/i)).toBeInTheDocument();
       expect(screen.getByText(/direct email/i)).toBeInTheDocument();
       expect(screen.getByText(/surat, india \(ist\)/i)).toBeInTheDocument();
+    });
+
+    it("renders Books section on mobile with Millionaire's Mindset and Amazon links", () => {
+      const { container } = render(<Books />);
+      const headings = screen.getAllByText(/millionaire's mindset/i);
+      expect(headings.length).toBeGreaterThanOrEqual(1);
+      expect(container.querySelector('a[href*="amazon.com"]')).toBeInTheDocument();
+      expect(container.querySelector('a[href*="amazon.in"]')).toBeInTheDocument();
     });
   });
 

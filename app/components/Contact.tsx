@@ -377,12 +377,12 @@ export default function Contact() {
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "space-between",
-                    gap: "16px",
-                    padding: "18px 24px",
+                    gap: "12px",
+                    padding: "16px 20px",
                     textDecoration: "none",
                     color: "inherit",
-                    background: "var(--canvas-surface, #EDEAE2)",
-                    border: "1px solid var(--border-hairline, #DAD6CC)",
+                    background: "var(--canvas-surface, #F8F9FA)",
+                    border: "1px solid var(--border-hairline, #E2E8F0)",
                     borderRadius: "4px",
                     transition: "border-color 0.25s ease, background 0.25s ease, transform 0.25s ease",
                   }}
@@ -391,29 +391,31 @@ export default function Contact() {
                     style={{
                       display: "flex",
                       alignItems: "center",
-                      gap: "16px",
-                      flexWrap: "nowrap",
+                      gap: "12px",
+                      flex: 1,
+                      minWidth: 0,
+                      overflow: "hidden",
                     }}
                   >
                     <span
                       style={{
                         fontFamily: "var(--font-mono, monospace)",
-                        fontSize: "13.5px",
+                        fontSize: "13px",
                         letterSpacing: "0.14em",
                         textTransform: "uppercase",
-                        color: "var(--ink, #0F0F0E)",
+                        color: "var(--ink, #0B0F19)",
                         fontWeight: 600,
-                        minWidth: "96px",
-                        whiteSpace: "nowrap",
+                        flexShrink: 0,
                       }}
                     >
                       {profile.name}
                     </span>
                     <span
                       style={{
-                        color: "var(--border-strong, #B8B4A8)",
+                        color: "var(--border-strong, #CBD5E1)",
                         fontFamily: "var(--font-mono, monospace)",
-                        fontSize: "14px",
+                        fontSize: "13px",
+                        flexShrink: 0,
                       }}
                       aria-hidden="true"
                     >
@@ -422,11 +424,14 @@ export default function Contact() {
                     <span
                       style={{
                         fontFamily: "var(--font-mono, monospace)",
-                        fontSize: "13.5px",
-                        letterSpacing: "0.04em",
-                        color: "var(--ink-secondary, #383733)",
+                        fontSize: "12.5px",
+                        letterSpacing: "0.02em",
+                        color: "var(--ink-secondary, #334155)",
                         fontWeight: 500,
+                        overflow: "hidden",
+                        textOverflow: "ellipsis",
                         whiteSpace: "nowrap",
+                        minWidth: 0,
                       }}
                     >
                       {profile.handle}
@@ -437,9 +442,10 @@ export default function Contact() {
                     style={{
                       fontFamily: "var(--font-mono, monospace)",
                       fontSize: "16px",
-                      color: "var(--accent, #2438FF)",
+                      color: "var(--accent, #2563EB)",
                       lineHeight: 1,
                       flexShrink: 0,
+                      marginLeft: "8px",
                     }}
                     aria-hidden="true"
                   >
@@ -467,18 +473,21 @@ export default function Contact() {
             justify-content: center !important;
             text-align: center !important;
           }
+          .contact-profile-card {
+            padding: 14px 16px !important;
+          }
         }
         .direct-contact-card:hover {
-          border-color: var(--border-strong, #B8B4A8) !important;
-          background: var(--canvas-muted, #E5E1D7) !important;
+          border-color: var(--border-strong, #CBD5E1) !important;
+          background: var(--canvas-muted, #F1F3F5) !important;
         }
         .contact-profile-card:hover {
-          border-color: var(--border-strong, #B8B4A8) !important;
-          background: var(--canvas-muted, #E5E1D7) !important;
+          border-color: var(--border-strong, #CBD5E1) !important;
+          background: var(--canvas-muted, #F1F3F5) !important;
           transform: translateX(4px);
         }
         .btn-magnetic-primary:hover {
-          background: var(--accent, #2438FF) !important;
+          background: var(--accent, #2563EB) !important;
           color: #FFFFFF !important;
           transform: translateY(-2px);
         }

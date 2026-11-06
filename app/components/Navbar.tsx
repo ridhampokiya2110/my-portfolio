@@ -96,8 +96,8 @@ export default function Navbar() {
           transition: "transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), background 0.3s ease, border-color 0.3s ease",
           background: scrolled
             ? isDark
-              ? "rgba(15, 15, 14, 0.94)"
-              : "rgba(244, 241, 234, 0.94)"
+              ? "rgba(7, 9, 14, 0.92)"
+              : "rgba(255, 255, 255, 0.92)"
             : "transparent",
           backdropFilter: scrolled ? "blur(16px)" : "none",
           WebkitBackdropFilter: scrolled ? "blur(16px)" : "none",

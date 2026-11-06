@@ -25,11 +25,11 @@ export const selectedWorkData: CaseStudyCardData[] = [
     year: "2025 — 2026",
     title: "Enterprise Multi-Region Backbone",
     problem:
-      "Critical enterprise workloads suffered single-region latency bottlenecks and outage vulnerability during high-volume spikes without automated cross-region disaster recovery.",
+      "Single-region enterprise workloads suffered from **latency bottlenecks** and outage vulnerability without **automated cross-region failover**.",
     whatIBuilt:
-      "Architected an active-active AWS multi-region infrastructure spanning Mumbai (ap-south-1) and US-East (us-east-1) with Route 53 latency routing, ECS Fargate auto-scaling clusters, and automated Aurora Global database replication.",
+      "Architected an **active-active AWS multi-region infrastructure** (ap-south-1 & us-east-1) with **Route 53 latency routing**, **ECS Fargate auto-scaling**, and **Aurora Global database replication**.",
     result:
-      "99.99% uptime achieved across global traffic with sub-50ms regional API responses and verified zero-data-loss failover under continuous chaos testing.",
+      "**99.99% verified uptime** with **sub-50ms regional API responses** and **zero-data-loss failover** under continuous chaos testing.",
     stack: [
       "AWS Multi-Region",
       "Terraform IaC",
@@ -53,11 +53,11 @@ export const selectedWorkData: CaseStudyCardData[] = [
     year: "2024 — 2026",
     title: "Serverless Event-Driven Core",
     problem:
-      "Monolithic backends suffered from high idle cloud infrastructure expenses and compute bottlenecks during sporadic high-volume image processing and distributed queries.",
+      "Monolithic backends suffered from **high idle cloud expenses** and compute bottlenecks during sporadic high-volume query spikes.",
     whatIBuilt:
-      "Designed a decoupled event-driven serverless topology utilizing AWS Lambda, Amazon S3 event notifications, Amazon Rekognition AI pipelines, and DynamoDB for single-digit millisecond latency queries.",
+      "Designed a **decoupled serverless event pipeline** using **AWS Lambda**, **Amazon S3 triggers**, and **DynamoDB** for single-digit millisecond latency queries.",
     result:
-      "92% operational cloud cost reduction compared to persistent server instances with sub-100ms async processing throughput at peak workloads.",
+      "**92% operational cloud cost reduction** with **sub-100ms async throughput** during peak enterprise workloads.",
     stack: [
       "AWS Lambda",
       "Amazon EventBridge",

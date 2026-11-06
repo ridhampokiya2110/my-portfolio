@@ -8,17 +8,17 @@
    ================================================================ */
 
 :root {
-  /* Warm Editorial Canvas & Ink */
-  --canvas:          #F4F1EA;
-  --canvas-surface:  #E8E4D9;
-  --canvas-muted:    #DDD7CA;
-  --ink:             #0F0F0E;
-  --ink-secondary:   #302F2C;
-  --ink-muted:       #5E5D58;
-  --border-hairline: #CFC7B7;
-  --border-strong:   #A89F8D;
-  --validexio-bg:    #FFFFFF;
-  --validexio-ink:   #0F0F0E;
+  /* Ultra-Crisp Luminous Luxury Editorial Canvas & Ink */
+  --canvas:          #FFFFFF;
+  --canvas-surface:  #F1F5F9;
+  --canvas-muted:    #E2E8F0;
+  --ink:             #0B0F19;
+  --ink-secondary:   #334155;
+  --ink-muted:       #64748B;
+  --border-hairline: #CBD5E1;
+  --border-strong:   #94A3B8;
+  --validexio-bg:    #F8FAFC;
+  --validexio-ink:   #0B0F19;
 
   /* Typography Variables: Original Editorial System */
   --font-serif:     'Instrument Serif', Georgia, serif;
@@ -33,36 +33,36 @@
   --font-lora:      'Geist', sans-serif;
   --font-archivo:   'Geist', sans-serif;
 
-  /* Singular Deep Ultramarine Accent */
-  --accent:          #2438FF;
-  --accent-hover:    #1A2CD6;
-  --accent-soft:     rgba(36, 56, 255, 0.08);
+  /* Royal Electric Cobalt Accent */
+  --accent:          #2563EB;
+  --accent-hover:    #1D4ED8;
+  --accent-soft:     rgba(37, 99, 235, 0.08);
 
   /* Inverted Contrast Section */
-  --inverted-canvas: #0F0F0E;
-  --inverted-surface:#171715;
-  --inverted-ink:    #F4F1EA;
-  --inverted-muted:  #9E9C96;
-  --inverted-border: #272624;
+  --inverted-canvas: #07090E;
+  --inverted-surface:#141A28;
+  --inverted-ink:    #F8FAFC;
+  --inverted-muted:  #94A3B8;
+  --inverted-border: #26334D;
 
-  /* Base backgrounds (mapped to warm canvas) */
+  /* Base backgrounds (mapped to bright canvas) */
   --bg-0: var(--canvas);
   --bg-1: var(--canvas-surface);
   --bg-2: var(--canvas-muted);
-  --bg-3: #DBD6CA;
+  --bg-3: #CBD5E1;
 
   /* Accents */
   --cyan:    var(--accent);
-  --cyan-d:  #1A2CD6;
-  --violet:  #2438FF;
-  --violet-d:#1A2CD6;
+  --cyan-d:  #1D4ED8;
+  --violet:  #2563EB;
+  --violet-d:#1D4ED8;
   --gold:    #D97706;
-  --emerald: #16A34A;
-  --pink:    #2438FF;
+  --emerald: #10B981;
+  --pink:    #2563EB;
 
   /* Subtle Borders & Glass */
-  --glass-bg:   rgba(15, 15, 14, 0.03);
-  --glass-bg-h: rgba(15, 15, 14, 0.06);
+  --glass-bg:   rgba(11, 15, 25, 0.02);
+  --glass-bg-h: rgba(11, 15, 25, 0.05);
   --glass-border: var(--border-hairline);
 
   /* Text */
@@ -77,32 +77,33 @@
 }
 
 [data-theme="dark"] {
-  --canvas:          #0A0A09;
-  --canvas-surface:  #1C1C19;
-  --canvas-muted:    #282824;
-  --ink:             #F4F1EA;
-  --ink-secondary:   #D4D0C5;
-  --ink-muted:       #9E9B91;
-  --border-hairline: #3A3934;
-  --border-strong:   #54524A;
-  --validexio-bg:    #1E1E1C;
-  --validexio-ink:   #F4F1EA;
-  --accent:          #4D5EFF;
-  --accent-hover:    #6675FF;
-  --accent-soft:     rgba(77, 94, 255, 0.14);
-  --inverted-canvas: #F4F1EA;
-  --inverted-surface:#E8E4D9;
-  --inverted-ink:    #0F0F0E;
-  --inverted-muted:  #5E5D58;
-  --inverted-border: #CFC7B7;
+  /* Deep Space OLED Obsidian Black & Elevated Titanium */
+  --canvas:          #07090E;
+  --canvas-surface:  #141A28;
+  --canvas-muted:    #1E263B;
+  --ink:             #F8FAFC;
+  --ink-secondary:   #CBD5E1;
+  --ink-muted:       #94A3B8;
+  --border-hairline: #26334D;
+  --border-strong:   #3B4B6E;
+  --validexio-bg:    #111624;
+  --validexio-ink:   #F8FAFC;
+  --accent:          #3B82F6;
+  --accent-hover:    #60A5FA;
+  --accent-soft:     rgba(59, 130, 246, 0.16);
+  --inverted-canvas: #FFFFFF;
+  --inverted-surface:#F1F5F9;
+  --inverted-ink:    #0B0F19;
+  --inverted-muted:  #64748B;
+  --inverted-border: #CBD5E1;
 
-  --bg-0: #0A0A09;
-  --bg-1: #1C1C19;
-  --bg-2: #282824;
-  --t1: #F4F1EA;
-  --t2: #D4D0C5;
-  --t3: #9E9B91;
-  --cyan: #4D5EFF;
+  --bg-0: #07090E;
+  --bg-1: #141A28;
+  --bg-2: #1E263B;
+  --t1: #F8FAFC;
+  --t2: #CBD5E1;
+  --t3: #94A3B8;
+  --cyan: #3B82F6;
 }
 
 /* ================================================================

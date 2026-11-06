@@ -15,6 +15,20 @@ interface SingleCardProps {
   total: number;
 }
 
+const renderFormattedText = (str: string, strongColor: string) => {
+  const parts = str.split(/(\*\*.*?\*\*)/g);
+  return parts.map((part, i) => {
+    if (part.startsWith("**") && part.endsWith("**")) {
+      return (
+        <strong key={i} style={{ color: strongColor, fontWeight: 600 }}>
+          {part.slice(2, -2)}
+        </strong>
+      );
+    }
+    return part;
+  });
+};
+
 function SingleCard({ card, index, total }: SingleCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
   const shouldReduceMotion = useReducedMotion();
@@ -98,6 +112,8 @@ function SingleCard({ card, index, total }: SingleCardProps) {
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
+            flexWrap: "wrap",
+            gap: "12px",
             paddingBottom: "18px",
             borderBottom: `1px solid ${borderColor}`,
             marginBottom: "clamp(24px, 3.5vw, 36px)",
@@ -108,7 +124,7 @@ function SingleCard({ card, index, total }: SingleCardProps) {
             color: mutedText,
           }}
         >
-          <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "12px", flexWrap: "wrap" }}>
             <span
               style={{
                 fontFamily: "var(--font-mono, monospace)",
@@ -199,7 +215,7 @@ function SingleCard({ card, index, total }: SingleCardProps) {
                       margin: 0,
                     }}
                   >
-                    {card.problem}
+                    {renderFormattedText(card.problem, textColor)}
                   </p>
                 </div>
 
@@ -228,7 +244,7 @@ function SingleCard({ card, index, total }: SingleCardProps) {
                       margin: 0,
                     }}
                   >
-                    {card.whatIBuilt}
+                    {renderFormattedText(card.whatIBuilt, textColor)}
                   </p>
                 </div>
 
@@ -258,7 +274,7 @@ function SingleCard({ card, index, total }: SingleCardProps) {
                       fontWeight: 600,
                     }}
                   >
-                    {card.result}
+                    {renderFormattedText(card.result, textColor)}
                   </p>
                 </div>
               </div>
@@ -426,12 +442,27 @@ export default function StickyCardStack({ cards }: StickyCardStackProps) {
           }
         }
         @media (max-width: 899px) {
+          .case-study-card {
+            padding: clamp(20px, 4vw, 32px) !important;
+            min-height: auto !important;
+          }
           .card-left-col {
             grid-column: span 12 !important;
-            margin-bottom: 32px;
+            height: auto !important;
+            min-height: auto !important;
+            margin-bottom: 24px !important;
+            display: block !important;
           }
           .card-right-col {
             grid-column: span 12 !important;
+            height: auto !important;
+            min-height: auto !important;
+          }
+          .visual-frame {
+            min-height: 220px !important;
+            height: auto !important;
+            aspect-ratio: 16 / 10 !important;
+            padding: 12px !important;
           }
         }
         @media (max-width: 768px) {

@@ -39,8 +39,8 @@ export default function Hero() {
       id="hero"
       style={{
         position: "relative",
-        background: "var(--canvas, #F4F1EA)",
-        color: "var(--ink, #0F0F0E)",
+        background: "var(--canvas, #FFFFFF)",
+        color: "var(--ink, #0B0F19)",
         minHeight: "100vh",
         display: "flex",
         flexDirection: "column",
@@ -166,10 +166,76 @@ export default function Hero() {
                       display: "block",
                     }}
                   />
+                  {/* Subtle editorial vignette */}
+                  <div
+                    style={{
+                      position: "absolute",
+                      inset: 0,
+                      background: "linear-gradient(180deg, transparent 65%, rgba(7, 9, 14, 0.88) 100%)",
+                      pointerEvents: "none",
+                    }}
+                  />
+                  {/* Executive Name & Role Overlay Pill */}
+                  <div
+                    style={{
+                      position: "absolute",
+                      bottom: "12px",
+                      left: "12px",
+                      right: "12px",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                      padding: "8px 12px",
+                      borderRadius: "4px",
+                      background: "rgba(11, 15, 25, 0.82)",
+                      backdropFilter: "blur(10px)",
+                      WebkitBackdropFilter: "blur(10px)",
+                      border: "1px solid rgba(255, 255, 255, 0.16)",
+                      color: "#FFFFFF",
+                      zIndex: 3,
+                    }}
+                  >
+                    <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                      <span
+                        style={{
+                          width: "7px",
+                          height: "7px",
+                          borderRadius: "50%",
+                          background: "#10B981",
+                          boxShadow: "0 0 8px rgba(16, 185, 129, 0.8)",
+                          display: "inline-block",
+                        }}
+                      />
+                      <span
+                        style={{
+                          fontFamily: "var(--font-mono, monospace)",
+                          fontSize: "11px",
+                          letterSpacing: "0.14em",
+                          textTransform: "uppercase",
+                          fontWeight: 600,
+                          color: "#FFFFFF",
+                        }}
+                      >
+                        Ridham Pokiya
+                      </span>
+                    </div>
+                    <span
+                      style={{
+                        fontFamily: "var(--font-mono, monospace)",
+                        fontSize: "10.5px",
+                        letterSpacing: "0.1em",
+                        textTransform: "uppercase",
+                        color: "var(--accent, #3B82F6)",
+                        fontWeight: 600,
+                      }}
+                    >
+                      Founder, Tesconix
+                    </span>
+                  </div>
                 </div>
               </div>
 
-              {/* High-Legibility Subline in Geist */}
+              {/* High-Legibility Subline with Catchy Highlights */}
               <motion.p
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -178,16 +244,13 @@ export default function Hero() {
                   fontFamily: "var(--font-body, -apple-system, sans-serif)",
                   fontSize: "clamp(16.5px, 1.2vw, 19px)",
                   lineHeight: 1.65,
-                  color: "var(--ink-secondary, #383733)",
+                  color: "var(--ink-secondary, #334155)",
                   margin: "0 0 24px 0",
                   maxWidth: "600px",
                   fontWeight: 400,
                 }}
               >
-                Founder of <strong style={{ color: "var(--ink, #0F0F0E)" }}>Tesconix Technologies</strong> (Surat, India).
-                Partnering with international CTOs and founders to engineer zero-downtime
-                AWS infrastructure, robust automated CI/CD pipelines, and high-throughput
-                enterprise SaaS architectures.
+                Founder of <strong style={{ color: "var(--ink, #0B0F19)" }}>Tesconix Technologies</strong> (Surat, India). Architecting <strong style={{ color: "var(--ink, #0B0F19)" }}>zero-downtime AWS infrastructure</strong>, <strong style={{ color: "var(--ink, #0B0F19)" }}>automated CI/CD pipelines</strong>, and <strong style={{ color: "var(--accent, #2563EB)" }}>high-throughput SaaS backbones</strong> for scaling startups.
               </motion.p>
 
               {/* Clean Impact Stats Bar */}
@@ -202,7 +265,7 @@ export default function Hero() {
                   gap: "clamp(24px, 3.5vw, 40px)",
                   paddingBottom: "22px",
                   marginBottom: "22px",
-                  borderBottom: "1px solid var(--border-hairline, #DAD6CC)",
+                  borderBottom: "1px solid var(--border-hairline, #E2E8F0)",
                 }}
               >
                 <div>
@@ -210,7 +273,7 @@ export default function Hero() {
                     style={{
                       fontFamily: "var(--font-serif, 'Instrument Serif', Georgia, serif)",
                       fontSize: "clamp(30px, 2.6vw, 38px)",
-                      color: "var(--ink, #0F0F0E)",
+                      color: "var(--ink, #0B0F19)",
                       lineHeight: 1,
                       fontWeight: 400,
                     }}
@@ -221,7 +284,7 @@ export default function Hero() {
                     style={{
                       fontFamily: "var(--font-mono, monospace)",
                       fontSize: "13px",
-                      color: "var(--ink-muted, #5E5D58)",
+                      color: "var(--ink-muted, #64748B)",
                       marginTop: "4px",
                       textTransform: "uppercase",
                       letterSpacing: "0.12em",
@@ -232,14 +295,14 @@ export default function Hero() {
                   </div>
                 </div>
 
-                <div style={{ width: "1px", height: "32px", background: "var(--border-hairline, #DAD6CC)" }} />
+                <div style={{ width: "1px", height: "32px", background: "var(--border-hairline, #E2E8F0)" }} />
 
                 <div>
                   <div
                     style={{
                       fontFamily: "var(--font-serif, 'Instrument Serif', Georgia, serif)",
                       fontSize: "clamp(30px, 2.6vw, 38px)",
-                      color: "var(--accent, #2438FF)",
+                      color: "var(--accent, #2563EB)",
                       lineHeight: 1,
                       fontWeight: 400,
                     }}
@@ -250,7 +313,7 @@ export default function Hero() {
                     style={{
                       fontFamily: "var(--font-mono, monospace)",
                       fontSize: "13px",
-                      color: "var(--ink-muted, #5E5D58)",
+                      color: "var(--ink-muted, #64748B)",
                       marginTop: "4px",
                       textTransform: "uppercase",
                       letterSpacing: "0.12em",
@@ -551,9 +614,9 @@ export default function Hero() {
           z-index: 2;
           background: linear-gradient(
             90deg,
-            var(--canvas, #F4F1EA) 0%,
-            rgba(244, 241, 234, 0.75) 25%,
-            rgba(244, 241, 234, 0.25) 60%,
+            var(--canvas, #FFFFFF) 0%,
+            rgba(255, 255, 255, 0.85) 25%,
+            rgba(255, 255, 255, 0.3) 60%,
             transparent 100%
           );
           transition: background 0.3s ease;
@@ -562,9 +625,9 @@ export default function Hero() {
         [data-theme="dark"] .hero-blend-left {
           background: linear-gradient(
             90deg,
-            #0A0A09 0%,
-            rgba(10, 10, 9, 0.75) 25%,
-            rgba(10, 10, 9, 0.25) 60%,
+            #07090E 0%,
+            rgba(7, 9, 14, 0.85) 25%,
+            rgba(7, 9, 14, 0.3) 60%,
             transparent 100%
           );
         }
@@ -581,7 +644,7 @@ export default function Hero() {
           background: linear-gradient(
             180deg,
             transparent 0%,
-            var(--canvas, #F4F1EA) 100%
+            var(--canvas, #FFFFFF) 100%
           );
           transition: background 0.3s ease;
         }
@@ -590,21 +653,21 @@ export default function Hero() {
           background: linear-gradient(
             180deg,
             transparent 0%,
-            #0A0A09 100%
+            #07090E 100%
           );
         }
 
         .hero-credentials-wrapper {
           width: 100%;
-          border-top: 1px solid var(--border-hairline, #DAD6CC);
-          background: var(--canvas, #F4F1EA);
+          border-top: 1px solid var(--border-hairline, #CBD5E1);
+          background: var(--canvas, #FFFFFF);
           position: relative;
           z-index: 3;
           transition: background 0.3s ease;
         }
 
         [data-theme="dark"] .hero-credentials-wrapper {
-          background: #0A0A09;
+          background: #07090E;
         }
 
         .hero-credentials-container {

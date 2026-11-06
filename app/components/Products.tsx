@@ -19,6 +19,20 @@ interface ProductItem {
   diagramType: "heeratrack" | "validexio";
 }
 
+const renderFormattedText = (str: string, strongColor: string) => {
+  const parts = str.split(/(\*\*.*?\*\*)/g);
+  return parts.map((part, i) => {
+    if (part.startsWith("**") && part.endsWith("**")) {
+      return (
+        <strong key={i} style={{ color: strongColor, fontWeight: 600 }}>
+          {part.slice(2, -2)}
+        </strong>
+      );
+    }
+    return part;
+  });
+};
+
 const PRODUCTS: ProductItem[] = [
   {
     id: "heeratrack",
@@ -28,9 +42,9 @@ const PRODUCTS: ProductItem[] = [
     problem:
       "Eliminates spreadsheet chaos, manual calculations, and untracked parcel loss across diamond cutting, valuation, and wholesale export operations.",
     bullets: [
-      "Real-time diamond parcel lot tracking from rough stone intake to polished export",
-      "Multi-tenant ledger with sub-5ms pricing calculations and brokerage margins",
-      "Automated barcode generation, stone certification vault, and audit trails",
+      "**Live parcel tracking** from rough intake to polished international export",
+      "**Sub-5ms multi-tenant ledger** calculating lot margins & brokerage instantly",
+      "**Automated barcodes & digital vault** preventing inventory loss and audit leaks",
     ],
     stack: ["Next.js 16", "AWS ECS", "PostgreSQL", "Docker", "Redis"],
     statusMetric: "Live • Production ERP",
@@ -47,9 +61,9 @@ const PRODUCTS: ProductItem[] = [
     problem:
       "Stops founders and operators from spending months building unvalidated software without objective market demand signals.",
     bullets: [
-      "Automated competitor density mapping and market saturation scoring",
-      "Vector-similarity search across tech startups and historical venture outcomes",
-      "Structured validation intelligence reports generated asynchronously in under 60 seconds",
+      "**Competitor density mapping** & instant market saturation scoring",
+      "**Vector AI similarity search** across tech startups & venture outcomes",
+      "**Fast 60-second intelligence reports** replacing manual market research",
     ],
     stack: ["TypeScript", "FastAPI", "AWS Lambda", "Vector Search", "DynamoDB"],
     statusMetric: "Live • Founder Intelligence",
@@ -145,6 +159,8 @@ function ProductCard({
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
+            flexWrap: "wrap",
+            gap: "12px",
             paddingBottom: "18px",
             borderBottom: `1px solid ${borderColor}`,
             marginBottom: "clamp(24px, 3.5vw, 36px)",
@@ -155,7 +171,7 @@ function ProductCard({
             color: mutedText,
           }}
         >
-          <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "12px", flexWrap: "wrap" }}>
             <span
               style={{
                 fontFamily: "var(--font-mono, monospace)",
@@ -283,7 +299,7 @@ function ProductCard({
                     >
                       —
                     </span>
-                    <span>{bullet}</span>
+                    <span>{renderFormattedText(bullet, textColor)}</span>
                   </div>
                 ))}
               </div>
@@ -606,12 +622,27 @@ export default function Products() {
           }
         }
         @media (max-width: 899px) {
+          .product-card {
+            padding: clamp(20px, 4vw, 32px) !important;
+            min-height: auto !important;
+          }
           .product-left-col {
             grid-column: span 12 !important;
-            margin-bottom: 32px;
+            height: auto !important;
+            min-height: auto !important;
+            margin-bottom: 24px !important;
+            display: block !important;
           }
           .product-right-col {
             grid-column: span 12 !important;
+            height: auto !important;
+            min-height: auto !important;
+          }
+          .visual-frame {
+            min-height: 220px !important;
+            height: auto !important;
+            aspect-ratio: 16 / 10 !important;
+            padding: 12px !important;
           }
         }
         @media (max-width: 768px) {

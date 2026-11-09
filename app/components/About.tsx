@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useRef } from "react";
@@ -485,15 +486,16 @@ export default function About() {
         }
         @media (max-width: 1023px) {
           .about-portrait-col {
-            margin-bottom: clamp(24px, 4vw, 36px) !important;
+            margin-bottom: 20px !important;
             position: relative !important;
             top: auto !important;
           }
           .about-portrait-frame {
-            max-width: 330px !important;
+            max-width: 280px !important;
             margin: 0 auto !important;
-            aspect-ratio: 4 / 5 !important;
+            aspect-ratio: 1 / 1 !important;
             min-height: auto !important;
+            border-radius: 12px !important;
           }
         }
       `}</style>

@@ -119,7 +119,7 @@ export default function Navbar() {
             justifyContent: "space-between",
           }}
         >
-          {/* Minimalist Personal Wordmark */}
+          {/* Minimalist Personal Wordmark with Role Tag (Visible on All Screen Sizes) */}
           <a
             href="#hero"
             style={{
@@ -127,16 +127,18 @@ export default function Navbar() {
               color: "var(--ink, #0F0F0E)",
               display: "flex",
               alignItems: "baseline",
-              gap: "10px",
+              gap: "clamp(6px, 1.4vw, 10px)",
+              flexShrink: 0,
             }}
           >
             <span
               style={{
                 fontFamily: "var(--font-serif, 'Instrument Serif', Georgia, serif)",
-                fontSize: "clamp(22px, 1.8vw, 26px)",
+                fontSize: "clamp(19px, 3.8vw, 26px)",
                 fontWeight: 400,
                 letterSpacing: "-0.02em",
                 color: "var(--ink, #0F0F0E)",
+                whiteSpace: "nowrap",
               }}
             >
               Ridham Pokiya
@@ -144,13 +146,15 @@ export default function Navbar() {
             <span
               style={{
                 fontFamily: "var(--font-mono, monospace)",
-                fontSize: "12.5px",
-                letterSpacing: "0.18em",
+                fontSize: "clamp(10px, 2.1vw, 12.5px)",
+                letterSpacing: "0.16em",
                 textTransform: "uppercase",
                 color: "var(--ink-muted, #5E5D58)",
                 fontWeight: 500,
+                whiteSpace: "nowrap",
+                display: "inline-block",
               }}
-              className="hide-mobile"
+              className="nav-role-tag"
             >
               / Entrepreneur
             </span>

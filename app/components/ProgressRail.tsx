@@ -113,6 +113,7 @@ export default function ProgressRail({
 
       {/* Vertical Rail Line with 4 Step Markers */}
       <div
+        className="rail-track-container"
         style={{
           position: "relative",
           paddingLeft: "32px",
@@ -121,6 +122,7 @@ export default function ProgressRail({
       >
         {/* Hairline Rail Track */}
         <div
+          className="rail-track-line"
           style={{
             position: "absolute",
             left: "5px",
@@ -135,6 +137,7 @@ export default function ProgressRail({
 
         {/* Scrubbed Progress Fill Line */}
         <motion.div
+          className="rail-track-line"
           style={{
             position: "absolute",
             left: "5px",
@@ -151,6 +154,7 @@ export default function ProgressRail({
 
         {/* 4 Step Clickable Nodes */}
         <div
+          className="rail-steps-track"
           style={{
             display: "flex",
             flexDirection: "column",
@@ -187,6 +191,7 @@ export default function ProgressRail({
                 <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
                   {/* Marker Node on Track */}
                   <span
+                    className="rail-marker-node"
                     style={{
                       position: "absolute",
                       left: "-32px",
@@ -257,6 +262,34 @@ export default function ProgressRail({
           .approach-progress-rail {
             position: relative !important;
             top: auto !important;
+            margin-bottom: 24px !important;
+          }
+          .rail-track-container {
+            padding-left: 0 !important;
+            margin-top: 8px !important;
+          }
+          .rail-track-line,
+          .rail-marker-node {
+            display: none !important;
+          }
+          .rail-steps-track {
+            flex-direction: row !important;
+            overflow-x: auto !important;
+            gap: 8px !important;
+            padding: 4px 0 8px 0 !important;
+            scrollbar-width: none !important;
+            -webkit-overflow-scrolling: touch !important;
+          }
+          .rail-steps-track::-webkit-scrollbar {
+            display: none !important;
+          }
+          .progress-rail-btn {
+            padding: 8px 14px !important;
+            border-radius: 9999px !important;
+            background: var(--canvas-surface, #F1F5F9) !important;
+            border: 1px solid var(--border-hairline, #CBD5E1) !important;
+            white-space: nowrap !important;
+            flex-shrink: 0 !important;
           }
         }
         .stage-pulse-dot {

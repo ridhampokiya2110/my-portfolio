@@ -257,7 +257,7 @@ export default function ExecutiveGallery() {
                       width: "100%",
                       height: "100%",
                       objectFit: "cover",
-                      objectPosition: "top center",
+                      objectPosition: "center 18%",
                       transform: isActive ? "scale(1.025)" : "scale(1)",
                       filter: isActive
                         ? "contrast(1.03) brightness(0.92)"
@@ -723,12 +723,12 @@ export default function ExecutiveGallery() {
             display: none !important;
           }
           .cinema-card {
-            flex: 0 0 84vw !important;
-            max-width: 340px !important;
-            height: 440px !important;
-            min-height: 440px !important;
+            flex: 0 0 80vw !important;
+            max-width: 300px !important;
+            height: 380px !important;
+            min-height: 380px !important;
             scroll-snap-align: center !important;
-            border-radius: 6px !important;
+            border-radius: 10px !important;
           }
           .card-expanded-info {
             max-height: none !important;

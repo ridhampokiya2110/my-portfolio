@@ -504,12 +504,13 @@ export default function Hero() {
 
       {/* Infinite Seamless Editorial Marquee */}
       <div
+        className="hero-marquee-wrapper"
         style={{
-          marginTop: "clamp(56px, 7vw, 96px)",
-          borderTop: "1px solid var(--border-hairline, #DAD6CC)",
-          borderBottom: "1px solid var(--border-hairline, #DAD6CC)",
-          padding: "20px 0",
-          background: "var(--canvas-surface, #EDEAE2)",
+          marginTop: "clamp(24px, 5vw, 64px)",
+          borderTop: "1px solid var(--border-hairline, #CBD5E1)",
+          borderBottom: "1px solid var(--border-hairline, #CBD5E1)",
+          padding: "16px 0",
+          background: "var(--canvas-surface, #F1F5F9)",
           overflow: "hidden",
           whiteSpace: "nowrap",
           display: "flex",
@@ -701,21 +702,34 @@ export default function Hero() {
 
         /* Responsive Mobile Layout */
         @media (max-width: 991px) {
+          #hero {
+            padding-top: 64px !important;
+          }
+
           .hero-mobile-portrait-wrapper {
             display: block;
-            margin: 18px auto 26px auto;
+            margin: 14px auto 20px auto;
             width: 100%;
-            max-width: 330px;
+            max-width: 290px;
           }
 
           .hero-mobile-portrait-frame {
             position: relative;
             width: 100%;
-            border-radius: 6px;
+            aspect-ratio: 1 / 1;
+            border-radius: 12px;
             overflow: hidden;
-            border: 1px solid var(--border-hairline, #DAD6CC);
-            box-shadow: 0 16px 36px rgba(15, 15, 14, 0.12);
-            background: #0F0F0E;
+            border: 1px solid var(--border-hairline, #CBD5E1);
+            box-shadow: 0 14px 34px rgba(0, 0, 0, 0.16);
+            background: #07090E;
+          }
+
+          .hero-mobile-portrait-frame img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+            object-position: center 18% !important;
+            display: block;
           }
 
           .hero-right-col {
@@ -733,7 +747,7 @@ export default function Hero() {
           }
 
           .hero-left-col {
-            padding: 24px clamp(16px, 4vw, 28px) 32px clamp(16px, 4vw, 28px);
+            padding: 16px clamp(16px, 4vw, 24px) 24px clamp(16px, 4vw, 24px);
             max-width: 100%;
             display: block;
           }
@@ -744,6 +758,23 @@ export default function Hero() {
 
           .hero-blend-bottom {
             display: none;
+          }
+
+          .hero-credentials-wrapper {
+            padding: 16px 0 !important;
+          }
+
+          .hero-credentials-container {
+            padding: 14px clamp(16px, 4vw, 24px) !important;
+          }
+
+          .hero-credentials-container > div {
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 14px !important;
+          }
+
+          .hero-marquee-wrapper {
+            margin-top: 20px !important;
           }
         }
 

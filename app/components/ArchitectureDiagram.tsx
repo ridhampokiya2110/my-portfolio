@@ -8,6 +8,64 @@ interface ArchitectureDiagramProps {
 export default function ArchitectureDiagram({ type }: ArchitectureDiagramProps) {
   const highlightStroke = "var(--accent, #2563EB)";
 
+  const sharedStyles = (
+    <style>{`
+      .arch-box-node {
+        fill: var(--canvas, #FFFFFF);
+        stroke: var(--border-hairline, #CBD5E1);
+        transition: fill 0.3s ease, stroke 0.3s ease;
+      }
+      .arch-box-region {
+        fill: var(--canvas-surface, #F1F5F9);
+        stroke: var(--border-hairline, #CBD5E1);
+        transition: fill 0.3s ease, stroke 0.3s ease;
+      }
+      .arch-text-primary {
+        fill: var(--ink, #0B0F19);
+        transition: fill 0.3s ease;
+      }
+      .arch-text-muted {
+        fill: var(--ink-secondary, #334155);
+        transition: fill 0.3s ease;
+      }
+      .arch-text-accent {
+        fill: var(--accent, #2563EB);
+        transition: fill 0.3s ease;
+      }
+      .arch-line {
+        stroke: var(--border-hairline, #CBD5E1);
+        transition: stroke 0.3s ease;
+      }
+
+      :global([data-theme="dark"]) .arch-box-node,
+      [data-theme="dark"] .arch-box-node {
+        fill: #0B0F19 !important;
+        stroke: #334155 !important;
+      }
+      :global([data-theme="dark"]) .arch-box-region,
+      [data-theme="dark"] .arch-box-region {
+        fill: #111827 !important;
+        stroke: #1E293B !important;
+      }
+      :global([data-theme="dark"]) .arch-text-primary,
+      [data-theme="dark"] .arch-text-primary {
+        fill: #F8FAFC !important;
+      }
+      :global([data-theme="dark"]) .arch-text-muted,
+      [data-theme="dark"] .arch-text-muted {
+        fill: #94A3B8 !important;
+      }
+      :global([data-theme="dark"]) .arch-text-accent,
+      [data-theme="dark"] .arch-text-accent {
+        fill: #60A5FA !important;
+      }
+      :global([data-theme="dark"]) .arch-line,
+      [data-theme="dark"] .arch-line {
+        stroke: #334155 !important;
+      }
+    `}</style>
+  );
+
   if (type === "deskcode-cicd") {
     return (
       <svg
@@ -18,6 +76,7 @@ export default function ArchitectureDiagram({ type }: ArchitectureDiagramProps) 
         role="img"
         aria-label="Deskcode Solution Automated CI/CD Pipeline Architecture"
       >
+        <defs>{sharedStyles}</defs>
         {/* Background Grid Lines */}
         <line x1="0" y1="100" x2="600" y2="100" className="arch-line" stroke="var(--border-hairline, #CBD5E1)" strokeDasharray="3 3" opacity="0.6" />
         <line x1="0" y1="200" x2="600" y2="200" className="arch-line" stroke="var(--border-hairline, #CBD5E1)" strokeDasharray="3 3" opacity="0.6" />
@@ -80,6 +139,7 @@ export default function ArchitectureDiagram({ type }: ArchitectureDiagramProps) 
         role="img"
         aria-label="Serverless Event-Driven Microservices Architecture"
       >
+        <defs>{sharedStyles}</defs>
         {/* Client Ingress */}
         <rect x="40" y="45" width="140" height="70" rx="4" className="arch-box-node" fill="var(--canvas, #FFFFFF)" stroke="var(--border-hairline, #CBD5E1)" />
         <text x="55" y="75" className="arch-text-primary" fill="var(--ink, #0B0F19)" fontFamily="var(--font-mono, monospace)" fontSize="10" letterSpacing="0.1em" fontWeight="600">CLIENT / INGRESS</text>
@@ -140,6 +200,7 @@ export default function ArchitectureDiagram({ type }: ArchitectureDiagramProps) 
         role="img"
         aria-label="Heeratrack Multi-Tenant Diamond ERP Architecture Diagram"
       >
+        <defs>{sharedStyles}</defs>
         {/* Background Grid Lines */}
         <line x1="0" y1="100" x2="600" y2="100" className="arch-line" stroke="var(--border-hairline, #CBD5E1)" strokeDasharray="3 3" opacity="0.6" />
         <line x1="0" y1="200" x2="600" y2="200" className="arch-line" stroke="var(--border-hairline, #CBD5E1)" strokeDasharray="3 3" opacity="0.6" />
@@ -201,6 +262,7 @@ export default function ArchitectureDiagram({ type }: ArchitectureDiagramProps) 
         role="img"
         aria-label="Validexio Startup Intelligence Vector Search Architecture"
       >
+        <defs>{sharedStyles}</defs>
         {/* Central Core: Vector Search Engine */}
         <circle cx="300" cy="200" r="75" className="arch-box-node" fill="var(--canvas, #FFFFFF)" stroke={highlightStroke} strokeWidth="1.5" />
         <circle cx="300" cy="200" r="95" className="arch-line" stroke="var(--border-hairline, #CBD5E1)" strokeDasharray="4 4" opacity="0.6" />
@@ -247,6 +309,7 @@ export default function ArchitectureDiagram({ type }: ArchitectureDiagramProps) 
       role="img"
       aria-label="AWS Multi-Region Zero-Downtime Infrastructure Topology"
     >
+      <defs>{sharedStyles}</defs>
       {/* Route53 Global DNS */}
       <rect x="210" y="30" width="180" height="50" rx="4" className="arch-box-node" fill="var(--canvas, #FFFFFF)" stroke={highlightStroke} strokeWidth="1.5" />
       <text x="235" y="55" className="arch-text-primary" fill="var(--ink, #0B0F19)" fontFamily="var(--font-mono, monospace)" fontSize="10" letterSpacing="0.12em" fontWeight="700">ROUTE 53 GLOBAL DNS</text>

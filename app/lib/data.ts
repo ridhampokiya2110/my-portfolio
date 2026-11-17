@@ -238,13 +238,13 @@ export const projects = [
   },
   {
     title: "Testygrid OS",
-    tech: ["Cloud Architecture", "Next.js", "React"],
+    tech: ["Next.js", "React", "Cloud OS"],
     desc: "The intelligence behind world-class dining. A next-gen hospitality operating system with predictive AI.",
     link: "https://testygrid.tesconix.com",
   },
   {
     title: "Arvélle Studio",
-    tech: ["Next.js", "Tailwind CSS", "Architecture UI"],
+    tech: ["Next.js", "Tailwind CSS", "UI/UX"],
     desc: "A contemporary interior architecture and design studio showcase defined by materiality, proportion, and quiet restraint.",
     link: "https://arvelle-studio.tesconix.com",
   },

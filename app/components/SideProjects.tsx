@@ -151,7 +151,7 @@ export default function SideProjects() {
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "space-between",
-                  gap: "12px",
+                  gap: "10px",
                   marginBottom: "20px",
                 }}
               >
@@ -164,6 +164,7 @@ export default function SideProjects() {
                     color: "var(--ink-muted, #5E5D58)",
                     lineHeight: 1,
                     fontWeight: 600,
+                    flexShrink: 0,
                   }}
                 >
                   {i + 1 < 10 ? `0${i + 1}` : `${i + 1}`}
@@ -172,6 +173,8 @@ export default function SideProjects() {
                 <div
                   style={{
                     display: "flex",
+                    alignItems: "center",
+                    justifyContent: "flex-end",
                     flexWrap: "wrap",
                     gap: "6px",
                   }}
@@ -181,15 +184,18 @@ export default function SideProjects() {
                       key={t}
                       className="chip"
                       style={{
-                        padding: "4px 10px",
+                        padding: "3.5px 8.5px",
                         borderRadius: "100px",
                         border: "1px solid var(--border-hairline, #DAD6CC)",
                         fontFamily: "var(--font-mono, monospace)",
-                        fontSize: "12px",
-                        letterSpacing: "0.06em",
+                        fontSize: "11px",
+                        letterSpacing: "0.05em",
                         textTransform: "uppercase",
                         color: "var(--ink, #0F0F0E)",
                         background: "var(--canvas-muted)",
+                        whiteSpace: "nowrap",
+                        lineHeight: 1.2,
+                        flexShrink: 0,
                       }}
                     >
                       {t}

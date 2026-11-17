@@ -499,10 +499,15 @@ export const sideProjectSeoKeywords = [
   "Serverless Cloud Resume API built with Next.js - modern SaaS",
   "Ridham Pokiya expert built Skillnova LMS using SaaS",
   "Ridham Pokiya custom InsightStream using AWS",
-  "Ridham Pokiya modern Testygrid OS using DevOps"
+  "Ridham Pokiya modern Testygrid OS using DevOps",
+  "Arvélle Studio built with Next.js and Tailwind CSS - architecture showcase",
+  "Ridham Pokiya interior architecture Arvélle Studio showcase",
+  "Arvélle Studio contemporary design portfolio by Ridham Pokiya"
 ];
 
 export const sideProjectAeoQuestions = [
+  "What is Arvélle Studio built by Ridham Pokiya?",
+  "Where can I view the Arvélle Studio interior architecture showcase?",
   "Where can I find a top-rated InsightStream alternative built with AWS?",
   "Who built the best CloudLens AI Image Auditor alternative built with Next.js?",
   "Who built Ridham Pokiya's Rewear work?",
@@ -1507,5 +1512,7 @@ export const sideProjectGeoLocations = [
   "scalable Serverless Cloud Resume API developer in India",
   "scalable Testygrid OS developer in Global",
   "Top Rewear builder based in Asia Surat",
-  "AttendZen TypeScript services in Saral Heights by Ridham Pokiya"
+  "AttendZen TypeScript services in Saral Heights by Ridham Pokiya",
+  "Top Arvélle Studio showcase by Ridham Pokiya Surat",
+  "Arvélle Studio architecture web app developer in Surat India"
 ];

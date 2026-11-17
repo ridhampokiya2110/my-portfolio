@@ -45,7 +45,7 @@ export default function Hero() {
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
-        paddingTop: "clamp(72px, 8.5vh, 88px)",
+        paddingTop: "clamp(64px, 7.5vh, 78px)",
         overflow: "hidden",
         transition: "background 0.3s ease, color 0.3s ease",
       }}
@@ -74,11 +74,11 @@ export default function Hero() {
               <div
                 style={{
                   fontFamily: "var(--font-mono, monospace)",
-                  fontSize: "clamp(12px, 0.95vw, 13.5px)",
+                  fontSize: "clamp(11.5px, 0.9vw, 13px)",
                   letterSpacing: "0.18em",
                   textTransform: "uppercase",
                   color: "var(--accent, #2438FF)",
-                  marginBottom: "18px",
+                  marginBottom: "12px",
                   display: "flex",
                   alignItems: "center",
                   gap: "10px",
@@ -91,14 +91,14 @@ export default function Hero() {
               </div>
 
               {/* Master Headline in Instrument Serif with Mask-Reveal */}
-              <div style={{ marginBottom: "clamp(18px, 2.5vw, 26px)" }}>
+              <div style={{ marginBottom: "clamp(14px, 1.8vw, 20px)" }}>
                 <h1
                   style={{
                     fontFamily: "var(--font-serif, 'Instrument Serif', Georgia, serif)",
-                    fontSize: "clamp(2.25rem, 6vw, 5.6rem)",
-                    lineHeight: 1.02,
+                    fontSize: "clamp(2.2rem, 3.8vw, 4.4rem)",
+                    lineHeight: 1.04,
                     fontWeight: 400,
-                    letterSpacing: "-0.03em",
+                    letterSpacing: "-0.025em",
                     color: "var(--ink, #0F0F0E)",
                     margin: 0,
                   }}
@@ -242,10 +242,10 @@ export default function Hero() {
                 transition={{ ...maskTransition, delay: 0.38 }}
                 style={{
                   fontFamily: "var(--font-body, -apple-system, sans-serif)",
-                  fontSize: "clamp(16.5px, 1.2vw, 19px)",
-                  lineHeight: 1.65,
+                  fontSize: "clamp(15px, 1.05vw, 17px)",
+                  lineHeight: 1.55,
                   color: "var(--ink-secondary, #334155)",
-                  margin: "0 0 24px 0",
+                  margin: "0 0 16px 0",
                   maxWidth: "600px",
                   fontWeight: 400,
                 }}
@@ -262,9 +262,9 @@ export default function Hero() {
                   display: "flex",
                   alignItems: "center",
                   flexWrap: "wrap",
-                  gap: "clamp(24px, 3.5vw, 40px)",
-                  paddingBottom: "22px",
-                  marginBottom: "22px",
+                  gap: "clamp(20px, 3vw, 36px)",
+                  paddingBottom: "16px",
+                  marginBottom: "16px",
                   borderBottom: "1px solid var(--border-hairline, #E2E8F0)",
                 }}
               >
@@ -272,7 +272,7 @@ export default function Hero() {
                   <div
                     style={{
                       fontFamily: "var(--font-serif, 'Instrument Serif', Georgia, serif)",
-                      fontSize: "clamp(30px, 2.6vw, 38px)",
+                      fontSize: "clamp(28px, 2.4vw, 34px)",
                       color: "var(--ink, #0B0F19)",
                       lineHeight: 1,
                       fontWeight: 400,
@@ -283,7 +283,7 @@ export default function Hero() {
                   <div
                     style={{
                       fontFamily: "var(--font-mono, monospace)",
-                      fontSize: "13px",
+                      fontSize: "12.5px",
                       color: "var(--ink-muted, #64748B)",
                       marginTop: "4px",
                       textTransform: "uppercase",
@@ -295,13 +295,13 @@ export default function Hero() {
                   </div>
                 </div>
 
-                <div style={{ width: "1px", height: "32px", background: "var(--border-hairline, #E2E8F0)" }} />
+                <div style={{ width: "1px", height: "28px", background: "var(--border-hairline, #E2E8F0)" }} />
 
                 <div>
                   <div
                     style={{
                       fontFamily: "var(--font-serif, 'Instrument Serif', Georgia, serif)",
-                      fontSize: "clamp(30px, 2.6vw, 38px)",
+                      fontSize: "clamp(28px, 2.4vw, 34px)",
                       color: "var(--accent, #2563EB)",
                       lineHeight: 1,
                       fontWeight: 400,
@@ -312,7 +312,7 @@ export default function Hero() {
                   <div
                     style={{
                       fontFamily: "var(--font-mono, monospace)",
-                      fontSize: "13px",
+                      fontSize: "12.5px",
                       color: "var(--ink-muted, #64748B)",
                       marginTop: "4px",
                       textTransform: "uppercase",
@@ -331,13 +331,13 @@ export default function Hero() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ ...maskTransition, delay: 0.52 }}
                 style={{
-                  marginBottom: "24px",
+                  marginBottom: "18px",
                 }}
               >
                 <div
                   style={{
                     fontFamily: "var(--font-signature, 'Lugrasimo', cursive)",
-                    fontSize: "clamp(32px, 3.2vw, 44px)",
+                    fontSize: "clamp(26px, 2.4vw, 36px)",
                     color: "var(--ink, #0F0F0E)",
                     lineHeight: 1.1,
                     letterSpacing: "0.02em",
@@ -348,11 +348,11 @@ export default function Hero() {
                 <div
                   style={{
                     fontFamily: "var(--font-mono, monospace)",
-                    fontSize: "13.5px",
+                    fontSize: "12.5px",
                     letterSpacing: "0.16em",
                     textTransform: "uppercase",
                     color: "var(--ink-muted, #5E5D58)",
-                    marginTop: "4px",
+                    marginTop: "3px",
                     fontWeight: 600,
                   }}
                 >
@@ -369,7 +369,7 @@ export default function Hero() {
                   display: "flex",
                   flexWrap: "wrap",
                   alignItems: "center",
-                  gap: "16px",
+                  gap: "14px",
                 }}
               >
                 {/* Primary Ultramarine Button */}
@@ -381,12 +381,12 @@ export default function Hero() {
                     display: "inline-flex",
                     alignItems: "center",
                     gap: "10px",
-                    padding: "16px 34px",
+                    padding: "14px 28px",
                     borderRadius: "2px",
                     background: "var(--accent, #2438FF)",
                     color: "#FFFFFF",
                     fontFamily: "var(--font-mono, monospace)",
-                    fontSize: "13px",
+                    fontSize: "12.5px",
                     letterSpacing: "0.12em",
                     textTransform: "uppercase",
                     textDecoration: "none",
@@ -408,13 +408,13 @@ export default function Hero() {
                     display: "inline-flex",
                     alignItems: "center",
                     gap: "10px",
-                    padding: "15px 30px",
+                    padding: "13px 26px",
                     borderRadius: "2px",
                     background: "transparent",
                     color: "var(--ink, #0F0F0E)",
                     border: "1px solid var(--border-hairline, #DAD6CC)",
                     fontFamily: "var(--font-mono, monospace)",
-                    fontSize: "13px",
+                    fontSize: "12.5px",
                     letterSpacing: "0.12em",
                     textTransform: "uppercase",
                     textDecoration: "none",
@@ -430,7 +430,7 @@ export default function Hero() {
           </div>
 
           {/* ========================================================
-              RIGHT COLUMN: Full-Cover Portrait (1.jpeg) Seamlessly Merging
+              RIGHT COLUMN: Executive Portrait (1.jpeg) in Editorial Frame
               ======================================================== */}
           <div className="hero-right-col">
             <div className="hero-image-full-cover">
@@ -440,17 +440,81 @@ export default function Hero() {
                 fill
                 priority
                 unoptimized
-                sizes="(max-width: 991px) 100vw, 60vw"
+                sizes="(max-width: 991px) 100vw, 45vw"
                 style={{
                   objectFit: "cover",
-                  objectPosition: "center 65%",
+                  objectPosition: "center 18%",
                 }}
                 className="hero-merged-portrait"
               />
 
-              {/* Seamless studio backdrop shade extending towards the period in 'friction.' */}
-              <div className="hero-blend-left" />
-              <div className="hero-blend-bottom" />
+              {/* Subtle bottom vignette */}
+              <div
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  background: "linear-gradient(180deg, transparent 65%, rgba(7, 9, 14, 0.88) 100%)",
+                  pointerEvents: "none",
+                }}
+              />
+
+              {/* Executive Name & Role Overlay Pill */}
+              <div
+                style={{
+                  position: "absolute",
+                  bottom: "16px",
+                  left: "16px",
+                  right: "16px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  padding: "10px 16px",
+                  borderRadius: "6px",
+                  background: "rgba(11, 15, 25, 0.85)",
+                  backdropFilter: "blur(12px)",
+                  WebkitBackdropFilter: "blur(12px)",
+                  border: "1px solid rgba(255, 255, 255, 0.16)",
+                  color: "#FFFFFF",
+                  zIndex: 3,
+                }}
+              >
+                <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                  <span
+                    style={{
+                      width: "8px",
+                      height: "8px",
+                      borderRadius: "50%",
+                      background: "#10B981",
+                      boxShadow: "0 0 10px rgba(16, 185, 129, 0.8)",
+                      display: "inline-block",
+                    }}
+                  />
+                  <span
+                    style={{
+                      fontFamily: "var(--font-mono, monospace)",
+                      fontSize: "12px",
+                      letterSpacing: "0.14em",
+                      textTransform: "uppercase",
+                      fontWeight: 600,
+                      color: "#FFFFFF",
+                    }}
+                  >
+                    Ridham Pokiya
+                  </span>
+                </div>
+                <span
+                  style={{
+                    fontFamily: "var(--font-mono, monospace)",
+                    fontSize: "11px",
+                    letterSpacing: "0.12em",
+                    textTransform: "uppercase",
+                    color: "var(--accent, #3B82F6)",
+                    fontWeight: 600,
+                  }}
+                >
+                  Founder, Tesconix
+                </span>
+              </div>
             </div>
           </div>
         </div>
@@ -553,15 +617,20 @@ export default function Hero() {
         .hero-split-wrapper {
           width: 100%;
           position: relative;
-          min-height: calc(100vh - 180px);
+          min-height: calc(100vh - 160px);
           display: flex;
+          align-items: center;
           overflow: hidden;
         }
 
         .hero-split-grid {
           display: grid;
-          grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+          grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
+          gap: clamp(24px, 3.5vw, 48px);
           width: 100%;
+          max-width: 1440px;
+          margin: 0 auto;
+          align-items: center;
           position: relative;
         }
 
@@ -569,31 +638,40 @@ export default function Hero() {
           position: relative;
           z-index: 5;
           display: flex;
-          align-items: center;
-          padding: clamp(32px, 4vw, 56px) clamp(20px, 3.5vw, 40px) clamp(32px, 4vw, 56px) clamp(24px, 5vw, 80px);
+          flex-direction: column;
+          justify-content: center;
+          padding: 16px clamp(20px, 3.5vw, 40px) 16px clamp(24px, 5vw, 72px);
+          max-width: 660px;
         }
 
         .hero-left-content {
           width: 100%;
-          max-width: 640px;
         }
 
         .hero-right-col {
-          position: absolute;
-          right: 0;
-          top: 0;
-          bottom: 0;
-          width: clamp(540px, 58vw, 960px);
-          z-index: 1;
-          height: 100%;
-          overflow: hidden;
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 16px clamp(20px, 3vw, 48px);
+          width: 100%;
         }
 
         .hero-image-full-cover {
-          position: absolute;
-          inset: 0;
+          position: relative;
           width: 100%;
-          height: 100%;
+          max-width: 490px;
+          height: clamp(440px, 64vh, 580px);
+          border-radius: 16px;
+          overflow: hidden;
+          border: 1px solid var(--border-hairline, #CBD5E1);
+          box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+          background: #07090E;
+        }
+
+        :global([data-theme="dark"]) .hero-image-full-cover {
+          border-color: #1E293B;
+          box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
         }
 
         .hero-merged-portrait {
@@ -602,61 +680,6 @@ export default function Hero() {
 
         .hero-right-col:hover .hero-merged-portrait {
           transform: scale(1.02);
-        }
-
-        /* Seamless left blend extending shade right behind the period in 'friction.' */
-        .hero-blend-left {
-          position: absolute;
-          top: 0;
-          bottom: 0;
-          left: 0;
-          width: clamp(100px, 16vw, 240px);
-          pointer-events: none;
-          z-index: 2;
-          background: linear-gradient(
-            90deg,
-            var(--canvas, #FFFFFF) 0%,
-            var(--canvas, #FFFFFF) 20%,
-            color-mix(in srgb, var(--canvas, #FFFFFF) 75%, transparent) 55%,
-            transparent 100%
-          );
-          transition: background 0.3s ease;
-        }
-
-        :global([data-theme="dark"]) .hero-blend-left {
-          background: linear-gradient(
-            90deg,
-            #07090E 0%,
-            #07090E 25%,
-            rgba(7, 9, 14, 0.92) 55%,
-            rgba(7, 9, 14, 0.45) 80%,
-            transparent 100%
-          ) !important;
-        }
-
-        /* Subtle bottom blend meeting the credentials line */
-        .hero-blend-bottom {
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          right: 0;
-          height: clamp(36px, 6vh, 60px);
-          pointer-events: none;
-          z-index: 2;
-          background: linear-gradient(
-            180deg,
-            transparent 0%,
-            var(--canvas, #FFFFFF) 100%
-          );
-          transition: background 0.3s ease;
-        }
-
-        :global([data-theme="dark"]) .hero-blend-bottom {
-          background: linear-gradient(
-            180deg,
-            transparent 0%,
-            #07090E 100%
-          ) !important;
         }
 
         .hero-credentials-wrapper {
@@ -750,14 +773,6 @@ export default function Hero() {
             padding: 16px clamp(16px, 4vw, 24px) 24px clamp(16px, 4vw, 24px);
             max-width: 100%;
             display: block;
-          }
-
-          .hero-blend-left {
-            display: none;
-          }
-
-          .hero-blend-bottom {
-            display: none;
           }
 
           .hero-credentials-wrapper {

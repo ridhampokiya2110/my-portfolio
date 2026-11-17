@@ -166,7 +166,7 @@ export default function SideProjects() {
                     fontWeight: 600,
                   }}
                 >
-                  0{i + 1}
+                  {i + 1 < 10 ? `0${i + 1}` : `${i + 1}`}
                 </span>
 
                 <div

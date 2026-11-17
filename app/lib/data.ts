@@ -243,6 +243,12 @@ export const projects = [
     link: "https://testygrid.tesconix.com",
   },
   {
+    title: "Arvélle Studio",
+    tech: ["Next.js", "Tailwind CSS", "Architecture UI"],
+    desc: "A contemporary interior architecture and design studio showcase defined by materiality, proportion, and quiet restraint.",
+    link: "https://arvelle-studio.tesconix.com",
+  },
+  {
     title: "Rewear",
     tech: ["Next.js", "E-commerce", "UI/UX"],
     desc: "A sustainable fashion and second-hand clothing marketplace with a seamless, modern shopping experience.",
